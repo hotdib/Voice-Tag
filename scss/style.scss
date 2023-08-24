@@ -91,17 +91,17 @@ body {
 	&__title {
 		margin-bottom: calc(16 / 20) + em;
 		line-height: 140%;
-		@media (max-width: $tablet) {
-			font-size: rem(18);
-		}
 		@media (max-width: $tablet) and (orientation: landscape) {
 			font-size: rem(16);
 		}
-		@media (max-width: $mobile) {
-			font-size: rem(16);
+		@media (max-width: $tablet) {
+			font-size: rem(18);
 		}
 		@media (max-width: $mobile) and (orientation: landscape) {
 			font-size: rem(14);
+		}
+		@media (max-width: $mobile) {
+			font-size: rem(16);
 		}
 	}
 	&__subtitle {
@@ -110,18 +110,18 @@ body {
 		font-weight: 700;
 		letter-spacing: calc(0.48 / 48) + em;
 		line-height: 140%;
+		@media (max-width: $tablet) and (orientation: landscape) {
+			font-size: rem(30);
+		}
 		@media (max-width: $tablet) {
 			font-size: rem(36);
 		}
-		@media (max-width: $tablet) and (orientation: landscape) {
-			font-size: rem(30);
+		@media (max-width: $mobile) and (orientation: landscape) {
+			font-size: rem(26);
 		}
 		@media (max-width: $mobile) {
 			font-size: rem(26);
 			letter-spacing: calc(0.26 / 48) + em;
-		}
-		@media (max-width: $mobile) and (orientation: landscape) {
-			font-size: rem(26);
 		}
 	}
 }
