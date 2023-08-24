@@ -621,3 +621,23 @@ body {
   top: 0;
   left: 0;
 }
+@media (min-width: 24.4375em) {
+  .hero__bg_b {
+    display: block;
+  }
+}
+@media (max-width: 24.375em) {
+  .hero__bg_b {
+    display: none;
+  }
+}
+@media (min-width: 24.4375em) {
+  .hero__bg_l {
+    display: none;
+  }
+}
+@media (max-width: 24.375em) {
+  .hero__bg_l {
+    display: block;
+  }
+}

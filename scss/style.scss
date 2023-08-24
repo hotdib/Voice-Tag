@@ -456,5 +456,21 @@ body {
 		height: 100%;
 		top: 0;
 		left: 0;
+		&_b{
+			@media (min-width: em(391)){
+				display: block;
+			}
+			@media (max-width: em(390)){
+				display: none;
+			}
+		}
+		&_l{
+			@media (min-width: em(391)){
+				display: none;
+			}
+			@media (max-width: em(390)){
+				display: block;
+			}
+		}
 	}
 }
