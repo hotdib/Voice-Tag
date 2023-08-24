@@ -146,24 +146,24 @@ body {
   margin-bottom: 0.8em;
   line-height: 140%;
 }
-@media (max-width: 63.9375em) {
-  .title__title {
-    font-size: 1.125rem;
-  }
-}
 @media (max-width: 63.9375em) and (orientation: landscape) {
   .title__title {
     font-size: 1rem;
   }
 }
-@media (max-width: 47.99875em) {
+@media (max-width: 63.9375em) {
   .title__title {
-    font-size: 1rem;
+    font-size: 1.125rem;
   }
 }
 @media (max-width: 47.99875em) and (orientation: landscape) {
   .title__title {
     font-size: 0.875rem;
+  }
+}
+@media (max-width: 47.99875em) {
+  .title__title {
+    font-size: 1rem;
   }
 }
 .title__subtitle {
@@ -173,25 +173,25 @@ body {
   letter-spacing: 0.01em;
   line-height: 140%;
 }
+@media (max-width: 63.9375em) and (orientation: landscape) {
+  .title__subtitle {
+    font-size: 1.875rem;
+  }
+}
 @media (max-width: 63.9375em) {
   .title__subtitle {
     font-size: 2.25rem;
   }
 }
-@media (max-width: 63.9375em) and (orientation: landscape) {
+@media (max-width: 47.99875em) and (orientation: landscape) {
   .title__subtitle {
-    font-size: 1.875rem;
+    font-size: 1.625rem;
   }
 }
 @media (max-width: 47.99875em) {
   .title__subtitle {
     font-size: 1.625rem;
     letter-spacing: 0.0054166667em;
-  }
-}
-@media (max-width: 47.99875em) and (orientation: landscape) {
-  .title__subtitle {
-    font-size: 1.625rem;
   }
 }
 
