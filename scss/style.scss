@@ -1,0 +1,460 @@
+@use "sass:math";
+//======Обнуление=========
+@import "nullstyle.scss";
+//========================
+//======Шрифты=========
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;700&family=Roboto:wght@400;500&display=swap");
+//font-family: 'Kanit', sans-serif;
+//font-family: 'Plus Jakarta Sans', sans-serif;
+//font-family: 'Roboto', sans-serif;
+//========================
+//===========COMMON=============
+//TO-%
+@function prc($pxOne, $pxTwo) {
+	$result: math.div($pxOne, $pxTwo) * 100%;
+	@return $result;
+}
+//REM
+@function rem($px) {
+	$result: math.div($px, 16) + rem;
+	@return $result;
+}
+//EM
+@function em($px) {
+	$result: math.div($px, 16) + em;
+	@return $result;
+}
+//========================
+$maxWidthContainer: 1640;
+// Загальний відступ у контейнера
+// (30 = по 15px ліворуч і праворуч, 0 = немає відступу)
+$containerPadding: 30;
+// Ширина спрацьовування першого брейкпоінту
+$containerWidth: $maxWidthContainer + $containerPadding;
+// Брейк-поїнти
+$pc: em($containerWidth); // ПК, ноутбуки, деякі планшети у горизонтальному положенні
+// $tablet: em(991.98); // Планшети, деякі телефони в горизонтальному положенні
+$tablet: em(1023); // Планшети, деякі телефони в горизонтальному положенні
+$mobile: em(767.98); // Телефони L
+$mobileSmall: em(479.98);
+//======================
+//======================
+body {
+	font-family: "Plus Jakarta Sans", sans-serif;
+	background-color: #ba5050;
+	color: #fff;
+	font-size: rem(20);
+	-webkit-tap-highlight-color: transparent !important;
+	outline: none !important;
+	@media (max-width: $tablet) {
+		&.lock {
+			overflow: hidden;
+		}
+	}
+}
+//=======CONTAINER========
+.container {
+	max-width: rem(1670);
+	padding: 0px 15px;
+	margin: 0px auto;
+}
+//========================
+//=========IBG============
+.ibg {
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+	img {
+		width: 0;
+		height: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+//========================
+.wrapper {
+	width: 100%;
+	min-height: 100vh;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+//========================
+//==========COMMON========
+.title {
+	text-transform: uppercase;
+	&__title {
+		margin-bottom: calc(16 / 20) + em;
+		line-height: 140%;
+		@media (max-width: $tablet) {
+			font-size: rem(18);
+		}
+		@media (max-width: $tablet) and (orientation: landscape) {
+			font-size: rem(16);
+		}
+		@media (max-width: $mobile) {
+			font-size: rem(16);
+		}
+		@media (max-width: $mobile) and (orientation: landscape) {
+			font-size: rem(14);
+		}
+	}
+	&__subtitle {
+		font-family: Kanit;
+		font-size: rem(48);
+		font-weight: 700;
+		letter-spacing: calc(0.48 / 48) + em;
+		line-height: 140%;
+		@media (max-width: $tablet) {
+			font-size: rem(36);
+		}
+		@media (max-width: $tablet) and (orientation: landscape) {
+			font-size: rem(30);
+		}
+		@media (max-width: $mobile) {
+			font-size: rem(26);
+			letter-spacing: calc(0.26 / 48) + em;
+		}
+		@media (max-width: $mobile) and (orientation: landscape) {
+			font-size: rem(26);
+		}
+	}
+}
+.background {
+	position: relative;
+	background: url("../img/0.icons/Vector.png") 0 0 repeat-y;
+	&::after {
+		content: "";
+		position: absolute;
+		width: 6px;
+		height: 100%;
+		top: 0;
+		left: 0;
+		border-radius: 41px;
+		background: #7f5cff;
+		box-shadow: 2px 2px 17px 2px rgba(191, 58, 255, 0.4);
+	}
+}
+.btn {
+	&__link {
+		color: #fff;
+		width: 209px;
+		height: 60px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 6px;
+		background-color: #7a42f4;
+		overflow: hidden;
+		position: relative;
+		transition: all 0.5s ease 0s;
+		&::after {
+			background: #fff;
+			content: "";
+			height: 155px;
+			left: -75px;
+			opacity: 0.2;
+			position: absolute;
+			top: -50px;
+			transform: rotate(35deg);
+			transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+			width: 50px;
+			z-index: 100;
+		}
+		&:hover {
+			background-color: #4642f4;
+			&::after {
+				left: 120%;
+				transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+			}
+		}
+		@media (max-width: $tablet) and (orientation: landscape) {
+			font-size: rem(16);
+			width: 180px;
+			height: 50px;
+		}
+		@media (max-width: $mobile) {
+			font-size: rem(16);
+			width: 188px;
+			height: 54px;
+		}
+		@media (max-width: $mobile) and (orientation: landscape) {
+			font-size: rem(14);
+			width: 150px;
+			height: 45px;
+		}
+	}
+}
+//========================
+
+.header {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 50;
+	// &::before{
+	// 	content: '';
+	// 	position: absolute;
+	// 	top: 0;
+	// 	left: 0;
+	// 	width: 100%;
+	// 	height: 100%;
+	// 	z-index: 2;
+	// 	// background: #0000008f;
+	// }
+	&__row {
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 110px;
+		@media (max-width: $tablet) and (orientation: landscape) {
+			height: 80px;
+		}
+		@media (max-width: $mobile) and (orientation: landscape) {
+			height: 80px;
+		}
+	}
+	&__logo {
+		position: relative;
+		z-index: 3;
+		padding-right: rem(20);
+		img {
+			max-width: 100%;
+		}
+		@media (max-width: $tablet) {
+			padding-left: rem(7);
+		}
+	}
+	.menu {
+		&__icon {
+			display: none;
+			@media (max-width: $tablet) {
+				cursor: pointer;
+				display: block;
+				width: 30px;
+				height: 20px;
+				position: relative;
+				z-index: 3;
+				span {
+					position: absolute;
+					right: 0;
+					background-color: #fff;
+					width: 65%;
+					height: 2px;
+					top: 9px;
+					transition: all 0.3s ease 0s;
+					border-radius: 1px;
+				}
+				&::after,
+				&::before {
+					content: "";
+					position: absolute;
+					right: 0;
+					background-color: #fff;
+					height: 2px;
+					transition: all 0.3s ease 0s;
+					border-radius: 1px;
+				}
+				&::after {
+					bottom: 0px;
+					width: 85%;
+				}
+				&::before {
+					top: 0px;
+					width: 100%;
+				}
+				&.active {
+					&::before {
+						top: calc(50% - rem(1));
+						transform: rotate(-45deg);
+					}
+					&::after {
+						bottom: calc(50% - rem(1));
+						transform: rotate(45deg);
+						width: 100%;
+					}
+					span {
+						width: 0;
+						right: 0;
+					}
+				}
+			}
+		}
+		&__body {
+			@media (max-width: $tablet) {
+				position: fixed;
+				top: 0;
+				left: -100%;
+				width: 100%;
+				height: 100%;
+				// background-color: #47474700;
+				padding-top: rem(110);
+				transition: all 0.3s ease 0s;
+				overflow: auto; //позволяет прокручиваться менюшке
+				&.active {
+					left: 0;
+					.menu__item {
+						//поочерёдное выезжание меню
+						animation: item-slide 0.5s forwards;
+						opacity: 0;
+						transform: translate(-100%, 0px);
+						@keyframes item-slide {
+							0% {
+							}
+							100% {
+								opacity: 1;
+								transform: translate(0px, 0px);
+							}
+						}
+						@for $i from 1 to 8 {
+							$delay: ($i - 1) * 0.15;
+							&:nth-child(#{$i}) {
+								animation-delay: #{$delay}s;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&__list {
+			display: flex;
+			text-align: center;
+			position: relative;
+			z-index: 3;
+			flex-wrap: wrap;
+			@media (max-width: $tablet) {
+				display: block;
+				text-align: left;
+				padding: rem(15) rem(0) rem(15) rem(60);
+			}
+		}
+		&__item {
+			&:not(:last-child) {
+				margin-right: rem(44);
+				@media (max-width: $pc) {
+					margin-right: rem(32);
+				}
+				@media (max-width: $tablet) {
+					margin-right: rem(0);
+					margin-bottom: rem(16);
+				}
+			}
+		}
+		&__link {
+			color: #fff;
+			font-weight: 500;
+			line-height: 140%;
+			opacity: 0.7;
+			transition: all 0.3s ease 0s;
+			display: inline-block;
+			padding: 8px;
+			position: relative;
+			span {
+				position: relative;
+				&::after {
+					position: absolute;
+					content: "";
+					height: 2px;
+					background: linear-gradient(90deg, #00dbde 0%);
+					box-shadow: 2px 2px 7px 0px rgba(41, 183, 227, 0.33);
+					bottom: -8px;
+					right: 0;
+					width: 0;
+					transition: all 0.3s;
+				}
+			}
+			@media (hover: hover) {
+				&:hover {
+					opacity: 1;
+					span::after {
+						width: 100%;
+						left: 0;
+					}
+				}
+			}
+			@media (max-width: $tablet) {
+				opacity: 1;
+				&:active {
+					span::after {
+						width: 100%;
+						left: 0;
+					}
+				}
+			}
+		}
+	}
+}
+.page {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+}
+.footer {
+	background: #1bbdaa;
+}
+.hero {
+	position: relative;
+	min-height: 100vh;
+	padding: rem(110) rem(0);
+	display: flex;
+	align-items: center;
+	@media (max-width: $tablet) and (orientation: landscape) {
+		padding: rem(80) rem(0);
+	}
+	@media (max-width: $mobile) and (orientation: landscape) {
+		padding: rem(80) rem(0);
+	}
+	&__container {
+		flex: 1 1 auto;
+	}
+	&__body {
+		position: relative;
+		z-index: 1;
+		max-width: rem(760);
+		// padding: rem(110) rem(0);
+		opacity: 1;
+		transition: all 0.3s ease 0s;
+		&.active {
+			opacity: 0;
+		}
+	}
+	&__background {
+		padding: rem(14) rem(0) rem(24) rem(60);
+		@media (max-width: $mobile) {
+			padding: rem(14) rem(0) rem(24) rem(20);
+		}
+		@media (max-width: $mobile) and (orientation: landscape) {
+			padding: rem(14) rem(0) rem(24) rem(50);
+		}
+	}
+	&__title {
+		margin-bottom: rem(120);
+		@media (max-width: $tablet) {
+			margin-bottom: rem(70);
+		}
+		@media (max-width: $tablet) and (orientation: landscape) {
+			margin-bottom: rem(50);
+		}
+		@media (max-width: $mobile) {
+			margin-bottom: rem(54);
+		}
+		@media (max-width: $mobile) and (orientation: landscape) {
+			margin-bottom: rem(30);
+		}
+	}
+	&__bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+}
