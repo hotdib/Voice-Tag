@@ -41,7 +41,7 @@ $mobileSmall: em(479.98);
 //======================
 body {
 	font-family: "Plus Jakarta Sans", sans-serif;
-	background-color: #18072D;
+	background-color: #18072d;
 	color: #fff;
 	font-size: rem(20);
 	-webkit-tap-highlight-color: transparent !important;
@@ -97,10 +97,10 @@ body {
 		@media (max-width: $tablet) {
 			font-size: rem(18);
 		}
-		@media (max-width: $mobile) and (orientation: landscape) {
+		@media (max-width: $mobileSmall) and (orientation: landscape) {
 			font-size: rem(14);
 		}
-		@media (max-width: $mobile) {
+		@media (max-width: $mobileSmall) {
 			font-size: rem(16);
 		}
 	}
@@ -116,13 +116,18 @@ body {
 		@media (max-width: $tablet) {
 			font-size: rem(36);
 		}
-		@media (max-width: $mobile) and (orientation: landscape) {
+		@media (max-width: $mobileSmall) and (orientation: landscape) {
 			font-size: rem(26);
 		}
-		@media (max-width: $mobile) {
+		@media (max-width: $mobileSmall) {
 			font-size: rem(26);
 			letter-spacing: calc(0.26 / 48) + em;
 		}
+		&_right {
+			padding-left: rem(34);
+		}
+	}
+	&__text {
 	}
 }
 .background {
@@ -188,6 +193,18 @@ body {
 			width: 150px;
 			height: 45px;
 		}
+	}
+}
+.text-common {
+	line-height: 160%;
+	opacity: 0.8;
+	@media (max-width: $mobileSmall) {
+		font-size: rem(16);
+		line-height: 150%;
+	}
+	@media (max-width: em(320)) {
+		font-size: rem(14);
+		line-height: 140%;
 	}
 }
 //========================
@@ -429,7 +446,7 @@ body {
 	&__background {
 		padding: rem(14) rem(0) rem(24) rem(60);
 		@media (max-width: $mobile) {
-			padding: rem(14) rem(0) rem(24) rem(20);
+			padding: rem(14) rem(0) rem(24) rem(25);
 		}
 		@media (max-width: $mobile) and (orientation: landscape) {
 			padding: rem(14) rem(0) rem(24) rem(50);
@@ -456,20 +473,555 @@ body {
 		height: 100%;
 		top: 0;
 		left: 0;
-		&_b{
-			@media (min-width: em(391)){
+		&_b {
+			@media (min-width: em(391)) {
 				display: block;
 			}
-			@media (max-width: em(390)){
+			@media (max-width: em(390)) {
 				display: none;
 			}
 		}
-		&_l{
-			@media (min-width: em(391)){
+		&_l {
+			@media (min-width: em(391)) {
 				display: none;
 			}
-			@media (max-width: em(390)){
+			@media (max-width: em(390)) {
 				display: block;
+			}
+		}
+	}
+}
+.about {
+	// padding: rem(200) rem(0);
+	position: relative;
+	display: flex;
+	align-items: center;
+	min-height: 100vh;
+	@media (max-width: em(390)) {
+		flex-direction: column;
+	}
+	&__container {
+		position: relative;
+		z-index: 2;
+		flex: 1 1 auto;
+		@media (max-width: em(390)) {
+			order: 2;
+			&::before {
+				content: "";
+				position: absolute;
+				width: 390px;
+				height: 476px;
+				bottom: 0;
+				left: 0;
+				background: url("../img/2.about//Ellipse242.png") 0 0 no-repeat;
+			}
+		}
+	}
+
+	&__body {
+		padding: rem(100) rem(0);
+		@media (max-width: $tablet) and (orientation: landscape) {
+			padding: rem(60) rem(0);
+		}
+		@media (max-width: $mobile) and (orientation: landscape) {
+			padding: rem(60) rem(0);
+		}
+		@media (max-width: $mobile) {
+			padding: rem(60) rem(0);
+		}
+	}
+
+	&__background {
+		max-width: rem(620);
+		padding: rem(70) rem(0) rem(70) rem(60);
+		@media (max-width: $tablet) {
+			padding: rem(50) rem(0) rem(50) rem(50);
+		}
+		@media (max-width: $mobile) {
+			padding: rem(20) rem(0) rem(20) rem(25);
+		}
+		@media (max-width: $mobile) and (orientation: landscape) {
+			padding: rem(15) rem(0) rem(15) rem(50);
+		}
+	}
+
+	&__title {
+		margin-bottom: rem(25);
+		@media (max-width: $mobile) {
+			margin-bottom: rem(20);
+		}
+	}
+
+	&__text {
+	}
+
+	&__bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		&_b {
+			@media (max-width: $mobileSmall) {
+				background-position: 60% 50%;
+			}
+			@media (min-width: em(391)) {
+				display: block;
+			}
+			@media (max-width: em(390)) {
+				display: none;
+			}
+		}
+		&_l {
+			@media (min-width: em(391)) {
+				display: none;
+			}
+			@media (max-width: em(390)) {
+				display: block;
+				position: relative;
+				min-height: 380px;
+				order: 1;
+			}
+		}
+	}
+}
+.roadmap {
+	background: #090812;
+	padding: rem(140) rem(0);
+	position: relative;
+	@media (max-width: $mobile) {
+		padding: rem(90) rem(0);
+	}
+	@media (max-width: $tablet) and (orientation: landscape) {
+		padding: rem(70) rem(0);
+	}
+	&::before {
+		content: "";
+		position: absolute;
+		width: 1055px;
+		height: 1776px;
+		top: 0;
+		left: 0;
+		background: url("../img/3.roadmap//left.png") 0 0 no-repeat;
+	}
+	&::after {
+		content: "";
+		position: absolute;
+		width: 1376px;
+		height: 1776px;
+		top: 28%;
+		right: 0;
+		background: url("../img/3.roadmap//right.png") 0 0 no-repeat;
+	}
+	&__container {
+		position: relative;
+		&::before {
+			content: "";
+			position: absolute;
+			width: 540px;
+			height: 1450px;
+			top: 180px;
+			left: 48%;
+			background: url("../img/3.roadmap//middle.png") 0 0 no-repeat;
+			transform: translate(-50%, 0px);
+			z-index: 1;
+		}
+	}
+
+	&__body {
+		padding: 0 9.2% 0 11%;
+		@media (max-width: $pc) {
+			padding: 0 2% 0 6%;
+		}
+		@media (max-width: $mobile) {
+			padding: 0 0 0 0;
+		}
+	}
+
+	&__title {
+		text-align: center;
+		margin-bottom: rem(90);
+		@media (max-width: $mobile) {
+			margin-bottom: rem(120);
+		}
+	}
+
+	&__table {
+		display: flex;
+		flex-direction: column;
+		align-items: end;
+		position: relative;
+	}
+
+	&__item {
+		max-width: rem(480);
+		&:nth-child(1) {
+			margin-bottom: rem(140);
+			&::before {
+				content: "";
+				position: absolute;
+				width: 645px;
+				height: 649px;
+				top: -16.5%;
+				left: 16%;
+				background: url("../img/3.roadmap//first.png") 0 0/ 100% 100% no-repeat;
+				z-index: 2;
+			}
+			@media (max-width: $mobile) {
+				margin-bottom: rem(100);
+				&::before {
+					content: "";
+					top: -18.5%;
+					left: 28%;
+					background: url("../img/3.roadmap//first.png") 0 0/ 60% 60% no-repeat;
+				}
+			}
+			@media (max-width: $mobileSmall) {
+				&::before {
+					content: "";
+					top: -14.5%;
+					left: 35%;
+					background: url("../img/3.roadmap//first.png") 0 0/ 50% 50% no-repeat;
+				}
+			}
+		}
+		&:nth-child(2) {
+			margin-bottom: rem(80);
+			&::before {
+				content: "";
+				position: absolute;
+				width: 667px;
+				height: 670px;
+				top: 15%;
+				left: 29%;
+				background: url("../img/3.roadmap//second.png") 0 0/ 100% 100% no-repeat;
+				z-index: 2;
+			}
+			@media (max-width: em(1650)) {
+				&::before {
+					top: 7%;
+					left: 33%;
+				}
+			}
+			@media (max-width: $mobile) {
+				margin-bottom: rem(100);
+				&::before {
+					top: 15.8%;
+					left: 6%;
+					background: url("../img/3.roadmap//second.png") 0 0/ 60% 60% no-repeat;
+				}
+			}
+			@media (max-width: $mobileSmall) {
+				&::before {
+					top: 21%;
+					left: 10%;
+					background: url("../img/3.roadmap//second.png") 0 0/ 50% 50% no-repeat;
+				}
+			}
+		}
+		&:nth-child(3) {
+			margin-bottom: rem(230);
+			&::before {
+				content: "";
+				position: absolute;
+				width: 691px;
+				height: 680px;
+				top: 41.5%;
+				left: 13.5%;
+				background: url("../img/3.roadmap//third.png") 0 0/ 100% 100% no-repeat;
+				z-index: 2;
+			}
+			@media (max-width: $mobile) {
+				margin-bottom: rem(100);
+				&::before {
+					top: 47%;
+					left: 30%;
+					background: url("../img/3.roadmap//third.png") 0 0/ 60% 60% no-repeat;
+				}
+			}
+			@media (max-width: $mobileSmall) {
+				&::before {
+					top: 50.5%;
+					left: 33.5%;
+					background: url("../img/3.roadmap//third.png") 0 0/ 50% 50% no-repeat;
+				}
+			}
+		}
+		&:nth-child(4) {
+			&::before {
+				content: "";
+				position: absolute;
+				width: 713px;
+				height: 728px;
+				top: 67%;
+				left: 23%;
+				background: url("../img/3.roadmap//forth.png") 0 0/ 100% 100% no-repeat;
+				z-index: 2;
+			}
+			@media (max-width: em(1650)) {
+				&::before {
+					top: 58.5%;
+					left: 28%;
+				}
+			}
+			@media (max-width: $mobile) {
+				&::before {
+					top: 65%;
+					left: 2%;
+					background: url("../img/3.roadmap//forth.png") 0 0/ 60% 60% no-repeat;
+				}
+			}
+			@media (max-width: $mobileSmall) {
+				&::before {
+					top: 71%;
+					left: 2%;
+					background: url("../img/3.roadmap//forth.png") 0 0/ 50% 50% no-repeat;
+				}
+			}
+		}
+		&_left {
+			align-self: start;
+		}
+	}
+
+	&__item-title {
+		font-size: rem(22);
+		font-weight: 700;
+		line-height: 140%;
+		margin-bottom: rem(18);
+		max-width: rem(360);
+		@media (max-width: $mobile) {
+			font-size: rem(20);
+		}
+	}
+
+	&__list-item {
+		font-size: rem(18);
+		line-height: 140%;
+		letter-spacing: calc(0.18 / 18) + em;
+		position: relative;
+		padding-left: rem(36);
+
+		span {
+			opacity: 0.8;
+		}
+		&:not(:last-child) {
+			margin-bottom: rem(15);
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			width: 24px;
+			height: 24px;
+			top: 2px;
+			left: 0;
+			background: url("../img/0.icons//done.svg") 0 0 no-repeat;
+		}
+		@media (max-width: $mobile) {
+			font-size: rem(15);
+			letter-spacing: calc(0.15 / 15) + em;
+			padding-left: rem(30);
+			&::before {
+				background: url("../img/0.icons//done.svg") 0 0/ 85% 85% no-repeat;
+			}
+		}
+	}
+}
+.brands {
+	padding: rem(110) rem(0);
+	position: relative;
+	z-index: 3;
+	&::before {
+		content: "";
+		position: absolute;
+		width: 1701px;
+		height: 1123px;
+		top: 0;
+		left: 50%;
+		background: url("../img/4.brands//Aurora.png") 0 0 no-repeat;
+		transform: translate(-50%, 0px);
+	}
+	&::after {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background: rgba(255, 255, 255, 0.02);
+	}
+	background: url("../img/4.brands//Vector.png") 0 0 repeat;
+	@media (max-width: $pc) {
+		padding: rem(80) rem(0);
+	}
+	@media (max-width: $mobile) {
+		padding: rem(60) rem(0);
+	}
+	@media (max-width: $tablet) and (orientation: landscape) {
+		padding: rem(60) rem(0);
+	}
+	&__container {
+		position: relative;
+		z-index: 5;
+	}
+
+	&__body {
+		max-width: rem(1360);
+		margin: 0px auto;
+	}
+
+	&__title {
+		text-align: center;
+		margin-bottom: rem(90);
+		@media (max-width: $pc) {
+			margin-bottom: rem(70);
+		}
+		@media (max-width: $mobile) {
+			margin-bottom: rem(60);
+		}
+	}
+
+	&__row {
+		display: flex;
+		margin: rem(0) rem(-47);
+		@media (max-width: $pc) {
+			margin: rem(0) rem(-23.5);
+		}
+		@media (max-width: em(1150)) {
+			flex-wrap: wrap;
+		}
+	}
+
+	&__column {
+		flex: 0 0 33.333%;
+		padding: rem(0) rem(47);
+		display: flex;
+		@media (max-width: $pc) {
+			padding: rem(0) rem(23.5);
+		}
+		@media (max-width: em(1150)) {
+			flex: 0 0 100%;
+			justify-content: center;
+			&:not(:last-child) {
+				margin-bottom: rem(60);
+			}
+		}
+		@media (max-width: em(360)) {
+			&:not(:last-child) {
+				margin-bottom: rem(20);
+			}
+		}
+	}
+
+	&__item {
+	}
+	.item-row {
+		text-align: center;
+		max-width: rem(385);
+		&__img {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-bottom: rem(67);
+			min-height: 406px;
+			img {
+				max-width: 100%;
+			}
+			&_star {
+				position: relative;
+					&::after {
+						content: "";
+						position: absolute;
+						width: 46px;
+						height: 46px;
+						top: -2%;
+						left: 50%;
+						background: url('../img/0.icons//Star.svg') 0 0 no-repeat;
+						transform: translate(-50%,0px);
+					}
+					@media (max-width: em(350)){
+						&::after {
+						top: 4%;
+							background: url('../img/0.icons//Star.svg') 0 0/80% no-repeat;
+						}
+					}
+			}
+			@media (max-width: em(1150)) {
+				margin-bottom: rem(25);
+			}
+		}
+
+		&__title {
+			font-family: Kanit;
+			font-size: rem(16);
+			font-weight: 700;
+			line-height: 140%;
+			text-transform: uppercase;
+			padding: rem(50) rem(0) rem(10) rem(0);
+			position: relative;
+			&::after {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 6px;
+				top: 0;
+				left: 0;
+				border-radius: 48px;
+				background: #7b71ee;
+				box-shadow: 0px 0px 4px 0px rgba(56, 219, 255, 0.5);
+			}
+			&::before {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				background: url("../img/4.brands//22.png") 0 0 repeat;
+			}
+			&_left {
+				&::after {
+					background: #06d6df;
+				}
+			}
+			&_right {
+				&::after {
+					background: #f00afe;
+				}
+			}
+			@media (max-width: $pc) {
+				font-size: rem(18);
+			}
+			@media (max-width: em(1150)) {
+				padding: rem(30) rem(0) rem(10) rem(0);
+			}
+			@media (max-width: $tablet) {
+				font-size: rem(20);
+			}
+			@media (max-width: $mobile) {
+				font-size: rem(18);
+			}
+			@media (max-width: $mobileSmall) {
+				font-size: rem(16);
+			}
+		}
+		&__text {
+			font-size: rem(18);
+			font-weight: 300;
+			line-height: 160%;
+			letter-spacing: calc(0.18 / 18) + em;
+			opacity: 0.6;
+			@media (max-width: $pc) {
+				font-size: rem(20);
+			}
+			@media (max-width: $tablet) {
+				font-size: rem(22);
+			}
+			@media (max-width: $mobile) {
+				font-size: rem(20);
+			}
+			@media (max-width: $mobileSmall) {
+				font-size: rem(18);
 			}
 		}
 	}
