@@ -513,7 +513,7 @@ body {
 				height: 476px;
 				bottom: 0;
 				left: 0;
-				background: url("../img/2.about//Ellipse242.png") 0 0 no-repeat;
+				background: url("../img/2.about/Ellipse242.png") 0 0 no-repeat;
 			}
 		}
 	}
@@ -602,7 +602,7 @@ body {
 		height: 1776px;
 		top: 0;
 		left: 0;
-		background: url("../img/3.roadmap//left.png") 0 0 no-repeat;
+		background: url("../img/3.roadmap/left.png") 0 0 no-repeat;
 	}
 	&::after {
 		content: "";
@@ -611,7 +611,7 @@ body {
 		height: 1776px;
 		top: 28%;
 		right: 0;
-		background: url("../img/3.roadmap//right.png") 0 0 no-repeat;
+		background: url("../img/3.roadmap/right.png") 0 0 no-repeat;
 	}
 	&__container {
 		position: relative;
@@ -622,7 +622,7 @@ body {
 			height: 1450px;
 			top: 180px;
 			left: 48%;
-			background: url("../img/3.roadmap//middle.png") 0 0 no-repeat;
+			background: url("../img/3.roadmap/middle.png") 0 0 no-repeat;
 			transform: translate(-50%, 0px);
 			z-index: 1;
 		}
@@ -664,7 +664,7 @@ body {
 				height: 649px;
 				top: -16.5%;
 				left: 16%;
-				background: url("../img/3.roadmap//first.png") 0 0/ 100% 100% no-repeat;
+				background: url("../img/3.roadmap/first.png") 0 0/ 100% 100% no-repeat;
 				z-index: 2;
 			}
 			@media (max-width: $mobile) {
@@ -673,7 +673,7 @@ body {
 					content: "";
 					top: -18.5%;
 					left: 28%;
-					background: url("../img/3.roadmap//first.png") 0 0/ 60% 60% no-repeat;
+					background: url("../img/3.roadmap/first.png") 0 0/ 60% 60% no-repeat;
 				}
 			}
 			@media (max-width: $mobileSmall) {
@@ -681,7 +681,7 @@ body {
 					content: "";
 					top: -14.5%;
 					left: 35%;
-					background: url("../img/3.roadmap//first.png") 0 0/ 50% 50% no-repeat;
+					background: url("../img/3.roadmapfirst.png") 0 0/ 50% 50% no-repeat;
 				}
 			}
 		}
@@ -694,7 +694,7 @@ body {
 				height: 670px;
 				top: 15%;
 				left: 29%;
-				background: url("../img/3.roadmap//second.png") 0 0/ 100% 100% no-repeat;
+				background: url("../img/3.roadmap/second.png") 0 0/ 100% 100% no-repeat;
 				z-index: 2;
 			}
 			@media (max-width: em(1650)) {
@@ -708,14 +708,14 @@ body {
 				&::before {
 					top: 15.8%;
 					left: 6%;
-					background: url("../img/3.roadmap//second.png") 0 0/ 60% 60% no-repeat;
+					background: url("../img/3.roadmap/second.png") 0 0/ 60% 60% no-repeat;
 				}
 			}
 			@media (max-width: $mobileSmall) {
 				&::before {
 					top: 21%;
 					left: 10%;
-					background: url("../img/3.roadmap//second.png") 0 0/ 50% 50% no-repeat;
+					background: url("../img/3.roadmap/second.png") 0 0/ 50% 50% no-repeat;
 				}
 			}
 		}
@@ -728,7 +728,7 @@ body {
 				height: 680px;
 				top: 41.5%;
 				left: 13.5%;
-				background: url("../img/3.roadmap//third.png") 0 0/ 100% 100% no-repeat;
+				background: url("../img/3.roadmap/third.png") 0 0/ 100% 100% no-repeat;
 				z-index: 2;
 			}
 			@media (max-width: $mobile) {
@@ -736,14 +736,14 @@ body {
 				&::before {
 					top: 47%;
 					left: 30%;
-					background: url("../img/3.roadmap//third.png") 0 0/ 60% 60% no-repeat;
+					background: url("../img/3.roadmap/third.png") 0 0/ 60% 60% no-repeat;
 				}
 			}
 			@media (max-width: $mobileSmall) {
 				&::before {
 					top: 50.5%;
 					left: 33.5%;
-					background: url("../img/3.roadmap//third.png") 0 0/ 50% 50% no-repeat;
+					background: url("../img/3.roadmap/third.png") 0 0/ 50% 50% no-repeat;
 				}
 			}
 		}
@@ -755,7 +755,7 @@ body {
 				height: 728px;
 				top: 67%;
 				left: 23%;
-				background: url("../img/3.roadmap//forth.png") 0 0/ 100% 100% no-repeat;
+				background: url("../img/3.roadmap/forth.png") 0 0/ 100% 100% no-repeat;
 				z-index: 2;
 			}
 			@media (max-width: em(1650)) {
@@ -768,14 +768,14 @@ body {
 				&::before {
 					top: 65%;
 					left: 2%;
-					background: url("../img/3.roadmap//forth.png") 0 0/ 60% 60% no-repeat;
+					background: url("../img/3.roadmap/forth.png") 0 0/ 60% 60% no-repeat;
 				}
 			}
 			@media (max-width: $mobileSmall) {
 				&::before {
 					top: 71%;
 					left: 2%;
-					background: url("../img/3.roadmap//forth.png") 0 0/ 50% 50% no-repeat;
+					background: url("../img/3.roadmap/forth.png") 0 0/ 50% 50% no-repeat;
 				}
 			}
 		}
@@ -815,14 +815,14 @@ body {
 			height: 24px;
 			top: 2px;
 			left: 0;
-			background: url("../img/0.icons//done.svg") 0 0 no-repeat;
+			background: url("../img/0.icons/done.svg") 0 0 no-repeat;
 		}
 		@media (max-width: $mobile) {
 			font-size: rem(15);
 			letter-spacing: calc(0.15 / 15) + em;
 			padding-left: rem(30);
 			&::before {
-				background: url("../img/0.icons//done.svg") 0 0/ 85% 85% no-repeat;
+				background: url("../img/0.icons/done.svg") 0 0/ 85% 85% no-repeat;
 			}
 		}
 	}
@@ -838,7 +838,7 @@ body {
 		height: 1123px;
 		top: 0;
 		left: 50%;
-		background: url("../img/4.brands//Aurora.png") 0 0 no-repeat;
+		background: url("../img/4.brands/Aurora.png") 0 0 no-repeat;
 		transform: translate(-50%, 0px);
 	}
 	&::after {
@@ -850,7 +850,7 @@ body {
 		left: 0;
 		background: rgba(255, 255, 255, 0.02);
 	}
-	background: url("../img/4.brands//Vector.png") 0 0 repeat;
+	background: url("../img/4.brands/Vector.png") 0 0 repeat;
 	@media (max-width: $pc) {
 		padding: rem(80) rem(0);
 	}
@@ -936,13 +936,13 @@ body {
 						height: 46px;
 						top: -2%;
 						left: 50%;
-						background: url('../img/0.icons//Star.svg') 0 0 no-repeat;
+						background: url('../img/0.icons/Star.svg') 0 0 no-repeat;
 						transform: translate(-50%,0px);
 					}
 					@media (max-width: em(350)){
 						&::after {
 						top: 4%;
-							background: url('../img/0.icons//Star.svg') 0 0/80% no-repeat;
+							background: url('../img/0.icons/Star.svg') 0 0/80% no-repeat;
 						}
 					}
 			}
@@ -977,7 +977,7 @@ body {
 				height: 100%;
 				top: 0;
 				left: 0;
-				background: url("../img/4.brands//22.png") 0 0 repeat;
+				background: url("../img/4.brands/22.png") 0 0 repeat;
 			}
 			&_left {
 				&::after {
