@@ -144,6 +144,8 @@ body {
 		background: #7f5cff;
 		box-shadow: 2px 2px 17px 2px rgba(191, 58, 255, 0.4);
 	}
+	&_vertical {
+	}
 }
 .btn {
 	&__link {
@@ -210,11 +212,13 @@ body {
 //========================
 
 .header {
-	position: absolute;
+	position: fixed;
 	width: 100%;
 	top: 0;
 	left: 0;
 	z-index: 50;
+	background: rgb(0, 0, 0);
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.015) 0%, rgba(0, 0, 0, 0.738) 40%);
 	// &::before{
 	// 	content: '';
 	// 	position: absolute;
@@ -231,11 +235,17 @@ body {
 		justify-content: space-between;
 		align-items: center;
 		height: 110px;
+		@media (max-width: $tablet) {
+			height: 80px;
+		}
 		@media (max-width: $tablet) and (orientation: landscape) {
 			height: 80px;
 		}
+		@media (max-width: $mobile) {
+			height: 60px;
+		}
 		@media (max-width: $mobile) and (orientation: landscape) {
-			height: 80px;
+			height: 60px;
 		}
 	}
 	&__logo {
@@ -253,6 +263,7 @@ body {
 		&__icon {
 			display: none;
 			@media (max-width: $tablet) {
+				background-color: transparent;
 				cursor: pointer;
 				display: block;
 				width: 30px;
@@ -311,12 +322,19 @@ body {
 				left: -100%;
 				width: 100%;
 				height: 100%;
-				// background-color: #47474700;
 				padding-top: rem(110);
-				transition: all 0.3s ease 0s;
 				overflow: auto; //позволяет прокручиваться менюшке
+				opacity: 0;
+				background: url("../img/1.hero/Hero_cr.webp") 50% 50% / cover no-repeat;
+				transition:
+					left 0.6s ease 0s,
+					opacity 1.5s ease 0s;
 				&.active {
-					left: 0;
+					left: 0%;
+					opacity: 1;
+					@media (max-width: em(390)) {
+						background: url("../img/1.hero/herobg.webp") 50% 50% / cover no-repeat;
+					}
 					.menu__item {
 						//поочерёдное выезжание меню
 						animation: item-slide 0.5s forwards;
@@ -520,6 +538,9 @@ body {
 
 	&__body {
 		padding: rem(100) rem(0);
+		@media (max-width: $tablet) {
+			padding: rem(80) rem(0);
+		}
 		@media (max-width: $tablet) and (orientation: landscape) {
 			padding: rem(60) rem(0);
 		}
@@ -587,10 +608,13 @@ body {
 }
 .roadmap {
 	background: #090812;
-	padding: rem(140) rem(0);
 	position: relative;
+	padding: rem(110) rem(0);
+	@media (max-width: $tablet) {
+		padding: rem(80) rem(0);
+	}
 	@media (max-width: $mobile) {
-		padding: rem(90) rem(0);
+		padding: rem(60) rem(0);
 	}
 	@media (max-width: $tablet) and (orientation: landscape) {
 		padding: rem(70) rem(0);
@@ -828,7 +852,6 @@ body {
 	}
 }
 .brands {
-	padding: rem(110) rem(0);
 	position: relative;
 	z-index: 3;
 	&::before {
@@ -851,8 +874,9 @@ body {
 		background: rgba(255, 255, 255, 0.02);
 	}
 	background: url("../img/4.brands/Vector.png") 0 0 repeat;
+	padding: rem(110) rem(0);
 	@media (max-width: $pc) {
-		padding: rem(80) rem(0);
+		padding: rem(90) rem(0);
 	}
 	@media (max-width: $mobile) {
 		padding: rem(60) rem(0);
@@ -1027,7 +1051,7 @@ body {
 	}
 }
 .resources {
-	padding: rem(110) rem(0) rem(0) rem(0);
+	padding: rem(110) rem(0) rem(190) rem(0);
 	position: relative;
 	z-index: 3;
 	background-color: rgba(9, 8, 18, 1);
@@ -1047,7 +1071,7 @@ body {
 		position: absolute;
 		width: 501px;
 		height: 501px;
-		bottom: -9%;
+		bottom: 7.5%;
 		left: 55%;
 		background: url("..//img/5.resources/Rectanglesbig.png") 0 0 no-repeat;
 		z-index: -11;
@@ -1055,11 +1079,14 @@ body {
 		transform: rotate(-3deg);
 	}
 	@media (max-width: $pc) {
-		padding: rem(80) rem(0) rem(0) rem(0);
+		padding: rem(90) rem(0) rem(0) rem(0);
 		&::after {
 			content: "";
 			background: none;
 		}
+	}
+	@media (max-width: $tablet) {
+		padding: rem(80) rem(0);
 	}
 	@media (max-width: $mobile) {
 		padding: rem(60) rem(0);
@@ -1336,5 +1363,93 @@ body {
 			font-size: rem(12);
 			width: 80px;
 		}
+	}
+}
+.market {
+	position: relative;
+	z-index: 50;
+	margin-top: rem(-190);
+	&__body {
+		position: absolute;
+		width: 100%;
+		// height: 100%;
+		min-height: 380px;
+		top: 0;
+		left: 0;
+		font-family: Kanit;
+		transform: rotate(-9.094deg);
+	}
+
+	&__top {
+		position: relative;
+		&::before {
+			content: "";
+			position: absolute;
+			width: 140%;
+			height: 100%;
+			top: 0;
+			left: -30%;
+			background: url("../img/6.game/b1.jpg") 0 0/100% 100% no-repeat;
+		}
+		margin-bottom: rem(20);
+	}
+
+	&__top-text {
+		font-size: rem(200);
+		letter-spacing: calc(2 / 200) + em;
+		white-space: nowrap;
+		line-height: 140%;
+		font-weight: 700;
+		position: relative;
+		z-index: 2;
+	}
+
+	&__bottom {
+		background: #000;
+	}
+
+	&__bottom-text {
+		font-size: rem(72);
+		letter-spacing: calc(0.72 / 72) + em;
+		white-space: nowrap;
+		line-height: 140%;
+		font-weight: 700;
+		background: var(--2, linear-gradient(90deg, #21fcff 0%, #fd40ff 100%));
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+}
+.game {
+	min-height: 100vh;
+	padding: rem(190) rem(0) rem(0) rem(0);
+	&__container {
+	}
+
+	&__body {
+	}
+
+	&__row {
+	}
+
+	&__column {
+	}
+
+	&__item {
+	}
+
+	&__img {
+	}
+
+	&__background {
+	}
+
+	&__label {
+	}
+
+	&__text {
+	}
+
+	&__btn {
 	}
 }
