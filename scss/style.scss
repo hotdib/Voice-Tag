@@ -65,6 +65,12 @@ body {
 	background-size: cover;
 	background-repeat: no-repeat;
 	position: relative;
+	&_r {
+		background-position: right;
+		@media (max-width: $pc) {
+			background-position: 0% 50%;
+		}
+	}
 	img {
 		width: 0;
 		height: 0;
@@ -145,6 +151,18 @@ body {
 		box-shadow: 2px 2px 17px 2px rgba(191, 58, 255, 0.4);
 	}
 	&_vertical {
+		background: url("../img/6.game/Vectorvert.png") 50% 90% repeat-x;
+		&::after {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 6px;
+			top: 0;
+			left: 0;
+			border-radius: 62px;
+			background: #56ffeb;
+			box-shadow: 0px 4px 13px 0px rgba(191, 58, 255, 0.44);
+		}
 	}
 }
 .btn {
@@ -208,6 +226,8 @@ body {
 		font-size: rem(14);
 		line-height: 140%;
 	}
+}
+.label {
 }
 //========================
 
@@ -948,6 +968,15 @@ body {
 			align-items: center;
 			margin-bottom: rem(67);
 			min-height: 406px;
+			@media (max-width: $mobile) {
+				max-width: rem(300);
+				margin: 0px auto;
+				min-height: auto;
+			}
+			@media (max-width: $mobileSmall) {
+				max-width: rem(250);
+				margin: 0px auto;
+			}
 			img {
 				max-width: 100%;
 			}
@@ -962,6 +991,10 @@ body {
 					left: 50%;
 					background: url("../img/0.icons/Star.svg") 0 0 no-repeat;
 					transform: translate(-50%, 0px);
+					@media (max-width: $mobile) {
+						top: 12%;
+						background: url("../img/0.icons/Star.svg") 0 0/80% no-repeat;
+					}
 				}
 				@media (max-width: em(350)) {
 					&::after {
@@ -1051,7 +1084,7 @@ body {
 	}
 }
 .resources {
-	padding: rem(110) rem(0) rem(190) rem(0);
+	padding: rem(110) rem(0) rem(140) rem(0);
 	position: relative;
 	z-index: 3;
 	background-color: rgba(9, 8, 18, 1);
@@ -1072,27 +1105,27 @@ body {
 		width: 501px;
 		height: 501px;
 		bottom: 7.5%;
-		left: 55%;
+		left: 53%;
 		background: url("..//img/5.resources/Rectanglesbig.png") 0 0 no-repeat;
 		z-index: -11;
 		opacity: 0.2;
 		transform: rotate(-3deg);
 	}
 	@media (max-width: $pc) {
-		padding: rem(90) rem(0) rem(0) rem(0);
+		padding: rem(90) rem(0) rem(140) rem(0);
 		&::after {
 			content: "";
 			background: none;
 		}
 	}
 	@media (max-width: $tablet) {
-		padding: rem(80) rem(0);
+		padding: rem(80) rem(0) rem(140) rem(0);
 	}
 	@media (max-width: $mobile) {
-		padding: rem(60) rem(0);
+		padding: rem(60) rem(0) rem(100) rem(0);
 	}
 	@media (max-width: $tablet) and (orientation: landscape) {
-		padding: rem(60) rem(0);
+		padding: rem(60) rem(0) rem(140) rem(0);
 	}
 	&__container {
 	}
@@ -1366,9 +1399,17 @@ body {
 	}
 }
 .market {
+	// display: none;
 	position: relative;
 	z-index: 50;
-	margin-top: rem(-190);
+	margin-top: rem(-160);
+	@media (max-width: $pc) {
+		margin-top: rem(-100);
+	}
+	@media (max-width:$mobile){
+		margin-top: rem(-30);
+		
+	}
 	&__body {
 		position: absolute;
 		width: 100%;
@@ -1395,17 +1436,57 @@ body {
 	}
 
 	&__top-text {
-		font-size: rem(200);
+		font-size: rem(150);
+		text-align: center;
 		letter-spacing: calc(2 / 200) + em;
 		white-space: nowrap;
 		line-height: 140%;
 		font-weight: 700;
 		position: relative;
 		z-index: 2;
+		@media (max-width: em(1800)) {
+			font-size: rem(120);
+		}
+		@media (max-width: em(1450)) {
+			font-size: rem(85);
+		}
+		@media (max-width: $tablet) {
+			font-size: rem(60);
+		}
+		@media (max-width: $mobile) {
+			font-size: rem(40);
+			margin-left: rem(30);
+		}
+		@media (max-width: $mobileSmall) {
+			font-size: rem(30);
+		}
+		@media (max-width: em(390)) {
+			font-size: rem(25);
+		}
 	}
 
 	&__bottom {
 		background: #000;
+		margin-left: rem(-100);
+		padding-left: rem(100);
+		width: 120%;
+		@media (max-width: em(1800)) {
+			padding-left: rem(0);
+		}
+		@media (max-width: em(1450)) {
+		}
+		@media (max-width: $tablet) {
+		}
+		@media (max-width: $mobile) {
+			width: 140%;
+
+			margin-left: rem(-130);
+		}
+		@media (max-width: $mobileSmall) {
+		margin-left: rem(-80);
+		}
+		@media (max-width: em(390)) {
+		}
 	}
 
 	&__bottom-text {
@@ -1418,30 +1499,242 @@ body {
 		background-clip: text;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
+		text-align: center;
+		@media (max-width: em(1800)) {
+			font-size: rem(60);
+		}
+		@media (max-width: em(1450)) {
+			font-size: rem(40);
+		}
+		@media (max-width: $tablet) {
+			font-size: rem(30);
+		}
+		@media (max-width: $mobile) {
+			font-size: rem(25);
+			margin-left: rem(100);
+		}
+		@media (max-width: $mobileSmall) {
+			font-size: rem(20);
+		}
 	}
 }
 .game {
-	min-height: 100vh;
-	padding: rem(190) rem(0) rem(0) rem(0);
+	// min-height: 100vh;
+	padding: rem(500) rem(0) rem(120) rem(0);
+	position: relative;
+	background: #060208;
+	display: flex;
+	
+
+	@media (max-width: $pc) {
+		padding: rem(400) rem(0) rem(90) rem(0);
+	}
+	@media (max-width: em(1450)) {
+		padding: rem(300) rem(0) rem(120) rem(0);
+	}
+	@media (max-width: em(1300)) {
+		background: #060208 url("../img/6.game/logo.svg") 98% 98% no-repeat;
+	}
+	@media (max-width:$tablet){
+		padding: rem(250) rem(0) rem(60) rem(0);
+		
+	}
+	@media (max-width: $mobile) {
+		padding: rem(250) rem(0) rem(60) rem(0);
+		background: #060208 url("../img/6.game/logo.svg") 98% 98%/30% no-repeat;
+	}
+	@media (max-width: $tablet) and (orientation: landscape) {
+		padding: rem(250) rem(0) rem(60) rem(0);
+	}
+	@media (max-width:$mobileSmall){
+		padding: rem(150) rem(0) rem(60) rem(0);
+		  
+	}
+	&::after {
+		content: "";
+		position: absolute;
+		width: 1270px;
+		height: 1053px;
+		top: 0;
+		left: 0;
+		background: url("../img/6.game/11.png") 0 0 no-repeat;
+	}
+	&::before {
+		content: "";
+		position: absolute;
+		width: 1314px;
+		height: 1069px;
+		bottom: 0;
+		right: 0;
+		background: url("../img/6.game/12.png") 0 0 no-repeat;
+	}
 	&__container {
+		position: relative;
+		z-index: 2;
 	}
 
 	&__body {
 	}
 
 	&__row {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		@media (max-width: $tablet) {
+			flex-wrap: wrap;
+		}
 	}
 
 	&__column {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		&_text {
+			@media (max-width: $tablet) {
+				flex: 0 0 100%;
+				order: 1;
+			}
+		}
+		&_png1 {
+			@media (max-width: $tablet) {
+				flex: 0 0 50%;
+				order: 3;
+			}
+			@media (max-width: $mobileSmall) {
+				// position: absolute;
+			}
+			@media (max-width: $mobileSmall) {
+				margin-left: rem(-70);
+				margin-top: rem(-100);
+			}
+			@media (max-width: em(340)) {
+				margin-left: rem(-50);
+				margin-top: rem(-100);
+			}
+		}
+		&_png2 {
+			@media (max-width: $tablet) {
+				flex: 0 0 50%;
+				order: 2;
+			}
+			@media (max-width: $mobileSmall) {
+				margin-left: rem(-40);
+			}
+			@media (max-width: em(340)) {
+				margin-left: rem(-30);
+			}
+		}
 	}
 
 	&__item {
 	}
 
 	&__img {
+		width: 380px;
+		@media (max-width: $pc) {
+			width: 300px;
+		}
+		@media (max-width: $tablet) {
+			width: 250px;
+		}
+		@media (max-width: $mobile) {
+			width: 200px;
+		}
+		@media (max-width: em(340)) {
+			width: 150px;
+		}
+		img {
+			max-width: 100%;
+		}
 	}
 
 	&__background {
+		text-align: center;
+		padding: rem(80) rem(30) rem(80) rem(30);
+		@media (max-width: $tablet) {
+			padding: rem(30) rem(15);
+		}
+		@media (max-width: $mobileSmall) {
+			padding: rem(30) rem(10) rem(60) rem(10);
+		}
+	}
+
+	&__label {
+		margin-bottom: rem(27);
+		font-family: Kanit;
+		font-size: rem(45);
+		font-weight: 700;
+		line-height: 109%;
+		text-transform: uppercase;
+		@media (max-width: $tablet) {
+			margin-bottom: rem(15);
+		}
+		@media (max-width: $mobile) {
+			font-size: rem(28);
+		}
+	}
+
+	&__text {
+		max-width: rem(569);
+		margin-bottom: rem(20);
+		color: rgba(255, 255, 255, 0.9);
+		line-height: 160%;
+		opacity: 0.7;
+		p:not(:last-child) {
+			margin-bottom: rem(30);
+		}
+		@media (max-width: $mobile) {
+			font-size: rem(16);
+			p:not(:last-child) {
+				margin-bottom: rem(15);
+			}
+		}
+	}
+
+	&__btn {
+		display: flex;
+		justify-content: center;
+	}
+	&__bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+}
+.explore {
+
+	&__container {
+	}
+
+	&__body {
+	}
+
+	&__top {
+	}
+
+	&__top-row {
+	}
+
+	&__top-text {
+	}
+
+	&__top-img {
+	}
+
+	&__bottom {
+	}
+
+	&__bottom-bg {
+	}
+}
+.container {
+}
+.top-item {
+
+	&__left {
 	}
 
 	&__label {
@@ -1451,5 +1744,28 @@ body {
 	}
 
 	&__btn {
+	}
+
+	&__right {
+	}
+}
+.bot-item {
+
+	&__row {
+	}
+
+	&__left {
+	}
+
+	&__label {
+	}
+
+	&__btn {
+	}
+
+	&__right {
+	}
+
+	&__text {
 	}
 }
