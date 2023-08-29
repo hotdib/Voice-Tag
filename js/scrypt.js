@@ -18,7 +18,7 @@ document.addEventListener("click", documentActions);
 
 function documentActions(e) {
 	const targetElement = e.target;
-	
+
 	var burger = document.querySelector('.menu__icon');
 	var menu = document.querySelector('.menu__body');
 	var body = document.querySelector('body');
@@ -70,4 +70,17 @@ function ibg() {
 ibg();
 
 
+// SPOLLERS
+const spollersArray = document.querySelectorAll('[data-spollers]');
+if (spollersArray.length > 0) {
+	// Получение обычных слойлеров
+	const spollersRegular = Array.from(spollersArray).filter(function (item, index, self) {
+		return !item.dataset.spollers.split(",")[0];
+	});
+
+	// Инициализация обычных слойлеров
+	if (spollersRegular.length > 0) {
+		initSpollers(spollersRegular);
+	}
+}
 

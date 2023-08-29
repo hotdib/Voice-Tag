@@ -164,6 +164,38 @@ body {
 			box-shadow: 0px 4px 13px 0px rgba(191, 58, 255, 0.44);
 		}
 	}
+	&_long {
+		background: url("../img/7.explore/Vector.png") 0 0 repeat-y;
+		@media (max-width: $tablet) {
+			background: url("../img/6.game/Vectorvert.png") 50% 90% repeat-x;
+			&::after {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 6px;
+				top: 0;
+				left: 0;
+				border-radius: 62px;
+			}
+		}
+	}
+	&_reverse {
+		background: url("../img/7.explore/Vector1.png") top 0 right 0 repeat-y;
+		&::after {
+			left: 100%;
+		}
+		@media (max-width: $mobile) {
+			background: url("../img/7.explore/Vector2.png") 0 100% repeat-x;
+			&::after {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 6px;
+				top: 100%;
+				left: 0;
+			}
+		}
+	}
 }
 .btn {
 	&__link {
@@ -218,6 +250,9 @@ body {
 .text-common {
 	line-height: 160%;
 	opacity: 0.8;
+	@media (max-width: $mobile) {
+		font-size: rem(18);
+	}
 	@media (max-width: $mobileSmall) {
 		font-size: rem(16);
 		line-height: 150%;
@@ -228,6 +263,17 @@ body {
 	}
 }
 .label {
+	font-family: Kanit;
+	font-size: rem(45);
+	font-weight: 700;
+	line-height: 109%;
+	text-transform: uppercase;
+	@media (max-width: $mobile) {
+		font-size: rem(28);
+	}
+	@media (max-width: em(350)) {
+		font-size: rem(24);
+	}
 }
 //========================
 
@@ -1406,9 +1452,8 @@ body {
 	@media (max-width: $pc) {
 		margin-top: rem(-100);
 	}
-	@media (max-width:$mobile){
+	@media (max-width: $mobile) {
 		margin-top: rem(-30);
-		
 	}
 	&__body {
 		position: absolute;
@@ -1483,7 +1528,7 @@ body {
 			margin-left: rem(-130);
 		}
 		@media (max-width: $mobileSmall) {
-		margin-left: rem(-80);
+			margin-left: rem(-80);
 		}
 		@media (max-width: em(390)) {
 		}
@@ -1517,6 +1562,79 @@ body {
 			font-size: rem(20);
 		}
 	}
+	&_small {
+		display: none;
+		position: relative;
+		z-index: 50;
+		margin-top: rem(-160);
+		@media (max-width: $pc) {
+			margin-top: rem(-100);
+		}
+		@media (max-width: $mobile) {
+			margin-top: rem(-30);
+		}
+		&__body {
+			position: absolute;
+			width: 100%;
+			// height: 100%;
+			min-height: 380px;
+			top: 0;
+			left: 0;
+			font-family: Kanit;
+			transform: rotate(-9.094deg);
+		}
+		&__bottom {
+			background: #000;
+			margin-left: rem(-100);
+			padding-left: rem(100);
+			width: 120%;
+			@media (max-width: em(1800)) {
+				padding-left: rem(0);
+			}
+			@media (max-width: em(1450)) {
+			}
+			@media (max-width: $tablet) {
+			}
+			@media (max-width: $mobile) {
+				width: 140%;
+
+				margin-left: rem(-130);
+			}
+			@media (max-width: $mobileSmall) {
+				margin-left: rem(-80);
+			}
+			@media (max-width: em(390)) {
+			}
+		}
+		&__bottom-text {
+			font-size: rem(72);
+			letter-spacing: calc(0.72 / 72) + em;
+			white-space: nowrap;
+			line-height: 140%;
+			font-weight: 700;
+			background: var(--2, linear-gradient(90deg, #21fcff 0%, #fd40ff 100%));
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			text-align: center;
+			@media (max-width: em(1800)) {
+				font-size: rem(60);
+			}
+			@media (max-width: em(1450)) {
+				font-size: rem(40);
+			}
+			@media (max-width: $tablet) {
+				font-size: rem(30);
+			}
+			@media (max-width: $mobile) {
+				font-size: rem(25);
+				margin-left: rem(100);
+			}
+			@media (max-width: $mobileSmall) {
+				font-size: rem(20);
+			}
+		}
+	}
 }
 .game {
 	// min-height: 100vh;
@@ -1524,8 +1642,6 @@ body {
 	position: relative;
 	background: #060208;
 	display: flex;
-	
-
 	@media (max-width: $pc) {
 		padding: rem(400) rem(0) rem(90) rem(0);
 	}
@@ -1535,9 +1651,8 @@ body {
 	@media (max-width: em(1300)) {
 		background: #060208 url("../img/6.game/logo.svg") 98% 98% no-repeat;
 	}
-	@media (max-width:$tablet){
+	@media (max-width: $tablet) {
 		padding: rem(250) rem(0) rem(60) rem(0);
-		
 	}
 	@media (max-width: $mobile) {
 		padding: rem(250) rem(0) rem(60) rem(0);
@@ -1546,9 +1661,8 @@ body {
 	@media (max-width: $tablet) and (orientation: landscape) {
 		padding: rem(250) rem(0) rem(60) rem(0);
 	}
-	@media (max-width:$mobileSmall){
+	@media (max-width: $mobileSmall) {
 		padding: rem(150) rem(0) rem(60) rem(0);
-		  
 	}
 	&::after {
 		content: "";
@@ -1572,10 +1686,6 @@ body {
 		position: relative;
 		z-index: 2;
 	}
-
-	&__body {
-	}
-
 	&__row {
 		display: flex;
 		justify-content: center;
@@ -1585,7 +1695,6 @@ body {
 			flex-wrap: wrap;
 		}
 	}
-
 	&__column {
 		display: flex;
 		justify-content: center;
@@ -1626,10 +1735,6 @@ body {
 			}
 		}
 	}
-
-	&__item {
-	}
-
 	&__img {
 		width: 380px;
 		@media (max-width: $pc) {
@@ -1648,7 +1753,6 @@ body {
 			max-width: 100%;
 		}
 	}
-
 	&__background {
 		text-align: center;
 		padding: rem(80) rem(30) rem(80) rem(30);
@@ -1659,14 +1763,8 @@ body {
 			padding: rem(30) rem(10) rem(60) rem(10);
 		}
 	}
-
 	&__label {
 		margin-bottom: rem(27);
-		font-family: Kanit;
-		font-size: rem(45);
-		font-weight: 700;
-		line-height: 109%;
-		text-transform: uppercase;
 		@media (max-width: $tablet) {
 			margin-bottom: rem(15);
 		}
@@ -1705,67 +1803,533 @@ body {
 	}
 }
 .explore {
+	position: relative;
+	padding: rem(110) rem(0);
+	background: url("../img/7.explore/oculus.png") 0 100% no-repeat;
+	&::before {
+		content: "";
+		position: absolute;
+		width: 1358px;
+		height: 1478px;
+		top: 0;
+		left: 0;
+		background: url("../img/7.explore/bg.png") 0 0 no-repeat;
+	}
+	@media (max-width: $pc) {
+		padding: rem(90) rem(0);
+	}
+	@media (max-width: $mobile) {
+		padding: rem(60) rem(0);
+	}
+	@media (max-width: $tablet) and (orientation: landscape) {
+		padding: rem(60) rem(0);
+	}
+	@media (max-width: em(700)) {
+		background: url("../img/7.explore/oculus.png") 0 80%/95% no-repeat;
+	}
+	@media (max-width: em(600)) {
+		background: url("../img/7.explore/oculus.png") 0 75%/90% no-repeat;
+	}
+	@media (max-width: em(390)) {
+		background: url("../img/7.explore/oculus.png") -100px 74%/110% no-repeat;
+	}
+	@media (max-width: em(320)) {
+		background: url("../img/7.explore/oculus.png") -100px 70%/110% no-repeat;
+	}
+	&__container {
+		position: relative;
+	}
 
+	&__body {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__top {
+		margin-bottom: rem(240);
+	}
+
+	&__top-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		@media (max-width: $tablet) {
+			flex-direction: column;
+		}
+	}
+
+	&__top-text {
+		padding: rem(100) rem(0) rem(100) rem(85);
+		&::before {
+			content: "";
+			position: absolute;
+			width: 46px;
+			height: 46px;
+			bottom: 0;
+			left: 50%;
+			background: url("../img/0.icons/Star.svg") 0 0 no-repeat;
+			transform: translate(0px, 50%);
+		}
+		@media (max-width: $pc) {
+			padding: rem(60) rem(0) rem(60) rem(45);
+		}
+		@media (max-width: $tablet) {
+			padding: rem(40) rem(0) rem(200) rem(25);
+			&::before {
+				bottom: 40%;
+				left: 35%;
+				background: url("../img/0.icons/Star.svg") 0 0 no-repeat;
+			}
+		}
+		@media (max-width: $mobile) {
+			padding: rem(40) rem(0) rem(200) rem(25);
+			&::before {
+				bottom: 43%;
+				left: 55%;
+				background: url("../img/0.icons/Star.svg") 0 0/80% no-repeat;
+			}
+		}
+		@media (max-width: $mobileSmall) {
+			padding: rem(40) rem(0) rem(200) rem(25);
+			&::before {
+				bottom: 46%;
+				left: 75%;
+				background: url("../img/0.icons/Star.svg") 0 0/70% no-repeat;
+			}
+		}
+	}
+
+	&__top-img {
+		@media (max-width: $pc) {
+			max-width: rem(500);
+		}
+		@media (max-width: $tablet) {
+			margin-top: rem(-200);
+		}
+		@media (max-width: $mobile) {
+			margin-top: rem(-160);
+		}
+		img {
+			max-width: 100%;
+		}
+	}
+	.top-item {
+		display: flex;
+		&__left {
+			max-width: rem(400);
+			margin-right: rem(100);
+			@media (max-width: $pc) {
+				margin-right: rem(50);
+			}
+		}
+
+		&__label {
+			margin-bottom: rem(20);
+		}
+
+		&__text {
+			margin-bottom: rem(35);
+			@media (max-width: $mobile) {
+				display: none;
+				margin-bottom: rem(0);
+			}
+			&-hid {
+				display: none;
+				@media (max-width: $mobile) {
+					display: inline-block;
+					margin-bottom: rem(25);
+				}
+			}
+		}
+
+		&__btn {
+		}
+
+		&__right {
+			max-width: rem(400);
+			padding-right: rem(30);
+		}
+	}
+	&__bottom {
+		max-width: rem(1170);
+		align-self: end;
+		position: relative;
+		&::before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			border-radius: 1px;
+			background: linear-gradient(180deg, rgba(58, 78, 255, 0) 0%, rgba(156, 58, 255, 0.14) 100%);
+			backdrop-filter: blur(15px);
+		}
+	}
+
+	&__bottom-bg {
+		padding: rem(70) rem(70) rem(70) rem(100);
+		&::before {
+			content: "";
+			position: absolute;
+			width: 46px;
+			height: 46px;
+
+			background: url("../img/0.icons/Star.svg") 0 0 no-repeat;
+			transform: translate(0px, 50%);
+		}
+		@media (max-width: $pc) {
+			padding: rem(50) rem(20) rem(50) rem(50);
+		}
+		@media (max-width: $tablet) {
+			padding: rem(40) rem(20) rem(40) rem(40);
+		}
+		@media (max-width: $mobile) {
+			&::before {
+				content: "";
+				position: absolute;
+				width: 46px;
+				height: 46px;
+				bottom: 10.5%;
+				left: 70%;
+				background: url("../img/0.icons/Star.svg") 0 0/70% no-repeat;
+				transform: translate(0px, 50%);
+			}
+		}
+		@media (max-width: $mobileSmall) {
+			padding: rem(40) rem(20) rem(40) rem(20);
+			&::before {
+				content: "";
+				position: absolute;
+				width: 46px;
+				height: 46px;
+				bottom: 120.5%;
+				left: 70%;
+				background: url("../img/0.icons/Star.svg") 0 0/70% no-repeat;
+				transform: translate(0px, 50%);
+			}
+		}
+	}
+	.bot-item {
+		&__row {
+			display: flex;
+		}
+
+		&__left {
+			max-width: rem(400);
+			margin-right: rem(50);
+			@media (max-width: $mobile) {
+				margin-right: rem(0);
+			}
+		}
+
+		&__label {
+			margin-bottom: rem(30);
+		}
+
+		&__btn {
+		}
+
+		&__right {
+			max-width: rem(470);
+			align-self: center;
+		}
+
+		&__text {
+			@media (max-width: $mobile) {
+				display: none;
+			}
+			&-hid {
+				display: none;
+				@media (max-width: $mobile) {
+					display: inline-block;
+					margin-bottom: rem(25);
+				}
+			}
+		}
+	}
+}
+.team {
+	position: relative;
+	padding: rem(110) rem(0);
+	background: url("../img/8.team/bgmain.png") 0 0 no-repeat;
+	&::before {
+		content: "";
+		position: absolute;
+		width: 1062px;
+		height: 1137px;
+		top: 0;
+		left: 0;
+		background: url("../img/8.team/bg1.png") 0 0 no-repeat;
+	}
+	&::after {
+		content: "";
+		position: absolute;
+		width: 1381px;
+		height: 1035px;
+		top: 0;
+		right: 0;
+		background: url("../img/8.team/bg2.png") 0 0 no-repeat;
+	}
+	@media (max-width: $pc) {
+		padding: rem(90) rem(0);
+	}
+	@media (max-width: $mobile) {
+		padding: rem(60) rem(0);
+		background: url("../img/8.team/bgmob.png") 0% 0%/100% no-repeat;
+		&::after {
+			width: 100%;
+			height: 100%;
+			top: 0;
+			right: 0;
+			background: url("../img/8.team/bgmob1.png") 0 0 repeat;
+		}
+	}
+	@media (max-width: $tablet) and (orientation: landscape) {
+		padding: rem(60) rem(0);
+	}
+	&__container {
+		position: relative;
+		z-index: 3;
+	}
+
+	&__body {
+	}
+
+	&__title {
+		text-align: center;
+		margin-bottom: rem(65);
+		@media (max-width: $mobile) {
+			margin-bottom: rem(45);
+		}
+	}
+
+	&__row {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		@media (max-width: em(1450)) {
+			row-gap: 40px;
+		}
+	}
+
+	&__column {
+		@media (max-width: em(1450)) {
+			flex: 0 0 50%;
+		}
+		@media (max-width: $mobile) {
+			flex: 0 0 100%;
+			&:not(:last-child) {
+				margin-bottom: rem(65);
+			}
+		}
+		@media (max-width: $mobileSmall) {
+			&:not(:last-child) {
+				margin-bottom: rem(35);
+			}
+		}
+		.card-item {
+			max-width: rem(330);
+			margin: 0px auto;
+			display: flex;
+			flex-direction: column;
+			@media (max-width: $mobileSmall) {
+				max-width: auto;
+			}
+			&__img {
+				min-height: 418px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-bottom: rem(30);
+				@media (max-width: $mobileSmall) {
+					min-height: auto;
+					margin-bottom: rem(20);
+				}
+				img {
+					max-width: 100%;
+				}
+			}
+
+			&__text {
+			}
+
+			&__position {
+				font-size: rem(16);
+				font-weight: 500;
+				line-height: 140%;
+				text-align: center;
+				@media (max-width: $mobileSmall) {
+				}
+			}
+
+			&__name {
+				color: #56ffeb;
+				text-align: center;
+				font-family: Kanit;
+				font-size: rem(45);
+				font-weight: 700;
+				line-height: 140%;
+				text-transform: uppercase;
+				@media (max-width: $mobileSmall) {
+					font-size: rem(30);
+				}
+			}
+
+			&__web {
+			}
+		}
+		&_1 {
+			.card-item {
+				&__name {
+					margin-bottom: rem(15);
+				}
+			}
+			@media (min-width: $mobile) {
+				margin-top: rem(-10);
+			}
+		}
+		&_2 {
+			.card-item {
+				&__name {
+					color: #2c4dff;
+				}
+			}
+			@media (min-width: $mobile) {
+				.card-item {
+					&__img {
+						margin-bottom: rem(0);
+						order: 2;
+					}
+					&__text {
+						order: 1;
+					}
+				}
+			}
+		}
+		&_3 {
+			.card-item {
+				&__name {
+					color: #bf3aff;
+				}
+			}
+			@media (min-width: $mobile) {
+				margin-top: rem(85);
+			}
+		}
+		&_4 {
+			.card-item {
+				&__name {
+					color: #fb41ff;
+				}
+				&__img {
+					position: relative;
+					&::after {
+						content: "";
+						position: absolute;
+						width: 46px;
+						height: 46px;
+						bottom: 2.5%;
+						right: 42%;
+						background: url("../img/0.icons/Star.svg") 0 0 no-repeat;
+						transform: translate(50%, 50%);
+					}
+				}
+			}
+			@media (min-width: $mobile) {
+				.card-item {
+					&__img {
+						margin-bottom: rem(0);
+						order: 2;
+					}
+					&__text {
+						order: 1;
+					}
+				}
+			}
+		}
+	}
+	.web {
+		&__list {
+			display: flex;
+			justify-content: center;
+		}
+
+		&__item {
+			&:not(:last-child) {
+				margin-right: rem(15);
+			}
+			@media (max-width: em(360)) {
+				&:not(:last-child) {
+					margin-right: rem(10);
+				}
+			}
+		}
+
+		&__link {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: rem(14);
+			border: 1px solid #767193;
+			border-radius: 18px;
+			width: 48px;
+			height: 48px;
+			@media (max-width: $mobileSmall) {
+				width: 40px;
+				height: 40px;
+				padding: rem(10);
+				border-radius: 14px;
+			}
+			img {
+				max-width: 100%;
+			}
+		}
+	}
+}
+.faq {
 	&__container {
 	}
 
 	&__body {
 	}
 
-	&__top {
+	&__table {
 	}
 
-	&__top-row {
+	&__title {
 	}
 
-	&__top-text {
+	&__spollers {
 	}
+	.spoller {
+		&._init {
+			.spoller__btn::before,
+			.spoller__btn::after {
+				content: "";
+				position: absolute;
+				width: 20px;
+				height: 1px;
+				right: 10px;
+				top: 20px;
+				background-color: #fff;
+				transition: transform 0.3s ease 0s;
+			}
+			.spoller__btn::after {
+				transform: rotate(-90deg);
+			}
+			.spoller__btn._active::after {
+				transform: rotate(0deg);
+			}
+		}
 
-	&__top-img {
-	}
+		&__item {
+		}
 
-	&__bottom {
-	}
+		&__btn {
+		}
 
-	&__bottom-bg {
-	}
-}
-.container {
-}
-.top-item {
-
-	&__left {
-	}
-
-	&__label {
-	}
-
-	&__text {
-	}
-
-	&__btn {
-	}
-
-	&__right {
-	}
-}
-.bot-item {
-
-	&__row {
-	}
-
-	&__left {
-	}
-
-	&__label {
-	}
-
-	&__btn {
-	}
-
-	&__right {
-	}
-
-	&__text {
+		&__text {
+		}
 	}
 }
