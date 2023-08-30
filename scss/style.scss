@@ -1563,17 +1563,29 @@ body {
 		}
 	}
 	&_small {
-		display: none;
+		// display: none;
 		position: relative;
 		z-index: 50;
+		top: -300px;
 		margin-top: rem(-160);
 		@media (max-width: $pc) {
 			margin-top: rem(-100);
 		}
+		@media (max-width: em(1450)){
+		top: -200px;
+			
+		}
+		@media (max-width:$tablet){
+		top: -160px;
+		}
 		@media (max-width: $mobile) {
 			margin-top: rem(-30);
+		top: -140px;
 		}
-		&__body {
+		@media (max-width:$mobileSmall){
+			top: -90px;
+		}
+		.market__body {
 			position: absolute;
 			width: 100%;
 			// height: 100%;
@@ -1581,9 +1593,9 @@ body {
 			top: 0;
 			left: 0;
 			font-family: Kanit;
-			transform: rotate(-9.094deg);
+			transform: rotate(7.0deg);
 		}
-		&__bottom {
+		.market__bottom {
 			background: #000;
 			margin-left: rem(-100);
 			padding-left: rem(100);
@@ -1606,7 +1618,7 @@ body {
 			@media (max-width: em(390)) {
 			}
 		}
-		&__bottom-text {
+		.market__bottom-text {
 			font-size: rem(72);
 			letter-spacing: calc(0.72 / 72) + em;
 			white-space: nowrap;
@@ -1627,11 +1639,12 @@ body {
 				font-size: rem(30);
 			}
 			@media (max-width: $mobile) {
-				font-size: rem(25);
-				margin-left: rem(100);
+				font-size: rem(30);
+				margin-left: rem(0);
 			}
 			@media (max-width: $mobileSmall) {
-				font-size: rem(20);
+				font-size: rem(30);
+				margin-left: rem(60);
 			}
 		}
 	}
@@ -2288,16 +2301,111 @@ body {
 	}
 }
 .faq {
+	position: relative;
+	padding: rem(500) rem(0) rem(110) rem(0);
+	background: url("../img/9.faq/curve.png") 0 -550px/100% 80% no-repeat;
+	&::before {
+		content: "";
+		position: absolute;
+		width: 1222px;
+		height: 1776px;
+		top: 0;
+		left: 0;
+		background: url("../img/9.faq/1.png") 0 0 no-repeat;
+	}
+	&::after {
+		content: "";
+		position: absolute;
+		width: 1180px;
+		height: 1776px;
+		top: 0;
+		right: 0;
+		background: url("../img/9.faq/2.png") 0 0 no-repeat;
+	}
+	@media (max-width: $pc) {
+		padding: rem(500) rem(0) rem(110) rem(0);
+
+	}
+	@media (max-width: em(1450)){
+		padding: rem(300) rem(0) rem(110) rem(0);
+
+		background: url("../img/9.faq/curve.png") 0 -550px/100% 80% no-repeat;
+	}
+	@media (max-width: $mobile) {
+		padding: rem(150) rem(0) rem(60) rem(0);
+
+	}
+	@media (max-width:$mobileSmall){
+		padding: rem(100) rem(0) rem(60) rem(0);
+		  
+	}
+	@media (max-width: $tablet) and (orientation: landscape) {
+		padding: rem(60) rem(0);
+	}
 	&__container {
+		position: relative;
+		z-index: 3;
 	}
 
 	&__body {
+		position: relative;
+		background: linear-gradient(360deg, rgba(58, 78, 255, 0.15) 0%, rgba(156, 58, 255, 0.44) 100%);
+		max-width: rem(1350);
+		margin: 0px auto;
+		padding: rem(4);
+		-webkit-clip-path: polygon(8% 0, 80% 0%, 100% 0, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0 6%);
+		clip-path: polygon(8% 0, 80% 0%, 100% 0, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0 6%);
+		@media (max-width: em(1400)){
+			margin: rem(0) rem(20);
+		}
+		@media (max-width:$mobileSmall){
+			margin: rem(0) rem(10);
+			-webkit-clip-path: polygon(8% 0, 80% 0%, 100% 0, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0 3%);
+			clip-path: polygon(8% 0, 80% 0%, 100% 0, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0 3%);
+		}
 	}
 
 	&__table {
+		padding: rem(96) rem(50) rem(95) rem(100);
+		background-color: #18072d;
+		-webkit-clip-path: polygon(8% 0, 80% 0%, 100% 0, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0 6%);
+		clip-path: polygon(8% 0, 80% 0%, 100% 0, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0 6%);
+		position: relative;
+		background: #18072d url('../img/9.faq/2.png') 100% 100% no-repeat;
+		&::before {
+			content: "";
+			position: absolute;
+			width: 1222px;
+			height: 1776px;
+			top: 0;
+			left: 0;
+			background: url("../img/9.faq/1.png") 0 0 no-repeat;
+		}
+		@media (max-width:$tablet){
+		padding: rem(60) rem(50) rem(60) rem(60);
+		}
+		@media (max-width:$mobile){
+			padding: rem(40) rem(30) rem(30) rem(30);
+		}
+		@media (max-width:$mobileSmall){
+			padding: rem(30) rem(10) rem(20) rem(20);
+			-webkit-clip-path: polygon(8% 0, 80% 0%, 100% 0, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0 3%);
+			clip-path: polygon(8% 0, 80% 0%, 100% 0, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0 3%);
+		}
 	}
 
 	&__title {
+		text-align: center;
+		margin-bottom: rem(85);
+		@media (max-width:$tablet){
+		margin-bottom: rem(60);
+		}
+		@media (max-width:$mobile){
+			margin-bottom: rem(40);
+		}
+		@media (max-width:$mobileSmall){
+			margin-bottom: rem(20);
+		}
 	}
 
 	&__spollers {
@@ -2309,9 +2417,9 @@ body {
 				content: "";
 				position: absolute;
 				width: 20px;
-				height: 1px;
+				height: 3px;
 				right: 10px;
-				top: 20px;
+				top: 30px;
 				background-color: #fff;
 				transition: transform 0.3s ease 0s;
 			}
@@ -2321,15 +2429,87 @@ body {
 			.spoller__btn._active::after {
 				transform: rotate(0deg);
 			}
+			@media (max-width:$tablet){
+				.spoller__btn::before,
+			.spoller__btn::after {
+				content: "";
+				position: absolute;
+				width: 20px;
+				height: 3px;
+				right: 10px;
+				top: 25px;
+				background-color: #fff;
+				transition: transform 0.3s ease 0s;
+			}
+			}
+			@media (max-width:$mobile){
+				.spoller__btn::before,
+			.spoller__btn::after {
+				content: "";
+				position: absolute;
+				width: 20px;
+				height: 3px;
+				right: 5px;
+				top: 25px;
+				background-color: #fff;
+				transition: transform 0.3s ease 0s;
+			}
+			}
 		}
 
 		&__item {
 		}
 
 		&__btn {
+			position: relative;
+			width: 100%;
+			text-align-last: left;
+			background-color: transparent;
+			color: #fff;
+			padding: rem(10) rem(50) rem(51) rem(10);
+			font-family: Kanit;
+			font-size: rem(30);
+			font-weight: 700;
+			line-height: 140%;
+			text-transform: uppercase;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+			margin-bottom: rem(15);
+			@media (max-width:$tablet){
+			font-size: rem(24);
+			}
+			@media (max-width:$mobile){
+			font-size: rem(22);
+			padding: rem(10) rem(50) rem(30) rem(10);
+			}
+			@media (max-width:$mobileSmall){
+			font-size: rem(18);
+			padding: rem(10) rem(35) rem(15) rem(10);
+			}
 		}
 
 		&__text {
+			color: rgba(255, 255, 255, 0.9);
+			font-size: rem(24);
+			font-weight: 300;
+			line-height: 160%;
+			margin-bottom: rem(50);
+			padding-left: rem(10);
+			@media (max-width:$tablet){
+			font-size: rem(20);
+			}
+			@media (max-width:$mobile){
+			font-size: rem(18);
+			line-height: 140%;
+			margin-bottom: rem(30);
+			}
+			@media (max-width:$mobileSmall){
+			font-size: rem(14);
+			margin-bottom: rem(15);
+			}
 		}
 	}
+}
+.swiper {
+	width: 600px;
+	height: 300px;
 }
