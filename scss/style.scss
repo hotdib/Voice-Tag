@@ -282,7 +282,7 @@ body {
 	width: 100%;
 	top: 0;
 	left: 0;
-	z-index: 50;
+	z-index: 1000;
 	background: rgb(0, 0, 0);
 	background: linear-gradient(0deg, rgba(0, 0, 0, 0.015) 0%, rgba(0, 0, 0, 0.738) 40%);
 	// &::before{
@@ -295,6 +295,42 @@ body {
 	// 	z-index: 2;
 	// 	// background: #0000008f;
 	// }
+
+	.back-to-top {
+		position: fixed;
+		right: 2rem;
+		bottom: 2rem;
+		border-radius: 100%;
+		background: #9310b4d3;
+		padding: 1rem;
+		border: none;
+		cursor: pointer;
+		opacity: 80%;
+		transition: all 0.3s ease 0s;
+		box-shadow: 0px 2px 17px 2px rgba(191, 58, 255, 0.4);
+		&.hidden:hover {
+			opacity: 0%;
+		}
+	}
+	.hidden {
+		opacity: 0%;
+	}
+	.back-to-top-icon {
+		width: 2rem;
+		height: 2rem;
+		path {
+			fill: #7efcfc;
+		}
+	}
+	.back-to-top:hover {
+		opacity: 100%;
+		background: #c124e8d3;
+		.back-to-top-icon {
+			path {
+				fill: #00c6c6;
+			}
+		}
+	}
 	&__row {
 		position: relative;
 		display: flex;
@@ -497,9 +533,6 @@ body {
 	display: flex;
 	flex-direction: column;
 	flex: 1 1 auto;
-}
-.footer {
-	background: #1bbdaa;
 }
 .hero {
 	position: relative;
@@ -742,27 +775,108 @@ body {
 		align-items: end;
 		position: relative;
 	}
-
-	&__item {
-		max-width: rem(480);
-		&:nth-child(1) {
-			margin-bottom: rem(140);
+	&__move {
+		position: relative;
+		z-index: 100;
+		height: 360px;
+		margin-top: rem(-360);
+	}
+	&__move-item {
+		position: absolute !important;
+		width: 480px;
+		height: 360px;
+		top: 0;
+		left: 0;
+		&::before {
+			content: "";
+			position: absolute;
+			width: 645px;
+			height: 649px;
+			top: 110px;
+			left: 150px;
+			z-index: 2;
+		}
+		&_1 {
 			&::before {
 				content: "";
 				position: absolute;
 				width: 645px;
 				height: 649px;
-				top: -16.5%;
-				left: 16%;
-				background: url("../img/3.roadmap/first.png") 0 0/ 100% 100% no-repeat;
+				top: 110px;
+				left: 150px;
 				z-index: 2;
+				background: url("../img/3.roadmap/first.png") 0 0/ 100% 100% no-repeat;
+			}
+		}
+		&_2 {
+			&::before {
+				content: "";
+				position: absolute;
+				width: 645px;
+				height: 649px;
+				top: 460px;
+				left: 380px;
+				z-index: 2;
+				background: url("../img/3.roadmap/second.png") 0 0/ 100% 100% no-repeat;
+			}
+		}
+		&_3 {
+			&::before {
+				content: "";
+				position: absolute;
+				width: 645px;
+				height: 649px;
+				top: 1000px;
+				left: 180px;
+				z-index: 2;
+				background: url("../img/3.roadmap/third.png") 0 0/ 100% 100% no-repeat;
+			}
+		}
+		&_4 {
+			&::before {
+				content: "";
+				position: absolute;
+				width: 645px;
+				height: 649px;
+				top: 1280px;
+				left: 380px;
+				z-index: 2;
+				background: url("../img/3.roadmap/forth.png") 0 0/ 100% 100% no-repeat;
+			}
+		}
+		@media (max-width: $tablet) {
+			&::before {
+				width: 0px;
+				height: 0px;
+			}
+		}
+	}
+	&__item {
+		max-width: rem(480);
+		&:nth-child(1) {
+			margin-bottom: rem(140);
+			@media (max-width: $tablet) {
+				&::before {
+					content: "";
+					position: absolute;
+					width: 645px;
+					height: 649px;
+					top: -16.5%;
+					left: 16%;
+					background: url("../img/3.roadmap/first.png") 0 0/ 100% 100% no-repeat;
+					z-index: 2;
+				}
 			}
 			@media (max-width: $mobile) {
 				margin-bottom: rem(100);
 				&::before {
 					content: "";
+					position: absolute;
+					width: 645px;
+					height: 649px;
 					top: -18.5%;
 					left: 28%;
+					z-index: 2;
 					background: url("../img/3.roadmap/first.png") 0 0/ 60% 60% no-repeat;
 				}
 			}
@@ -777,15 +891,17 @@ body {
 		}
 		&:nth-child(2) {
 			margin-bottom: rem(80);
-			&::before {
-				content: "";
-				position: absolute;
-				width: 667px;
-				height: 670px;
-				top: 15%;
-				left: 29%;
-				background: url("../img/3.roadmap/second.png") 0 0/ 100% 100% no-repeat;
-				z-index: 2;
+			@media (max-width: $tablet) {
+				&::before {
+					content: "";
+					position: absolute;
+					width: 667px;
+					height: 670px;
+					top: 15%;
+					left: 29%;
+					background: url("../img/3.roadmap/second.png") 0 0/ 100% 100% no-repeat;
+					z-index: 2;
+				}
 			}
 			@media (max-width: em(1650)) {
 				&::before {
@@ -811,15 +927,17 @@ body {
 		}
 		&:nth-child(3) {
 			margin-bottom: rem(230);
-			&::before {
-				content: "";
-				position: absolute;
-				width: 691px;
-				height: 680px;
-				top: 41.5%;
-				left: 13.5%;
-				background: url("../img/3.roadmap/third.png") 0 0/ 100% 100% no-repeat;
-				z-index: 2;
+			@media (max-width: $tablet) {
+				&::before {
+					content: "";
+					position: absolute;
+					width: 691px;
+					height: 680px;
+					top: 41.5%;
+					left: 13.5%;
+					background: url("../img/3.roadmap/third.png") 0 0/ 100% 100% no-repeat;
+					z-index: 2;
+				}
 			}
 			@media (max-width: $mobile) {
 				margin-bottom: rem(100);
@@ -838,15 +956,17 @@ body {
 			}
 		}
 		&:nth-child(4) {
-			&::before {
-				content: "";
-				position: absolute;
-				width: 713px;
-				height: 728px;
-				top: 67%;
-				left: 23%;
-				background: url("../img/3.roadmap/forth.png") 0 0/ 100% 100% no-repeat;
-				z-index: 2;
+			@media (max-width: $tablet) {
+				&::before {
+					content: "";
+					position: absolute;
+					width: 713px;
+					height: 728px;
+					top: 67%;
+					left: 23%;
+					background: url("../img/3.roadmap/forth.png") 0 0/ 100% 100% no-repeat;
+					z-index: 2;
+				}
 			}
 			@media (max-width: em(1650)) {
 				&::before {
@@ -1571,18 +1691,17 @@ body {
 		@media (max-width: $pc) {
 			margin-top: rem(-100);
 		}
-		@media (max-width: em(1450)){
-		top: -200px;
-			
+		@media (max-width: em(1450)) {
+			top: -200px;
 		}
-		@media (max-width:$tablet){
-		top: -160px;
+		@media (max-width: $tablet) {
+			top: -160px;
 		}
 		@media (max-width: $mobile) {
 			margin-top: rem(-30);
-		top: -140px;
+			top: -140px;
 		}
-		@media (max-width:$mobileSmall){
+		@media (max-width: $mobileSmall) {
 			top: -90px;
 		}
 		.market__body {
@@ -1593,7 +1712,7 @@ body {
 			top: 0;
 			left: 0;
 			font-family: Kanit;
-			transform: rotate(7.0deg);
+			transform: rotate(7deg);
 		}
 		.market__bottom {
 			background: #000;
@@ -2288,6 +2407,11 @@ body {
 			border-radius: 18px;
 			width: 48px;
 			height: 48px;
+			background: #00dade00;
+			transition: all 0.3s ease 0s;
+			&:hover {
+				background: #00dadee3;
+			}
 			@media (max-width: $mobileSmall) {
 				width: 40px;
 				height: 40px;
@@ -2324,20 +2448,17 @@ body {
 	}
 	@media (max-width: $pc) {
 		padding: rem(500) rem(0) rem(110) rem(0);
-
 	}
-	@media (max-width: em(1450)){
+	@media (max-width: em(1450)) {
 		padding: rem(300) rem(0) rem(110) rem(0);
 
 		background: url("../img/9.faq/curve.png") 0 -550px/100% 80% no-repeat;
 	}
 	@media (max-width: $mobile) {
 		padding: rem(150) rem(0) rem(60) rem(0);
-
 	}
-	@media (max-width:$mobileSmall){
+	@media (max-width: $mobileSmall) {
 		padding: rem(100) rem(0) rem(60) rem(0);
-		  
 	}
 	@media (max-width: $tablet) and (orientation: landscape) {
 		padding: rem(60) rem(0);
@@ -2355,10 +2476,10 @@ body {
 		padding: rem(4);
 		-webkit-clip-path: polygon(8% 0, 80% 0%, 100% 0, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0 6%);
 		clip-path: polygon(8% 0, 80% 0%, 100% 0, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0 6%);
-		@media (max-width: em(1400)){
+		@media (max-width: em(1400)) {
 			margin: rem(0) rem(20);
 		}
-		@media (max-width:$mobileSmall){
+		@media (max-width: $mobileSmall) {
 			margin: rem(0) rem(10);
 			-webkit-clip-path: polygon(8% 0, 80% 0%, 100% 0, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0 3%);
 			clip-path: polygon(8% 0, 80% 0%, 100% 0, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0 3%);
@@ -2371,7 +2492,7 @@ body {
 		-webkit-clip-path: polygon(8% 0, 80% 0%, 100% 0, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0 6%);
 		clip-path: polygon(8% 0, 80% 0%, 100% 0, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0 6%);
 		position: relative;
-		background: #18072d url('../img/9.faq/2.png') 100% 100% no-repeat;
+		background: #18072d url("../img/9.faq/2.png") 100% 100% no-repeat;
 		&::before {
 			content: "";
 			position: absolute;
@@ -2381,13 +2502,13 @@ body {
 			left: 0;
 			background: url("../img/9.faq/1.png") 0 0 no-repeat;
 		}
-		@media (max-width:$tablet){
-		padding: rem(60) rem(50) rem(60) rem(60);
+		@media (max-width: $tablet) {
+			padding: rem(60) rem(50) rem(60) rem(60);
 		}
-		@media (max-width:$mobile){
+		@media (max-width: $mobile) {
 			padding: rem(40) rem(30) rem(30) rem(30);
 		}
-		@media (max-width:$mobileSmall){
+		@media (max-width: $mobileSmall) {
 			padding: rem(30) rem(10) rem(20) rem(20);
 			-webkit-clip-path: polygon(8% 0, 80% 0%, 100% 0, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0 3%);
 			clip-path: polygon(8% 0, 80% 0%, 100% 0, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0 3%);
@@ -2397,13 +2518,13 @@ body {
 	&__title {
 		text-align: center;
 		margin-bottom: rem(85);
-		@media (max-width:$tablet){
-		margin-bottom: rem(60);
+		@media (max-width: $tablet) {
+			margin-bottom: rem(60);
 		}
-		@media (max-width:$mobile){
+		@media (max-width: $mobile) {
 			margin-bottom: rem(40);
 		}
-		@media (max-width:$mobileSmall){
+		@media (max-width: $mobileSmall) {
 			margin-bottom: rem(20);
 		}
 	}
@@ -2429,31 +2550,31 @@ body {
 			.spoller__btn._active::after {
 				transform: rotate(0deg);
 			}
-			@media (max-width:$tablet){
+			@media (max-width: $tablet) {
 				.spoller__btn::before,
-			.spoller__btn::after {
-				content: "";
-				position: absolute;
-				width: 20px;
-				height: 3px;
-				right: 10px;
-				top: 25px;
-				background-color: #fff;
-				transition: transform 0.3s ease 0s;
+				.spoller__btn::after {
+					content: "";
+					position: absolute;
+					width: 20px;
+					height: 3px;
+					right: 10px;
+					top: 25px;
+					background-color: #fff;
+					transition: transform 0.3s ease 0s;
+				}
 			}
-			}
-			@media (max-width:$mobile){
+			@media (max-width: $mobile) {
 				.spoller__btn::before,
-			.spoller__btn::after {
-				content: "";
-				position: absolute;
-				width: 20px;
-				height: 3px;
-				right: 5px;
-				top: 25px;
-				background-color: #fff;
-				transition: transform 0.3s ease 0s;
-			}
+				.spoller__btn::after {
+					content: "";
+					position: absolute;
+					width: 20px;
+					height: 3px;
+					right: 5px;
+					top: 25px;
+					background-color: #fff;
+					transition: transform 0.3s ease 0s;
+				}
 			}
 		}
 
@@ -2474,16 +2595,16 @@ body {
 			text-transform: uppercase;
 			border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 			margin-bottom: rem(15);
-			@media (max-width:$tablet){
-			font-size: rem(24);
+			@media (max-width: $tablet) {
+				font-size: rem(24);
 			}
-			@media (max-width:$mobile){
-			font-size: rem(22);
-			padding: rem(10) rem(50) rem(30) rem(10);
+			@media (max-width: $mobile) {
+				font-size: rem(22);
+				padding: rem(10) rem(50) rem(30) rem(10);
 			}
-			@media (max-width:$mobileSmall){
-			font-size: rem(18);
-			padding: rem(10) rem(35) rem(15) rem(10);
+			@media (max-width: $mobileSmall) {
+				font-size: rem(18);
+				padding: rem(10) rem(35) rem(15) rem(10);
 			}
 		}
 
@@ -2494,22 +2615,373 @@ body {
 			line-height: 160%;
 			margin-bottom: rem(50);
 			padding-left: rem(10);
-			@media (max-width:$tablet){
-			font-size: rem(20);
+			@media (max-width: $tablet) {
+				font-size: rem(20);
 			}
-			@media (max-width:$mobile){
-			font-size: rem(18);
-			line-height: 140%;
-			margin-bottom: rem(30);
+			@media (max-width: $mobile) {
+				font-size: rem(18);
+				line-height: 140%;
+				margin-bottom: rem(30);
 			}
-			@media (max-width:$mobileSmall){
-			font-size: rem(14);
-			margin-bottom: rem(15);
+			@media (max-width: $mobileSmall) {
+				font-size: rem(14);
+				margin-bottom: rem(15);
 			}
 		}
 	}
 }
-.swiper {
-	width: 600px;
-	height: 300px;
+.media {
+	position: relative;
+	padding: rem(110) rem(0);
+	background: url("../img/10.media/bg.png") 0 0 no-repeat;
+	&::before {
+		content: "";
+		position: absolute;
+		width: 1027px;
+		height: 1274px;
+		top: 0;
+		left: 0;
+		background: url("../img/10.media/1.png") 0 0 no-repeat;
+	}
+	&::after {
+		content: "";
+		position: absolute;
+		width: 1089px;
+		height: 1411px;
+		top: 0;
+		right: 0;
+		background: url("../img/10.media/3.png") 0 0 no-repeat;
+	}
+	@media (max-width: $pc) {
+		padding: rem(90) rem(0);
+	}
+	@media (max-width: em(1250)) {
+		&::after {
+			width: 0px;
+			height: 0px;
+		}
+		&::before {
+			width: 0px;
+			height: 0px;
+		}
+	}
+	@media (max-width: $mobile) {
+		padding: rem(60) rem(0);
+	}
+	@media (max-width: $tablet) and (orientation: landscape) {
+		padding: rem(60) rem(0);
+	}
+	&__container {
+		position: relative;
+		z-index: 3;
+		&::before {
+			content: "";
+			position: absolute;
+			width: 978px;
+			height: 1026px;
+			top: -20%;
+			right: 50%;
+			transform: translate(50%, 0px);
+			background: url("../img/10.media/2.png") 0 0 no-repeat;
+		}
+	}
+
+	&__body {
+		position: relative;
+		z-index: 4;
+		max-width: rem(1250);
+		margin: 0px auto;
+	}
+	&__swiper {
+	}
+	&__title {
+		text-align: center;
+		margin-bottom: rem(80);
+		@media (max-width: $mobile) {
+			margin-bottom: rem(50);
+		}
+		@media (max-width: $mobileSmall) {
+			margin-bottom: rem(20);
+		}
+	}
+	.swiper-wrapper {
+		@media (min-width: $mobile) {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+		}
+		@media (max-width: em(1220)) {
+			justify-content: center;
+			row-gap: 40px;
+		}
+		@media (max-width: $mobile) {
+			justify-content: stretch;
+			row-gap: 0px;
+			padding: rem(20) rem(0) rem(20) rem(0);
+		}
+	}
+	.swiper-slide {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 400px;
+		.media__link {
+			display: inline-block;
+			position: relative;
+			img {
+				max-width: 100%;
+			}
+			&_1 {
+				&::before {
+					content: "";
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+					opacity: 0;
+					transition: all 0.3s ease 0s;
+					background: url("../img/10.media/tw/twithover.png") 0 0 no-repeat;
+				}
+			}
+			&_2 {
+				&::before {
+					content: "";
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+					opacity: 0;
+					transition: all 0.3s ease 0s;
+					background: url("../img/10.media/tel/telhover.png") 0 0 no-repeat;
+				}
+				&:hover::before {
+					opacity: 1;
+					transition: all 0.3s ease 0s;
+				}
+			}
+			&_3 {
+				&::before {
+					content: "";
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+					opacity: 0;
+					transition: all 0.3s ease 0s;
+					background: url("../img/10.media/you/youhov.png") 0 0 no-repeat;
+				}
+			}
+			&_4 {
+				&::before {
+					content: "";
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+					opacity: 0;
+					transition: all 0.3s ease 0s;
+					background: url("../img/10.media/disc/dishover.png") 0 0 no-repeat;
+				}
+			}
+			@media (min-width: $mobile) {
+				&:hover::before {
+					opacity: 1;
+					transition: all 0.3s ease 0s;
+				}
+			}
+		}
+		@media (max-width: em(1220)) {
+			flex: 0 0 50%;
+		}
+		@media (max-width: $mobile) {
+			flex: 0 0 auto;
+			text-align: center;
+		}
+		@media (max-width: em(320)) {
+			min-height: 350px;
+		}
+	}
+
+	.swiper-button-prev {
+		@media (max-width: $mobile) {
+			background: #ffffff5b;
+			width: 50px !important;
+			height: 50px !important;
+			border-radius: 50%;
+			&:active {
+				background: #ffffff9c;
+			}
+		}
+	}
+	.swiper-button-next {
+		@media (max-width: $mobile) {
+			background: #ffffff5b;
+			width: 50px !important;
+			height: 50px !important;
+			border-radius: 50%;
+			&:active {
+				background: #ffffff9c;
+			}
+		}
+	}
+	.swiper-button-prev::after {
+		@media (max-width: $mobile) {
+			color: #8c00ff;
+			font-size: 30px !important;
+		}
+	}
+	.swiper-button-next::after {
+		@media (max-width: $mobile) {
+			color: #8c00ff;
+			font-size: 30px !important;
+		}
+	}
+}
+.footer {
+	border-top: 1px solid rgba(255, 255, 255, 0.6);
+	background: #18072d url("../img/10.media/footerbg.png") 50% 100% / cover no-repeat;
+	position: relative;
+	z-index: 50;
+	&__body {
+	}
+
+	&__row {
+		display: flex;
+		min-height: 288px;
+		@media (max-width: $mobileSmall) {
+			flex-direction: column;
+		}
+	}
+
+	&__column {
+		&_1 {
+			border-right: 1px solid rgba(255, 255, 255, 0.6);
+			padding: rem(80) rem(0) rem(0) rem(80);
+			flex: 0 0 33%;
+			@media (max-width: $pc) {
+				padding: rem(80) rem(0) rem(0) rem(50);
+				flex: 0 0 26%;
+			}
+			@media (max-width: $tablet) {
+				padding: rem(80) rem(15) rem(0) rem(50);
+			}
+			@media (max-width: $mobile) {
+				padding: rem(50) rem(20) rem(0) rem(30);
+			}
+			@media (max-width: $mobileSmall) {
+				padding: rem(30) rem(30) rem(30) rem(30);
+				border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+			}
+		}
+		&_2 {
+			@media (max-width: $tablet) {
+				display: none;
+			}
+		}
+		&_3 {
+			flex: 1 1 auto;
+			border-left: 1px solid rgba(255, 255, 255, 0.6);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			@media (max-width: $tablet) {
+				justify-content: stretch;
+			}
+			@media (max-width: $mobileSmall) {
+				border-left: 0px solid rgba(255, 255, 255, 0.6);
+			}
+		}
+	}
+
+	&__item {
+		&_1 {
+			@media (max-width: $mobileSmall) {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+		}
+		&_3 {
+			width: 100%;
+			text-align: center;
+			@media (max-width: $tablet) {
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+			}
+		}
+	}
+
+	&__logo {
+		display: inline-block;
+		margin-bottom: rem(40);
+		@media (max-width: $mobileSmall) {
+			margin-bottom: rem(0);
+			margin-right: rem(15);
+		}
+	}
+
+	&__text {
+		max-width: rem(147);
+		font-size: rem(18);
+		line-height: 140%;
+		@media (max-width: $mobileSmall) {
+			font-size: rem(14);
+		}
+	}
+
+	&__contact {
+		display: block;
+		text-align: center;
+		font-size: rem(18);
+		font-weight: 500;
+		line-height: 140%;
+		padding: rem(72) rem(62);
+		text-transform: uppercase;
+		color: #fff;
+		&:nth-child(1) {
+			border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+		}
+		&_hid {
+			display: none;
+		}
+		@media (max-width: $pc) {
+			padding: rem(60) rem(50);
+		}
+		@media (max-width: $tablet) {
+			&_hid {
+				display: inline-block;
+			}
+		}
+		@media (max-width: $mobileSmall) {
+			padding: rem(30) rem(0);
+			font-size: rem(16);
+		}
+	}
+
+	&__mail {
+		color: #fff;
+		font-family: Roboto;
+		font-size: rem(70);
+		font-weight: 700;
+		line-height: 126%;
+		@media (max-width: $pc) {
+			font-size: rem(40);
+		}
+		@media (max-width: $tablet) {
+			font-size: rem(40);
+			padding: rem(60) rem(0);
+		}
+		@media (max-width: $mobile) {
+			font-size: rem(24);
+		}
+		@media (max-width: $mobileSmall) {
+			font-size: rem(20);
+			padding: rem(30) rem(0);
+		}
+	}
 }

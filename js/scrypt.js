@@ -1,5 +1,30 @@
 "use strict"
+//===animation
+AOS.init();
+//==========
+//======gototopbtn
+const showOnPx = 100;
+const backToTopButton = document.querySelector(".back-to-top")
 
+const scrollContainer = () => {
+	return document.documentElement || document.body;
+};
+
+document.addEventListener("scroll", () => {
+	if (scrollContainer().scrollTop > showOnPx) {
+		backToTopButton.classList.remove("hidden")
+	} else {
+		backToTopButton.classList.add("hidden")
+	}
+})
+const goToTop = () => {
+	document.body.scrollIntoView({
+		behavior: "smooth",
+	});
+};
+backToTopButton.addEventListener("click", goToTop)
+//=================
+//======burger+goto
 document.addEventListener("DOMContentLoaded", function () {
 	var burger = document.querySelector('.menu__icon');
 	var menu = document.querySelector('.menu__body');
@@ -24,13 +49,6 @@ function documentActions(e) {
 	var body = document.querySelector('body');
 	var herobody = document.querySelector('.hero__body');
 
-	// burger.addEventListener('click', function (event) {
-	// 	burger.classList.toggle('active');
-	// 	menu.classList.toggle('active');
-	// 	herobody.classList.toggle('active');
-	// 	body.classList.toggle('lock');
-	// });
-
 	if (targetElement.closest('[data-goto]')) {
 		burger.classList.contains('active') ?
 			burger.classList.remove('active') : null;
@@ -54,9 +72,9 @@ function documentActions(e) {
 		e.preventDefault();
 	}
 }
+//==========
 
-
-
+//=====ibg=======
 function ibg() {
 
 	let ibg = document.querySelectorAll(".ibg");
@@ -68,9 +86,10 @@ function ibg() {
 }
 
 ibg();
+//============
 
 
-// SPOLLERS
+//====SPOLLERS
 const spollersArray = document.querySelectorAll('[data-spollers]');
 if (spollersArray.length > 0) {
 	// Получение обычных слойлеров
@@ -220,13 +239,34 @@ if (spollersArray.length > 0) {
 		}
 	}
 }
+//=======
+//======swipermaxwidth======
 
+// Получаем ссылку на элемент, к которому нужно добавить класс
+const element = document.querySelector('.media__swiper');
+
+// Функция для проверки ширины экрана и добавления класса
+function checkScreenWidth() {
+	if (window.innerWidth < 767) {
+		element.classList.add('swiper');
+	} else {
+		element.classList.remove('swiper');
+	}
+}
+
+// Вызываем функцию при загрузке страницы и при изменении размера окна
+checkScreenWidth();
+window.addEventListener('resize', checkScreenWidth);
+//=========================
+
+//======swiper
 
 const swiper = new Swiper('.swiper', {
 	// Optional parameters
-	direction: 'vertical',
-	loop: true,
-
+	direction: 'horizontal',
+	// loop: true,
+	autoHeight: true,
+	// slidesPerView:2,
 	// If we need pagination
 	pagination: {
 		el: '.swiper-pagination',
@@ -240,6 +280,18 @@ const swiper = new Swiper('.swiper', {
 
 	// And if we need scrollbar
 	scrollbar: {
-		el: '.swiper-scrollbar',
+		// el: '.swiper-scrollbar',
 	},
+
+	// breakpoints: {
+	// 	478: {
+	// 		slidesPerView: 2,
+	// 	},
+	// },
 });
+//===========
+
+//======paralax
+var scene = document.getElementById('scene');
+var parallaxInstance = new Parallax(scene);
+//=============
