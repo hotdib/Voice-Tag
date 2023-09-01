@@ -234,18 +234,18 @@ body {
 		}
 		@media (max-width: $tablet) and (orientation: landscape) {
 			font-size: rem(16);
-			width: 180px;
-			height: 50px;
+			min-width: 180px;
+			min-height: 50px;
 		}
 		@media (max-width: $mobile) {
 			font-size: rem(16);
-			width: 188px;
-			height: 54px;
+			min-width: 188px;
+			min-height: 54px;
 		}
 		@media (max-width: $mobile) and (orientation: landscape) {
 			font-size: rem(14);
-			width: 150px;
-			height: 45px;
+			min-width: 150px;
+			min-height: 45px;
 		}
 	}
 }
@@ -302,8 +302,8 @@ body {
 		position: fixed;
 		right: 2rem;
 		bottom: 2rem;
-		width: 32px;
-		height: 32px;
+		width: 64px;
+		height: 64px;
 		border-radius: 100%;
 		background: #9310b4d3;
 		// padding: 16px;
@@ -314,6 +314,12 @@ body {
 		box-shadow: 0px 2px 17px 2px rgba(191, 58, 255, 0.4);
 		&.hidden:hover {
 			opacity: 0%;
+		}
+		@media (max-width: $mobileSmall) {
+			width: 50px;
+			height: 50px;
+			right: 1rem;
+			bottom: 1rem;
 		}
 	}
 	.hidden {
@@ -611,6 +617,10 @@ body {
 				display: block;
 			}
 		}
+	}
+	&__btn {
+		display: flex;
+		align-items: center;
 	}
 }
 .about {
@@ -2080,6 +2090,8 @@ body {
 		}
 
 		&__btn {
+			display: flex;
+			align-items: center;
 		}
 
 		&__right {
@@ -2165,6 +2177,8 @@ body {
 		}
 
 		&__btn {
+			display: flex;
+			align-items: center;
 		}
 
 		&__right {
@@ -2857,7 +2871,6 @@ body {
 
 	&__row {
 		display: flex;
-		min-height: 288px;
 		@media (max-width: $mobileSmall) {
 			flex-direction: column;
 		}
@@ -2866,21 +2879,24 @@ body {
 	&__column {
 		&_1 {
 			border-right: 1px solid rgba(255, 255, 255, 0.6);
-			padding: rem(80) rem(0) rem(0) rem(80);
+			padding: rem(0) rem(0) rem(0) rem(80);
 			flex: 0 0 33%;
+			display: flex;
+			align-items: center;
 			@media (max-width: $pc) {
-				padding: rem(80) rem(0) rem(0) rem(50);
+				padding: rem(0) rem(0) rem(0) rem(50);
 				flex: 0 0 26%;
 			}
 			@media (max-width: $tablet) {
-				padding: rem(80) rem(15) rem(0) rem(50);
+				padding: rem(0) rem(15) rem(0) rem(50);
 			}
 			@media (max-width: $mobile) {
-				padding: rem(50) rem(20) rem(0) rem(30);
+				padding: rem(0) rem(20) rem(0) rem(30);
 			}
 			@media (max-width: $mobileSmall) {
-				padding: rem(30) rem(30) rem(30) rem(30);
+				padding: rem(20);
 				border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+				justify-content: center;
 			}
 		}
 		&_2 {
@@ -2905,10 +2921,14 @@ body {
 
 	&__item {
 		&_1 {
+			@media (max-width: $pc) {
+				padding: rem(20) rem(0);
+			}
 			@media (max-width: $mobileSmall) {
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
+				padding: rem(0) rem(0);
 			}
 		}
 		&_3 {
@@ -2925,9 +2945,18 @@ body {
 	&__logo {
 		display: inline-block;
 		margin-bottom: rem(40);
+		@media (max-width: $mobile) {
+			margin-bottom: rem(20);
+			img {
+				max-width: 45px;
+			}
+		}
 		@media (max-width: $mobileSmall) {
 			margin-bottom: rem(0);
 			margin-right: rem(15);
+			img {
+				max-width: 38px;
+			}
 		}
 	}
 
@@ -2946,7 +2975,7 @@ body {
 		font-size: rem(18);
 		font-weight: 500;
 		line-height: 140%;
-		padding: rem(72) rem(62);
+		padding: rem(40);
 		text-transform: uppercase;
 		color: #fff;
 		&:nth-child(1) {
@@ -2956,7 +2985,7 @@ body {
 			display: none;
 		}
 		@media (max-width: $pc) {
-			padding: rem(60) rem(50);
+			padding: rem(30);
 		}
 		@media (max-width: $tablet) {
 			&_hid {
@@ -2980,7 +3009,7 @@ body {
 		}
 		@media (max-width: $tablet) {
 			font-size: rem(40);
-			padding: rem(60) rem(0);
+			padding: rem(30) rem(0);
 		}
 		@media (max-width: $mobile) {
 			font-size: rem(24);
