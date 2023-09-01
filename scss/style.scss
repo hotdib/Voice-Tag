@@ -200,8 +200,8 @@ body {
 .btn {
 	&__link {
 		color: #fff;
-		width: 209px;
-		height: 60px;
+		min-width: 209px;
+		min-height: 60px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -210,6 +210,8 @@ body {
 		overflow: hidden;
 		position: relative;
 		transition: all 0.5s ease 0s;
+		padding: rem(15) rem(20);
+		line-height: 130%;
 		&::after {
 			background: #fff;
 			content: "";
@@ -300,9 +302,11 @@ body {
 		position: fixed;
 		right: 2rem;
 		bottom: 2rem;
+		width: 32px;
+		height: 32px;
 		border-radius: 100%;
 		background: #9310b4d3;
-		padding: 1rem;
+		// padding: 16px;
 		border: none;
 		cursor: pointer;
 		opacity: 80%;
@@ -316,8 +320,8 @@ body {
 		opacity: 0%;
 	}
 	.back-to-top-icon {
-		width: 2rem;
-		height: 2rem;
+		max-width: 32px;
+		max-height: 32px;
 		path {
 			fill: #7efcfc;
 		}
@@ -434,6 +438,7 @@ body {
 				&.active {
 					left: 0%;
 					opacity: 1;
+					z-index: 2;
 					@media (max-width: em(390)) {
 						background: url("../img/1.hero/herobg.webp") 50% 50% / cover no-repeat;
 					}

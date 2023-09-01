@@ -275,8 +275,8 @@ body {
 
 .btn__link {
   color: #fff;
-  width: 209px;
-  height: 60px;
+  min-width: 209px;
+  min-height: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -292,6 +292,8 @@ body {
   position: relative;
   -webkit-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s;
+  padding: 0.9375rem 1.25rem;
+  line-height: 130%;
 }
 .btn__link::after {
   background: #fff;
@@ -393,9 +395,10 @@ body {
   position: fixed;
   right: 2rem;
   bottom: 2rem;
+  width: 32px;
+  height: 32px;
   border-radius: 100%;
   background: rgba(147, 16, 180, 0.8274509804);
-  padding: 1rem;
   border: none;
   cursor: pointer;
   opacity: 80%;
@@ -411,8 +414,8 @@ body {
   opacity: 0%;
 }
 .header .back-to-top-icon {
-  width: 2rem;
-  height: 2rem;
+  max-width: 32px;
+  max-height: 32px;
 }
 .header .back-to-top-icon path {
   fill: #7efcfc;
@@ -547,6 +550,7 @@ body {
   .header .menu__body.active {
     left: 0%;
     opacity: 1;
+    z-index: 2;
   }
 }
 @media (max-width: 63.9375em) and (max-width: 24.375em) {
