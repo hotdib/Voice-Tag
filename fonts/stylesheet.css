@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Heading Now Trial 14';
+    src: url('HeadingNowTrial-16Bold.eot');
+    src: url('HeadingNowTrial-16Bold.eot?#iefix') format('embedded-opentype'),
+        url('HeadingNowTrial-16Bold.woff2') format('woff2'),
+        url('HeadingNowTrial-16Bold.woff') format('woff'),
+        url('HeadingNowTrial-16Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Heading Now Trial 15';
+    src: url('HeadingNowTrial-15Medium.eot');
+    src: url('HeadingNowTrial-15Medium.eot?#iefix') format('embedded-opentype'),
+        url('HeadingNowTrial-15Medium.woff2') format('woff2'),
+        url('HeadingNowTrial-15Medium.woff') format('woff'),
+        url('HeadingNowTrial-15Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+

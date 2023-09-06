@@ -12,9 +12,9 @@ const scrollContainer = () => {
 
 document.addEventListener("scroll", () => {
 	if (scrollContainer().scrollTop > showOnPx) {
-		backToTopButton.classList.remove("hidden")
+		backToTopButton.classList.remove("back-to-top_hidden")
 	} else {
-		backToTopButton.classList.add("hidden")
+		backToTopButton.classList.add("back-to-top_hidden")
 	}
 })
 const goToTop = () => {
@@ -139,9 +139,6 @@ if (spollersArray.length > 0) {
 	}
 
 
-
-
-
 	function setSpollerAction(e) {
 		const el = e.target;
 		if (el.hasAttribute('data-spoller') || el.closest('[data-spoller]')) {
@@ -158,7 +155,6 @@ if (spollersArray.length > 0) {
 			e.preventDefault();
 		}
 	}
-
 
 
 	function hideSpollersBody(spollersBlock) {

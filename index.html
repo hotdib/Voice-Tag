@@ -11,12 +11,18 @@
 	<meta name="copyright" content="">
 	<meta name="Address" content="1601 S California Ave" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
 	<link rel="stylesheet" href="css/style.css">
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-	<link rel="stylesheet" media="(max-width: 767px)"
-		href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-	<title>Crafty Metaverse</title>
+	<!-- <link rel="stylesheet" media="(max-width: 767px)"
+		href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" /> -->
+	<title>Voice Tag</title>
 </head>
 
 <body>
@@ -27,552 +33,99 @@
 					<div class="header__logo">
 						<img src="img/0.icons/logo.svg" alt="">
 					</div>
-					<div class="header__menu menu">
-						<!-- h-body -->
-						<button class="menu__icon icon-menu" type="button">
-							<!-- h-burger -->
-							<span></span>
+					<div class="header__content">
+						<div class="header__menu menu">
+							<!-- h-body -->
+							<button class="menu__icon icon-menu" type="button">
+								<!-- h-burger -->
+								<span></span>
+							</button>
+							<nav class="menu__body">
+								<!-- h-menu -->
+								<ul class="menu__list">
+									<li class="menu__item">
+										<a data-goto=".hero" href="#" class="menu__link">
+											<span>About us</span>
+										</a>
+									</li>
+									<li class="menu__item">
+										<a data-goto=".about" href="#" class="menu__link">
+											<span>Tags Samples</span>
+										</a>
+									</li>
+									<li class="menu__item">
+										<a data-goto=".roadmap" href="#" class="menu__link">
+											<span>Pricing</span>
+										</a>
+									</li>
+									<li class="menu__item">
+										<a data-goto=".brands" href="#" class="menu__link">
+											<span>Reviews</span>
+										</a>
+									</li>
+									<li class="menu__item">
+										<a data-goto=".team" href="#" class="menu__link">
+											<span>FAQ</span>
+										</a>
+									</li>
+									<li class="menu__item">
+										<a data-goto=".faq" href="#" class="menu__link">
+											<span>Contacts</span>
+										</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+						<button class="header__questions questions">
+							<div class="questions__icon">
+								<img src="img/0.icons/question.svg" alt="">
+							</div>
 						</button>
-						<nav class="menu__body">
-							<!-- h-menu -->
-							<ul class="menu__list">
-								<li class="menu__item"><a data-goto=".hero" href="#" class="menu__link"><span>Home</span></a>
-								</li>
-								<li class="menu__item"><a data-goto=".about" href="#" class="menu__link"><span>About
-											Us</span></a></li>
-								<li class="menu__item"><a data-goto=".roadmap" href="#"
-										class="menu__link"><span>Roadmap</span></a></li>
-								<li class="menu__item"><a data-goto=".brands" href="#"
-										class="menu__link"><span>Brands</span></a></li>
-								<li class="menu__item"><a data-goto=".team" href="#" class="menu__link"><span>Team</span></a>
-								</li>
-								<li class="menu__item"><a data-goto=".faq" href="#" class="menu__link"><span>FAQ</span></a></li>
-								<li class="menu__item"><a data-goto=".media" href="#" class="menu__link"><span>Contact
-											us</span></a></li>
-							</ul>
-						</nav>
+						<div class="header__btn btn-2">
+							<a href="#" class="btn-2__link">Get your tag</a>
+						</div>
 					</div>
 				</div>
 			</div>
-			<button class="back-to-top hidden">
-				<svg class="back-to-top-icon" width="16" height="34" viewBox="0 0 16 34" fill="none"
+		</header>
+		<main class="page">
+			<button class="back-to-top back-to-top_hidden">
+				<svg class="back-to-top__icon" width="16" height="34" viewBox="0 0 16 34" fill="none"
 					xmlns="http://www.w3.org/2000/svg">
 					<path
 						d="M8.70711 1.28801C8.31658 0.897488 7.68342 0.897488 7.2929 1.28801L0.928934 7.65197C0.53841 8.0425 0.53841 8.67566 0.928934 9.06618C1.31946 9.45671 1.95262 9.45671 2.34315 9.06618L8 3.40933L13.6569 9.06619C14.0474 9.45671 14.6805 9.45671 15.0711 9.06619C15.4616 8.67566 15.4616 8.0425 15.0711 7.65197L8.70711 1.28801ZM9 33.9951L9 1.99512L7 1.99512L7 33.9951L9 33.9951Z"
 						fill="white" />
-				</svg></button>
-		</header>
-		<main class="page">
+				</svg>
+			</button>
 			<section class="hero">
 				<div class="hero__container container">
-					<div data-aos="fade-right" class="hero__body">
-						<div class="hero__background background">
-							<div class="hero__title title">
-								<div class="title__title">Crafty Metaverse</div>
-								<div class="title__subtitle">A SHARED, IMMERSIVE MULTI-BLOCKCHAIN BASED METAVERSE ECOSYSTEM
-								</div>
-							</div>
-							<div class="hero__btn btn">
-								<a data-goto=".media" href="#" class="btn__link">Invest Now</a>
-							</div>
+					<div class="hero__body">
+						<div class="hero__content">
+							<h1 class="hero__title">Voice <br> Tag Lab</h1>
+							<div class="hero__subtitle inner-title">The best custom voice tags online</div>
+							<div class="hero__text description-text">Voice Tag is a necessity for every music producer. We offer a wide range of voices and professional service. Brand your sound with us! Become known</div>
+						</div>
+						<div class="hero__btn btn">
+							<a href="#" class="btn__link">Get your custom tag</a>
 						</div>
 					</div>
 				</div>
-				<div class="hero__bg hero__bg_b ibg">
-					<img src="img/1.hero/Hero_cr.webp" alt="">
-				</div>
-				<div class="hero__bg hero__bg_l ibg">
-					<img src="img/1.hero/herobg.webp" alt="">
+				<div class="hero__bg ibg">
+					<img src="img/1.hero/mainbg.jpg" alt="">
 				</div>
 			</section>
-			<section class="about">
-				<div class="about__container container">
-					<div data-aos="fade-right" class="about__body">
-						<div class="about__background background">
-							<div class="about__title title">
-								<div class="title__title">Profile</div>
-								<div class="title__subtitle title__subtitle_right">About Us</div>
-							</div>
-							<div class="about__text text-common">CYou are using the old write up. We are using this now.
-								Crafty Metaverse is a multi-blockchain based virtual reality metaverse platform to develop the
-								most immersive, imaginative, and addictive gaming experiences. We are providing our gaming
-								community with the near-real-world experience while using their digital avatars. Our ecosystem
-								will be a futuristic, decentralized, and persistent 3D virtual metaverse gaming platform
-								especially for crypto enthusiasts, gamers, artists, and metaverse fans.
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="about__bg about__bg_b ibg">
-					<img src="img/2.about/Ellipse239.webp" alt="">
-				</div>
-				<div class="about__bg about__bg_l ibg">
-					<img src="img/2.about/Ellipse239small.webp" alt="">
-				</div>
-			</section>
-			<section class="roadmap">
-				<div class="roadmap__container container">
-					<div class="roadmap__body">
-						<div data-aos="fade-up" class="roadmap__title title">
-							<div class="title__title">Our Way</div>
-							<div class="title__subtitle">Roadmap</div>
-						</div>
-						<div class="roadmap__table">
-							<div class="roadmap__item roadmap__item_left">
-								<div data-aos="zoom-in" id="scene" class="roadmap__move">
-									<div data-depth="0.4" class="roadmap__move-item roadmap__move-item_1"></div>
-									<div data-depth="0.8" class="roadmap__move-item roadmap__move-item_2"></div>
-									<div data-depth="0.4" class="roadmap__move-item roadmap__move-item_3"></div>
-									<div data-depth="0.8" class="roadmap__move-item roadmap__move-item_4"></div>
-								</div>
-								<div data-aos="fade-right" class="roadmap__item-title">Q1 <br> Governance Token Launch on BSC
-									($CMETA)</div>
-								<ul data-aos="fade-up-right" class="roadmap__list">
-									<li class="roadmap__list-item"><span>Launch Date: Jan 8th, 2022 Contract Audit</span></li>
-									<li class="roadmap__list-item"><span>TechAudit Completed on Jan 21st, 2022 5k Telegram
-											members</span></li>
-									<li class="roadmap__list-item"><span>32k Telegram Members. CG and CMC listings</span></li>
-									<li class="roadmap__list-item"><span>Application Sent CEX Listings</span></li>
-									<li class="roadmap__list-item"><span>CoinsBit Listing – Feb 8th . Website Revamp</span></li>
-									<li class="roadmap__list-item"><span>Contracted UI/UX Developers</span></li>
-								</ul>
-							</div>
-							<div class="roadmap__item">
-								<div data-aos="fade-left" class="roadmap__item-title">Q2 <br> CMETA Ecosystem Begins</div>
-								<ul data-aos="fade-up-left" class="roadmap__list">
-									<li class="roadmap__list-item"><span>CMETA Staking Release</span></li>
-									<li class="roadmap__list-item"><span>SANKOFA Sidechain DEV Starts ($KOFA)</span></li>
-									<li class="roadmap__list-item"><span>Bridge BSC, ETH Smart Contracts to Solana
-											Contract</span></li>
-									<li class="roadmap__list-item"><span>10K Telegram Members</span></li>
-									<li class="roadmap__list-item"><span>10K Twitter Followers</span></li>
-								</ul>
-							</div>
-							<div class="roadmap__item roadmap__item_left">
-								<div data-aos="fade-right" class="roadmap__item-title">Q3 <br> Guardians of Lost Worlds Released
-									to Public (PC)</div>
-								<ul data-aos="fade-up-right" class="roadmap__list">
-									<li class="roadmap__list-item"><span>Implement In-Game Staking ($KOFA Rewards)</span></li>
-									<li class="roadmap__list-item"><span>In-Game NFT Released</span></li>
-									<li class="roadmap__list-item"><span>Fiat On-Ramp Added</span></li>
-								</ul>
-							</div>
-							<div class="roadmap__item">
-								<div data-aos="fade-left" class="roadmap__item-title">Q4 <br> SANKOFA Mainnet Launch</div>
-								<ul data-aos="fade-up-left" class="roadmap__list">
-									<li class="roadmap__list-item"><span>Migrate Guardians of Lost Worlds to SANKOFA
-											Sidechain</span></li>
-									<li class="roadmap__list-item"><span>Multi-Network Implementation</span></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
 
-			</section>
-			<section class="brands">
-				<div class="brands__container container">
-					<div class="brands__body">
-						<div data-aos="fade-up" class="brands__title title">
-							<div class="title__title">No problem</div>
-							<div class="title__subtitle">Our brands</div>
-						</div>
-						<div data-aos="fade-down" class="brands__row">
-							<div class="brands__column">
-								<div class="brands__item item-row">
-									<div class="item-row__img item-row__img_star">
-										<img src="img/4.brands/1.png" alt="">
-									</div>
-									<div class="item-row__title item-row__title_left">Guardians of Lost Worlds (P2E Game)</div>
-									<div class="item-row__text">Crafty Metaverse will soon launch Guardians of Lost Worlds, the
-										first cross-chain P2E gaming experience. Our game will be available on multiple
-										blockchains and then eventually on our side chain (SANKOFA). This will give users a
-										seamless gameplay experience with little to no gas fees that allow users to focus on the
-										game rather than worrying about losing their returns.</div>
-								</div>
-							</div>
-							<div class="brands__column">
-								<div class="brands__item item-row">
-									<div class="item-row__img">
-										<img src="img/4.brands/2.png" alt="">
-									</div>
-									<div class="item-row__title">Crafty Metaverse Ecosystem</div>
-									<div class="item-row__text">Crafty Metaverse presents a Virtual Arts Studio where you can
-										enhance your creativity by creating digital arts inspired by your game. A virtual
-										marketplace to allow the users to trade and stake our $CMETA token and their NFTs.
-										Negotiate with the digital avatars of other users to sell your NFTs at the best prices and
-										generate passive income while playing</div>
-								</div>
-							</div>
-							<div class="brands__column">
-								<div class="brands__item item-row">
-									<div class="item-row__img">
-										<img src="img/4.brands/3.png" alt="">
-									</div>
-									<div class="item-row__title item-row__title_right">SANKOFA</div>
-									<div class="item-row__text">SANKOFA($KOFA) is an Ethereum sidechain that will be created with
-										Guardians of Lost Worlds community in mind. LYQUID, the team behind Guardians of Lost
-										Worlds, will build a reliable, fast and cheap network that could cater to the demands of
-										the game.</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="resources">
-				<div class="resources__container container">
-					<div class="resources__body">
-						<div data-aos="fade-up" class="resources__title title">
-							<div class="title__title">What we do</div>
-							<div class="title__subtitle">Our resources</div>
-						</div>
-						<div data-aos="fade-down" class="resources__row">
-							<div class="resources__background background">
-								<div class="resources__logo">
-									<img src="img/5.resources/Vector.svg" alt="">
-								</div>
-								<div class="resources__label">About toKen $Cmeta</div>
-								<div class="resources__text text-common">CMETA, a BSC-based cryptocurrency token will be the
-									sole governance token on
-									the platform. This means that every single transaction in the Crafty Metaverse space will be
-									conducted with the $CMETA token</div>
-								<div class="resources__btn btn">
-									<a data-goto=".media" href="#" class="btn__link">Play (Coming Soon)</a>
-								</div>
-							</div>
-							<div class="resources__big-logo">
-								<div class="resources__img">
-									<img src="img/5.resources/logo.png" alt="">
-								</div>
-								<ul class="resources__list">
-									<li class="resources__item">Circulating Supply: 1,000,000,000</li>
-									<li class="resources__item">Maximum supply: 1,000,000,000</li>
-									<li class="resources__item">Tax: 10% <br> Marketing : 5% <br>
-										Development : 5%</li>
-									<li class="resources__item">Token symbol: $CMETA</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</section>
-			<section data-aos="fade-up" class="market">
-				<div class="market__body">
-					<div class="market__top">
-						<div class="market__top-text">VR GAME MARKETPLACE</div>
-					</div>
-					<div class="market__bottom">
-						<div class="market__bottom-text">CRAFTY METAVERSE CRAFTY METAVERSE CRAFTY METAVERSE</div>
-					</div>
-				</div>
-			</section>
-			<section class="game">
-				<div class="game__container container">
-					<div class="game__body">
-						<div class="game__row">
-							<div data-aos="fade-right" class="game__column game__column_png1">
-								<div class="game__item">
-									<div class="game__img">
-										<img src="img/6.game/1.png" alt="">
-									</div>
-								</div>
-							</div>
-							<div data-aos="fade-down" class="game__column game__column_text">
-								<div class="game__item">
-									<div class="game__background background background_vertical">
-										<div class="game__label label">Game</div>
-										<div class="game__text text-common">
-											<p>
-												The space will also offer avid gamers to be a part of an
-												amazing 3D gaming experience (details to be published soon).
-											</p>
-											<p>
-												Crafty Metaverse space will continuously evolve its 3D gaming space to
-												include technologies such as VR headsets, augmented reality glasses, and
-												game consoles.
-											</p>
-										</div>
-										<div class="game__btn btn">
-											<a data-goto=".media" href="#" class="btn__link">Invest Now</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div data-aos="fade-left" class="game__column game__column_png2">
-								<div class="game__item">
-									<div class="game__img">
-										<img src="img/6.game/2.png" alt="">
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="game__bg ibg ibg_r">
-					<img src="img/6.game/bg3.png" alt="">
-				</div>
-			</section>
-			<section class="explore">
-				<div class="explore__container container">
-					<div class="explore__body">
-						<div class="explore__top">
-							<div class="explore__top-row">
-								<div data-aos="fade-right" class="explore__top-text top-item background background_long">
-									<div class="top-item__left">
-										<div class="top-item__label label">Explore Now</div>
-										<div class="top-item__text text-common">Each human will control his/her own digital
-											identity in the Crafty Metaverse space. </div>
-										<div class="top-item__text-hid text-common">A virtual marketplace to allow the users to
-											trade
-											and stake our $CMETA token and their NFTs. Negotiate with the digital avatars of other
-											users to sell your NFTs at the best prices and generate passive income while playing.
-										</div>
-										<div class="top-item__btn btn">
-											<a data-goto=".media" href="#" class="btn__link">Invest Now</a>
-										</div>
-									</div>
-									<div class="top-item__right">
-										<div class="top-item__text text-common">A virtual marketplace to allow the users to trade
-											and stake our $CMETA token and their NFTs. Negotiate with the digital avatars of other
-											users to sell your NFTs at the best prices and generate passive income while playing.
-										</div>
-									</div>
-								</div>
-								<div data-aos="fade-left" class="explore__top-img">
-									<img src="img/7.explore/rightimg.png" alt="">
-								</div>
-							</div>
-						</div>
-						<div class="explore__bottom">
-							<div class="explore__bottom-bg bot-item background background_reverse">
-								<div data-aos="fade-left" class="bot-item__row">
-									<div class="bot-item__left">
-										<div class="bot-item__label label">Virtual Arts Studio</div>
-										<div class="bot-item__text-hid text-common">Virtual Arts Studio where you can enhance your
-											creativity by creating digital arts inspired by your game
-										</div>
-										<div class="bot-item__btn btn">
-											<a data-goto=".media" href="#" class="btn__link">Create</a>
-										</div>
-									</div>
-									<div class="bot-item__right">
-										<div class="bot-item__text text-common">Virtual Arts Studio where you can enhance your
-											creativity by creating digital arts inspired by your game
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="team">
-				<div class="team__container container">
-					<div class="team__body">
-						<div data-aos="fade-up" class="team__title title">
-							<div class="title__title">WHO WE ARE</div>
-							<div class="title__subtitle">Our Team</div>
-						</div>
-						<div data-aos="fade-down" class="team__row">
-							<div class="team__column team__column_1">
-								<div class="team__item card-item">
-									<div class="card-item__img">
-										<img src="img/8.team/1.png" alt="">
-									</div>
-									<div class="card-item__text">
-										<div class="card-item__position">CTO/Creative Director</div>
-										<div class="card-item__name">STAN</div>
-										<div class="card-item__web web">
-											<ul class="web__list">
-												<li class="web__item"><a href="https://de-de.facebook.com/" target="_blank"
-														class="web__link"><img src="img/8.team/facebook.svg" alt=""></a></li>
-												<li class="web__item"><a href="https://twitter.com/" target="_blank"
-														class="web__link"><img src="img/8.team/twitter.svg" alt=""></a></li>
-												<li class="web__item"><a href="https://www.instagram.com/" target="_blank"
-														class="web__link"><img src="img/8.team/instagram.svg" alt=""></a></li>
-												<li class="web__item"><a
-														href="https://de.linkedin.com/hp?src=go-pa&trk=sem-ga_campid.17342682713_asid.148803897556_crid.657308124615_kw.linkedin_d.c_tid.kwd-148086543_n.g_mt.e_geo.9042934&mcid=6935667189886640128&cid=&gclid=Cj0KCQjw9MCnBhCYARIsAB1WQVWwvE7NX9Br6T5CSd2RV5pomyj5_tKPzAPWBG9TGz1tlbGtMBsvBHcaAqzzEALw_wcB&gclsrc=aw.ds"
-														target="_blank" class="web__link"><img src="img/8.team/linkedin.svg"
-															alt=""></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="team__column team__column_2">
-								<div class="team__item card-item">
-									<div class="card-item__img">
-										<img src="img/8.team/2.png" alt="">
-									</div>
-									<div class="card-item__text">
-										<div class="card-item__position">Chief Financial Officer</div>
-										<div class="card-item__name">Kwasi</div>
-									</div>
-								</div>
-							</div>
-							<div class="team__column team__column_3">
-								<div class="team__item card-item">
-									<div class="card-item__img">
-										<img src="img/8.team/3.png" alt="">
-									</div>
-									<div class="card-item__text">
-										<div class="card-item__position">COO/Marketing Director</div>
-										<div class="card-item__name">Kwame</div>
-									</div>
-								</div>
-							</div>
-							<div class="team__column team__column_4">
-								<div class="team__item card-item">
-									<div class="card-item__img">
-										<img src="img/8.team/4.png" alt="">
-									</div>
-									<div class="card-item__text">
-										<div class="card-item__position">CEO/Developer</div>
-										<div class="card-item__name">Kojo</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="faq">
-				<div data-aos="fade-up" class="market market_small">
-					<div class="market__body">
-						<div class="market__bottom">
-							<div class="market__bottom-text">CRAFTY METAVERSE CRAFTY METAVERSE CRAFTY METAVERSE</div>
-						</div>
-					</div>
-				</div>
-				<div class="faq__container container">
-					<div class="faq__body">
-						<div class="faq__table">
-							<div data-aos="fade-up" class="faq__title title">
-								<div class="title__title">Questions</div>
-								<div class="title__subtitle">FAQ</div>
-							</div>
-							<div data-aos="fade-right" data-spollers data-one-spoller class="faq__spollers spoller">
-								<div class="spoller__item">
-									<button type="button" data-spoller class="spoller__btn _active">1. What is CMETA and which
-										tokens we
-										use?</button>
-									<div class="spoller__text">Crafty Metaverse is a blockchain-based virtual reality metaverse
-										platform focused on building a decentralized, persistent online 3D/VR environment that
-										will allow interactions among humans in the form of Avatars.</div>
-								</div>
-								<div class="spoller__item">
-									<button type="button" data-spoller class="spoller__btn">2. What is CMETA and which tokens we
-										use?</button>
-									<div class="spoller__text">Crafty Metaverse is a blockchain-based virtual reality metaverse
-										platform focused on building a decentralized, persistent online 3D/VR environment that
-										will allow interactions among humans in the form of Avatars.</div>
-								</div>
-								<div class="spoller__item">
-									<button type="button" data-spoller class="spoller__btn">3. What is CMETA and which tokens we
-										use?</button>
-									<div class="spoller__text">Crafty Metaverse is a blockchain-based virtual reality metaverse
-										platform focused on building a decentralized, persistent online 3D/VR environment that
-										will allow interactions among humans in the form of Avatars.</div>
-								</div>
-								<div class="spoller__item">
-									<button type="button" data-spoller class="spoller__btn">4. What is CMETA and which tokens we
-										use?</button>
-									<div class="spoller__text">Crafty Metaverse is a blockchain-based virtual reality metaverse
-										platform focused on building a decentralized, persistent online 3D/VR environment that
-										will allow interactions among humans in the form of Avatars.</div>
-								</div>
-								<div class="spoller__item">
-									<button type="button" data-spoller class="spoller__btn">5. What is CMETA and which tokens we
-										use?</button>
-									<div class="spoller__text">Crafty Metaverse is a blockchain-based virtual reality metaverse
-										platform focused on building a decentralized, persistent online 3D/VR environment that
-										will allow interactions among humans in the form of Avatars.</div>
-								</div>
-								<div class="spoller__item">
-									<button type="button" data-spoller class="spoller__btn">6. What is CMETA and which tokens we
-										use?</button>
-									<div class="spoller__text">Crafty Metaverse is a blockchain-based virtual reality metaverse
-										platform focused on building a decentralized, persistent online 3D/VR environment that
-										will allow interactions among humans in the form of Avatars.</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="media">
-				<div class="media__container container">
-					<div class="media__body">
-						<div data-aos="fade-up" class="media__title title">
-							<div class="title__title">Questions</div>
-							<div class="title__subtitle">Social media</div>
-						</div>
-						<!-- Slider main container -->
-						<div data-aos="zoom-in-up" class="media__swiper">
-							<!-- Additional required wrapper -->
-							<div class="swiper-wrapper">
-								<!-- Slides -->
-								<div class="swiper-slide">
-									<a href="https://twitter.com/" target="_blank" class="media__link media__link_1"><img
-											src="img/10.media/tw/twiternohover.png" alt=""></a>
-								</div>
-								<div class="swiper-slide">
-									<a href="https://web.telegram.org/a/" target="_blank" class="media__link media__link_2">
-										<img src="img/10.media/tel/telnohover.png" alt=""></a>
-								</div>
-								<div class="swiper-slide">
-									<a href="https://www.youtube.com/" target="_blank" class="media__link media__link_3"><img
-											src="img/10.media/you/younohov.png" alt=""></a>
-								</div>
-								<div class="swiper-slide">
-									<a href="https://discord.com/" target="_blank" class="media__link media__link_4"><img
-											src="img/10.media/disc/disnohov.png" alt=""></a>
-								</div>
-							</div>
-							<!-- If we need pagination -->
-							<div class="swiper-pagination"></div>
-
-							<!-- If we need navigation buttons -->
-							<div class="swiper-button-prev"></div>
-							<div class="swiper-button-next"></div>
-						</div>
-					</div>
-				</div>
-			</section>
 		</main>
 		<footer class="footer">
-			<div class="footer__body">
-				<div class="footer__row">
-					<div class="footer__column footer__column_1">
-						<div class="footer__item footer__item_1">
-							<a data-goto=".media" href="#" class="footer__logo">
-								<img src="img/0.icons/global.svg" alt="">
-							</a>
-							<div class="footer__text">Based in US
-								Active worldwide</div>
-						</div>
-					</div>
-					<div class="footer__column footer__column_2">
-						<div class="footer__item">
-							<a data-goto=".media" href="#" class="footer__contact">contact</a>
-							<a data-goto=".media" href="#" class="footer__contact">contact</a>
-						</div>
-					</div>
-					<div class="footer__column footer__column_3">
-						<div class="footer__item footer__item_3">
-							<a data-goto=".media" href="#" class="footer__contact footer__contact_hid">contact</a>
-							<a href="mailto:info@craftymetaverse.com" class="footer__mail">info@craftymetaverse.com
-							</a>
-						</div>
-					</div>
+			<div class="footer__container container">
+				<div class="footer__body">
+
 				</div>
 			</div>
 		</footer>
 	</div>
-	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script> -->
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<script src="js/scrypt.js"></script>
 </body>
