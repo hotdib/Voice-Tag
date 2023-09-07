@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	var body = document.querySelector('body');
 	var herobody = document.querySelector('.hero__body');
 	var wrapper = document.querySelector('.wrapper');
+	var web = document.querySelector('.web');
 
 	burger.addEventListener('click', function (event) {
 		burger.classList.toggle('active');
@@ -38,6 +39,14 @@ document.addEventListener("DOMContentLoaded", function () {
 		herobody.classList.toggle('active');
 		wrapper.classList.toggle('active');
 		body.classList.toggle('lock');
+	});
+});
+document.addEventListener("DOMContentLoaded", function () {
+	var web = document.querySelector('.web');
+	var questions = document.querySelector('.questions');
+
+	questions.addEventListener('click', function (event) {
+		web.classList.toggle('active');
 	});
 });
 
