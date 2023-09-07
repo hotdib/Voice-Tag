@@ -506,56 +506,37 @@ body {
     top: 0px;
     right: 0%;
     width: 0%;
+    max-width: 100%;
     opacity: 0;
     height: 0vh;
     overflow: auto;
     border-radius: 24px;
-    background: linear-gradient(51deg, #0958fa 13.86%, #09fa32 93.66%);
+    background: linear-gradient(51deg, #0843b9 13.86%, #08cc28 93.66%);
     -webkit-transition: top 0.5s ease 0s, width 0.5s ease 0s, opacity 0.5s ease 0s, height 0.5s ease 0s;
     transition: top 0.5s ease 0s, width 0.5s ease 0s, opacity 0.5s ease 0s, height 0.5s ease 0s;
   }
-  .header .menu__body::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.3058823529);
-  }
   .header .menu__body.active {
-    right: 0%;
     top: 74px;
     width: 100%;
     opacity: 1;
     height: calc(100vh - 108px);
     z-index: 5;
   }
-}
-@media (max-width: 61.99875em) and (max-width: 29.99875em) {
-  .header .menu__body.active {
-    margin: 0rem 0rem 0rem 0rem;
-  }
-}
-@media (max-width: 61.99875em) {
   .header .menu__body.active .menu__item {
-    -webkit-animation: item-slide 0.5s forwards;
-            animation: item-slide 0.5s forwards;
-    opacity: 0;
-    -webkit-transform: translate(-100%, 0px);
-        -ms-transform: translate(-100%, 0px);
-            transform: translate(-100%, 0px);
+    -webkit-animation: item-slide 0.3s forwards;
+            animation: item-slide 0.3s forwards;
+    -webkit-transform: translate(100%, 0px);
+        -ms-transform: translate(100%, 0px);
+            transform: translate(100%, 0px);
   }
   @-webkit-keyframes item-slide {
     100% {
-      opacity: 1;
       -webkit-transform: translate(0px, 0px);
               transform: translate(0px, 0px);
     }
   }
   @keyframes item-slide {
     100% {
-      opacity: 1;
       -webkit-transform: translate(0px, 0px);
               transform: translate(0px, 0px);
     }
@@ -599,7 +580,7 @@ body {
   .header .menu__list {
     display: block;
     text-align: center;
-    padding: 1.25rem 0rem 0rem 0rem;
+    padding: 1.875rem 0rem 0rem 0rem;
   }
 }
 .header .menu__item:not(:last-child) {
@@ -608,7 +589,7 @@ body {
 @media (max-width: 61.99875em) {
   .header .menu__item:not(:last-child) {
     margin-right: 0rem;
-    margin-bottom: 1.5625rem;
+    margin-bottom: 1.875rem;
   }
   .header .menu__item:not(:last-child) .menu__link {
     position: relative;
@@ -618,7 +599,7 @@ body {
     position: absolute;
     width: 100%;
     height: 1px;
-    bottom: -10px;
+    bottom: -15px;
     left: 0;
     background: #ffffff;
   }
@@ -632,24 +613,32 @@ body {
   padding: 4px;
   position: relative;
 }
-.header .menu__link span {
-  position: relative;
+@media (min-width: 61.99875em) {
+  .header .menu__link span {
+    position: relative;
+  }
+  .header .menu__link span::after {
+    position: absolute;
+    content: "";
+    height: 2px;
+    background: -webkit-gradient(linear, left top, right top, from(#00dbde));
+    background: linear-gradient(90deg, #00dbde 0%);
+    -webkit-box-shadow: 2px 2px 7px 0px rgba(41, 183, 227, 0.33);
+            box-shadow: 2px 2px 7px 0px rgba(41, 183, 227, 0.33);
+    bottom: -8px;
+    right: 0;
+    width: 0;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .header .menu__link span:active {
+    background: var(--Button-Linear-Gradient, linear-gradient(6deg, #0958fa 4.03%, #0ef0a8 95.97%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
-.header .menu__link span::after {
-  position: absolute;
-  content: "";
-  height: 2px;
-  background: -webkit-gradient(linear, left top, right top, from(#00dbde));
-  background: linear-gradient(90deg, #00dbde 0%);
-  -webkit-box-shadow: 2px 2px 7px 0px rgba(41, 183, 227, 0.33);
-          box-shadow: 2px 2px 7px 0px rgba(41, 183, 227, 0.33);
-  bottom: -8px;
-  right: 0;
-  width: 0;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-}
-@media (hover: hover) {
+@media (min-width: 61.99875em) and (hover: hover) {
   .header .menu__link:hover span::after {
     width: 100%;
     left: 0;
@@ -659,9 +648,8 @@ body {
   .header .menu__link {
     font-size: 1rem;
   }
-  .header .menu__link:active span::after {
-    width: 100%;
-    left: 0;
+  .header .menu__link:active span {
+    color: #000;
   }
 }
 .header__questions {
