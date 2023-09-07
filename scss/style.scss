@@ -116,11 +116,30 @@ body {
 	display: flex;
 	flex-direction: column;
 	position: relative;
+	&::after {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		background: #0000007d;
+		transition: all 0.5s ease 0s;
+	}
+	&.active {
+		&::after {
+			opacity: 1;
+		}
+	}
 }
 //========================
 //==========COMMON========
 
 .btn {
+	@media (max-width: em(392)) {
+		text-align: center;
+	}
 	&__link {
 		display: inline-flex;
 		justify-content: center;
@@ -132,20 +151,45 @@ body {
 		color: #fff;
 		font-size: rem(18);
 		font-weight: 700;
+		transition: all 0.3s ease 0s;
+		&:hover {
+			box-shadow: 0px 1px 20px 0px rgba(255, 255, 255, 0.5);
+		}
+		&:active {
+			box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.6) inset;
+		}
+		@media (max-width: $mobileSmall) {
+			min-width: 250px;
+		}
 	}
 }
 .btn-2 {
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 30px;
-	background:
-		// linear-gradient(#24330D, #24330D) padding-box,
-		linear-gradient(51deg, #0958fa 13.86%, #09fa32 93.66%) border-box;
-	border: 1px solid transparent;
+	display: flex;
 	&__link {
 		color: #fff;
 		font-weight: 700;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 30px;
+		border: 1px solid transparent;
+		transition: all 0.3s ease 0s;
+		span {
+			padding: rem(3) rem(0);
+		}
+		&:hover {
+			box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.4);
+		}
+		&:active {
+			// color: linear-gradient(6deg, #0958fa 4.03%, #0ef0a8 95.97%);
+			// color: red;
+			span {
+				background: var(--Button-Linear-Gradient, linear-gradient(6deg, #0958fa 4.03%, #0ef0a8 95.97%));
+				background-clip: text;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+		}
 	}
 }
 //========title-text======
@@ -247,7 +291,7 @@ body {
 	z-index: 1000;
 	&__container {
 		@media (max-width: $mobileSmall) {
-			margin: rem(0) rem(-20) rem(0) rem(-20);
+			margin: rem(0) rem(-10) rem(0) rem(-10);
 		}
 	}
 	&__row {
@@ -358,21 +402,39 @@ body {
 		&__body {
 			@media (max-width: $tablet) {
 				position: fixed;
-				top: 0;
-				left: -100%;
-				width: 100%;
-				height: 100%;
-				padding-top: rem(110);
-				overflow: auto; //позволяет прокручиваться менюшке
+				top: 0px;
+				right: 0%;
+				width: 0%;
 				opacity: 0;
-				background: url("../img/1.hero/Hero_cr.webp") 50% 50% / cover no-repeat;
+				height: 0vh;
+				// padding-top: rem(0);
+				overflow: auto; //позволяет прокручиваться менюшке
+				border-radius: 24px;
+				background: linear-gradient(51deg, #0958fa 13.86%, #09fa32 93.66%);
 				transition:
-					left 0.6s ease 0s,
-					opacity 1.5s ease 0s;
+					top 0.5s ease 0s,
+					width 0.5s ease 0s,
+					opacity 0.5s ease 0s,
+					height 0.5s ease 0s;
+				&::before {
+					content: "";
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+					background: #0000004e;
+				}
 				&.active {
-					left: 0%;
+					right: 0%;
+					top: 74px;
+					width: 100%;
 					opacity: 1;
-					z-index: 2;
+					height: calc(100vh - 108px);
+					z-index: 5;
+					@media (max-width: $mobileSmall) {
+						margin: rem(0) rem(0) rem(0) rem(0);
+					}
 					.menu__item {
 						//поочерёдное выезжание меню
 						animation: item-slide 0.5s forwards;
@@ -405,8 +467,8 @@ body {
 			flex-wrap: wrap;
 			@media (max-width: $tablet) {
 				display: block;
-				text-align: left;
-				// padding: rem(15) rem(0) rem(15) rem(60);
+				text-align: center;
+				padding: rem(20) rem(0) rem(0) rem(0);
 			}
 		}
 		// каждый элемент списка
@@ -415,7 +477,20 @@ body {
 				margin-right: rem(32);
 				@media (max-width: $tablet) {
 					margin-right: rem(0);
-					margin-bottom: rem(16);
+					margin-bottom: rem(25);
+					.menu__link{
+						position: relative;
+						&::after {
+							content: "";
+							position: absolute;
+							width: 100%;
+							height: 1px;
+							bottom: -10px;
+							left: 0;
+							background: #ffffff;
+						}
+					}
+					
 				}
 			}
 		}
@@ -456,6 +531,7 @@ body {
 						left: 0;
 					}
 				}
+				font-size: rem(16);
 			}
 		}
 	}
@@ -504,11 +580,24 @@ body {
 
 	&__btn {
 		order: 3;
-		font-size: rem(14);
-		background:
-			linear-gradient(#24330d, #24330d) padding-box,
-			linear-gradient(51deg, #0958fa 13.86%, #09fa32 93.66%) border-box;
-		padding: rem(0) rem(14);
+		.btn-2__link {
+			font-size: rem(14);
+			background:
+				linear-gradient(#24330d, #24330d) padding-box,
+				linear-gradient(51deg, #0958fa 13.86%, #09fa32 93.66%) border-box;
+			padding: rem(0) rem(14);
+			@media (max-width: $mobile) {
+				background:
+					linear-gradient(#25300d, #25300d) padding-box,
+					linear-gradient(51deg, #0958fa 13.86%, #09fa32 93.66%) border-box;
+			}
+			@media (max-width: em(360)) {
+				padding: rem(0) rem(10);
+			}
+			@media (max-width: em(320)) {
+				font-size: rem(12);
+			}
+		}
 		@media (max-width: $tablet) {
 			order: 2;
 			margin-right: rem(24);
@@ -518,10 +607,6 @@ body {
 		}
 		@media (max-width: em(360)) {
 			margin-right: rem(14);
-			padding: rem(0) rem(10);
-		}
-		@media (max-width: em(320)) {
-			font-size: rem(12);
 		}
 	}
 }
@@ -536,6 +621,9 @@ body {
 	min-height: calc(100vh - 64px);
 	display: flex;
 	padding-bottom: rem(20);
+	@media (max-width: $mobile) {
+		min-height: fit-content;
+	}
 	&__container {
 		position: relative;
 		z-index: 2;
@@ -549,23 +637,39 @@ body {
 		justify-content: space-between;
 		max-height: 440px;
 		margin-top: rem(72);
+		@media (max-width: $mobile) {
+			margin-top: rem(288);
+		}
 	}
 
 	&__content {
 		max-width: rem(450);
+		@media (max-width: $mobile) {
+			margin-bottom: rem(35);
+		}
 	}
 
 	&__title {
 		font-family: "Russo One", sans-serif;
-		font-size: 80px;
+		font-size: rem(80);
 		line-height: 120%;
 		margin-bottom: rem(8);
+		padding-left: rem(2);
+		@media (max-width: $mobileSmall) {
+			font-size: rem(72);
+		}
+		@media (max-width: em(360)) {
+			font-size: rem(60);
+		}
 	}
 
 	&__subtitle {
 		margin-bottom: rem(8);
-		background: rgba(0, 0, 0, 0.40);
+		background: rgba(0, 0, 0, 0.4);
 		padding: rem(2) rem(4);
+		@media (max-width: $mobileSmall) {
+			font-size: rem(18);
+		}
 	}
 
 	&__text {
@@ -582,5 +686,10 @@ body {
 		top: 0;
 		left: 0;
 		background-position: top 0 right 30%;
+		@media (max-width: $mobile) {
+			background-position: top 0 right 15%;
+			background-size: cover;
+			height: 450px;
+		}
 	}
 }

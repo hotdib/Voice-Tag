@@ -30,11 +30,13 @@ document.addEventListener("DOMContentLoaded", function () {
 	var menu = document.querySelector('.menu__body');
 	var body = document.querySelector('body');
 	var herobody = document.querySelector('.hero__body');
+	var wrapper = document.querySelector('.wrapper');
 
 	burger.addEventListener('click', function (event) {
 		burger.classList.toggle('active');
 		menu.classList.toggle('active');
 		herobody.classList.toggle('active');
+		wrapper.classList.toggle('active');
 		body.classList.toggle('lock');
 	});
 });
