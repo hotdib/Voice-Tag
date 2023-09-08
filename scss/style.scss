@@ -92,12 +92,6 @@ body {
 	background-size: cover;
 	background-repeat: no-repeat;
 	position: relative;
-	&_r {
-		background-position: right;
-		@media (max-width: $pc) {
-			background-position: 0% 50%;
-		}
-	}
 	img {
 		width: 0;
 		height: 0;
@@ -125,10 +119,12 @@ body {
 		left: 0;
 		opacity: 0;
 		background: #0000007d;
-		transition: all 0.5s ease 0s;
+		transition: opacity 0.5s ease 0s;
+		transform: scale(0);
 	}
 	&.active {
 		&::after {
+			transform: scale(1);
 			opacity: 1;
 		}
 	}
@@ -192,7 +188,7 @@ body {
 }
 //========title-text======
 .block-title {
-	font-family: HeadingNow;
+	font-family: "Russo One", sans-serif;
 	font-size: rem(32);
 	font-weight: 500;
 	line-height: 120%;
@@ -242,18 +238,17 @@ body {
 	width: 64px;
 	height: 64px;
 	border-radius: 100%;
-	background: #9310b4d3;
-	// padding: 16px;
+	background: linear-gradient(51deg, #0958fa 13.86%, #09fa32 93.66%);
 	border: none;
 	cursor: pointer;
 	opacity: 80%;
 	transition: all 0.3s ease 0s;
-	box-shadow: 0px 2px 17px 2px rgba(191, 58, 255, 0.4);
+	box-shadow: 0px 2px 17px 2px rgba(58, 255, 222, 0.63);
 	&__icon {
 		max-width: 32px;
 		max-height: 32px;
 		path {
-			fill: #7efcfc;
+			fill: #cbcbcb;
 		}
 	}
 	&_hidden {
@@ -270,10 +265,21 @@ body {
 	}
 	&:hover {
 		opacity: 100%;
-		background: #c124e8d3;
-		.back-to-top-icon {
+		background: linear-gradient(51deg, #3679ff 13.86%, #26ff4a 93.66%);
+		.back-to-top__icon {
 			path {
-				fill: #00c6c6;
+				fill: #e2e2e2;
+			}
+		}
+	}
+	&:active {
+		opacity: 100%;
+		box-shadow:
+			0px 2px 17px 2px rgba(58, 255, 222, 0.63),
+			0px 2px 17px 2px rgba(58, 255, 222, 0.63) inset;
+		.back-to-top__icon {
+			path {
+				fill: #ffffff;
 			}
 		}
 	}
@@ -453,8 +459,8 @@ body {
 			@media (max-width: $tablet) {
 				display: block;
 				text-align: center;
-				padding: rem(30) rem(0) rem(0) rem(0);
-				overflow: hidden;
+				padding: rem(30) rem(0) rem(45) rem(0);
+				overflow-x: hidden;
 			}
 		}
 		// каждый элемент списка
@@ -583,6 +589,7 @@ body {
 		top: 20px;
 		max-width: rem(210);
 		display: flex;
+		z-index: 6;
 		flex-direction: column;
 		opacity: 0;
 		border-radius: 10px;
@@ -707,28 +714,91 @@ body {
 }
 
 .hero {
-	min-height: calc(100vh - 64px);
+	min-height: 100vh;
+	margin-top: rem(-64);
 	display: flex;
-	padding-bottom: rem(20);
+	// padding-bottom: rem(20);
+	position: relative;
+	padding-top: rem(120);
+	margin-bottom: rem(55);
+	&__arrow {
+		#gradient-horizontal {
+			--color-stop-1: #0958fa;
+			--color-stop-2: #0ef0a8;
+		}
+		&:hover {
+			#gradient-horizontal {
+				--color-stop-1: #4c85f7;
+				--color-stop-2: #68e9c0;
+			}
+		}
+		&:active {
+			#gradient-horizontal {
+				--color-stop-1: #1b4fb8;
+				--color-stop-2: #1ba77a;
+			}
+		}
+		z-index: 3;
+		position: absolute;
+		padding: rem(0) rem(10);
+		height: 130px;
+		bottom: 50px;
+		left: 50%;
+		display: flex;
+		align-items: end;
+		transform: translate(-50%, 0px);
+		svg {
+			animation: jump 2s 1s infinite;
+			bottom: 0px;
+			position: relative;
+			path {
+				fill: url(#gradient-horizontal) gray;
+			}
+			@keyframes jump {
+				0% {
+					bottom: 0px;
+				}
+				50% {
+					bottom: 50px;
+				}
+				100% {
+					bottom: 0px;
+				}
+			}
+		}
+		@media (max-width: $tablet) {
+			bottom: 15px;
+			svg {
+				@keyframes jump {
+					0% {
+						bottom: 0px;
+					}
+					50% {
+						bottom: 30px;
+					}
+					100% {
+						bottom: 0px;
+					}
+				}
+			}
+		}
+		@media (max-width: $mobile) {
+			display: none;
+		}
+	}
 	@media (max-width: $mobile) {
 		min-height: fit-content;
+		padding-top: rem(288);
+		margin-bottom: rem(60);
 	}
 	&__container {
-		position: relative;
-		z-index: 2;
 		flex: 1 1 auto;
 		display: flex;
 	}
 
 	&__body {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
+		align-self: center;
 		max-height: 440px;
-		margin-top: rem(72);
-		@media (max-width: $mobile) {
-			margin-top: rem(288);
-		}
 	}
 
 	&__content {
@@ -763,22 +833,263 @@ body {
 
 	&__text {
 		max-width: rem(350);
+		margin-bottom: rem(80);
+		@media (max-width: $mobile) {
+			margin-bottom: rem(35);
+		}
 	}
 
 	&__btn {
+		@media (max-width: $tablet) {
+			.btn__link {
+				min-width: 300px;
+			}
+		}
 	}
 
 	&__bg {
 		position: absolute;
-		width: 100%;
-		height: 100%;
+		width: 102%;
+		height: 102%;
 		top: 0;
 		left: 0;
-		background-position: top 0 right 30%;
+		background-position: top 0 right 20%;
+		z-index: -1;
+		&::after {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			bottom: -2px;
+			left: 0;
+			background: linear-gradient(180deg, rgba(16, 20, 30, 0) 64.06%, rgba(16, 20, 30, 0.51) 89.58%, #10141e 100%);
+		}
 		@media (max-width: $mobile) {
 			background-position: top 0 right 15%;
 			background-size: cover;
 			height: 450px;
 		}
+	}
+}
+
+.how {
+	margin-bottom: rem(100);
+	padding-top: rem(20);
+	@media (max-width: $tablet) {
+		margin-bottom: rem(60);
+	}
+	@media (max-width: $mobile) {
+		padding-top: rem(0);
+	}
+	@media (max-width: $mobileSmall) {
+		margin-bottom: rem(40);
+	}
+	&__container {
+	}
+
+	&__body {
+	}
+
+	&__title {
+		margin-bottom: rem(24);
+	}
+
+	&__content {
+		border-radius: 40px;
+		background: rgba(255, 255, 255, 0.04);
+		padding: rem(24);
+	}
+
+	&__row {
+		display: flex;
+		margin: rem(0) rem(-50) rem(25) rem(-50);
+		@media (max-width: $pc) {
+			margin: rem(0) rem(-25) rem(25) rem(-25);
+		}
+		@media (max-width: $tablet) {
+			margin: rem(0) rem(-10) rem(25) rem(-10);
+		}
+		@media (max-width: $mobile) {
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+
+	&__column {
+		flex: 0 1 33.333%;
+		display: flex;
+		padding: rem(0) rem(50);
+		@media (max-width: $pc) {
+			padding: rem(0) rem(25);
+		}
+		@media (max-width: $tablet) {
+			padding: rem(0) rem(10);
+		}
+		@media (max-width: $mobile) {
+			&:not(:last-child) {
+				margin-bottom: rem(16);
+			}
+		}
+	}
+
+	&__item {
+		display: flex;
+		align-items: center;
+		@media (max-width: $tablet) {
+			align-items: start;
+		}
+		@media (max-width: $mobile) {
+			align-items: center;
+		}
+	}
+
+	&__number {
+		font-family: "Russo One", sans-serif;
+		font-size: rem(90);
+		line-height: normal;
+		background: var(--Grad-Numbers, linear-gradient(180deg, #fff 22.22%, rgba(255, 255, 255, 0) 80.16%));
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		margin-right: rem(10);
+		flex: 0 0 55px;
+	}
+
+	&__description {
+		max-width: rem(210);
+		flex: 1 1 auto;
+	}
+
+	&__warning {
+		display: flex;
+		border-radius: 20px;
+		background: rgba(255, 255, 255, 0.1);
+		max-width: rem(510);
+		margin: 0px auto;
+		padding: rem(16) rem(20);
+		span {
+			&:not(:last-child) {
+				margin-right: rem(15);
+				@media (max-width: em(300)) {
+					margin-right: rem(10);
+				}
+			}
+		}
+		@media (max-width: $mobile) {
+			align-items: center;
+			text-align: center;
+		}
+		@media (max-width: em(300)) {
+			padding: rem(16) rem(8);
+		}
+	}
+
+	&__sign {
+		color: #fff;
+		font-size: rem(37);
+		font-style: normal;
+		font-weight: 700;
+		line-height: 120%;
+	}
+
+	&__text {
+	}
+}
+
+.about {
+	margin-bottom: rem(100);
+	@media (max-width: $tablet) {
+		margin-bottom: rem(60);
+	}
+	@media (max-width: $mobileSmall) {
+		margin-bottom: rem(40);
+	}
+	&__container {
+	}
+
+	&__body {
+		padding: rem(32) rem(40);
+		border-radius: 40px;
+		background: linear-gradient(51deg, rgba(9, 88, 250, 0.05) 13.86%, rgba(9, 250, 50, 0.05) 93.66%);
+		@media (max-width: $mobile) {
+			border-radius: 30px;
+			padding: rem(24);
+		}
+	}
+
+	&__title {
+		margin-bottom: rem(25);
+	}
+
+	&__row {
+		display: flex;
+		flex-wrap: wrap;
+		margin: rem(0) rem(-15);
+		row-gap: 30px;
+		@media (max-width: $mobile) {
+			margin: rem(0) rem(0);
+		}
+	}
+
+	&__column {
+		flex: 0 1 33.333%;
+		padding: rem(0) rem(15);
+		@media (max-width: $tablet) {
+			flex: 0 1 50%;
+		}
+		@media (max-width: $mobile) {
+			flex: 0 1 100%;
+			padding: rem(0) rem(0);
+		}
+	}
+
+	&__item {
+	}
+
+	&__img {
+		margin-bottom: rem(10);
+		border-radius: 20px;
+		overflow: hidden;
+		img {
+			max-width: 100%;
+		}
+		&_s {
+			padding: 0px 0px 39.821% 0px;
+			position: relative;
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: -1;
+			}
+		}
+	}
+
+	&__label {
+		margin-bottom: rem(5);
+	}
+
+	&__text {
+		color: rgba(255, 255, 255, 0.8);
+		font-size: rem(14);
+		line-height: 120%;
+	}
+}
+
+.track {
+	display: flex;
+	align-items: center;
+	max-width: rem(500);
+	img {
+		width: 70px;
+		margin-right: rem(30);
+		cursor: pointer;
+	}
+	.music {
+		flex: 1 1 auto;
+		// height: 100px;
 	}
 }

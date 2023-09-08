@@ -29,16 +29,23 @@ document.addEventListener("DOMContentLoaded", function () {
 	var burger = document.querySelector('.menu__icon');
 	var menu = document.querySelector('.menu__body');
 	var body = document.querySelector('body');
-	var herobody = document.querySelector('.hero__body');
 	var wrapper = document.querySelector('.wrapper');
-	var web = document.querySelector('.web');
+	var webitem = document.querySelector('.web__item');
+
 
 	burger.addEventListener('click', function (event) {
 		burger.classList.toggle('active');
 		menu.classList.toggle('active');
-		herobody.classList.toggle('active');
 		wrapper.classList.toggle('active');
 		body.classList.toggle('lock');
+	});
+	webitem.addEventListener('click', function (event) {
+		if (menu.classList.contains('active')) {
+			burger.classList.toggle('active');
+			menu.classList.toggle('active');
+			wrapper.classList.toggle('active');
+			body.classList.toggle('lock');
+		}
 	});
 });
 document.addEventListener("DOMContentLoaded", function () {
@@ -47,8 +54,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	questions.addEventListener('click', function (event) {
 		web.classList.toggle('active');
+		event.stopPropagation(); // Предотвращаем всплытие события клика
+	});
+
+	document.addEventListener('click', function (event) {
+		if (web.classList.contains('active')) {
+			web.classList.remove('active');
+		}
+	});
+
+	window.addEventListener('scroll', function () {
+		if (web.classList.contains('active')) {
+			web.classList.remove('active');
+		}
 	});
 });
+
+
+
+//паралакс эффект для фона
+let herobg = document.getElementById('hero__bg');
+let heroar = document.getElementById('hero__ar');
+window.addEventListener('scroll', function () {
+	let value = window.scrollY;
+	herobg.style.top = value * -0.20 + 'px';
+	heroar.style.bottom = value * 0.10 + 50 + 'px';
+})
+//паралакс эффект для фона
+
+
 
 document.addEventListener("click", documentActions);
 
@@ -59,6 +93,8 @@ function documentActions(e) {
 	var menu = document.querySelector('.menu__body');
 	var body = document.querySelector('body');
 	var herobody = document.querySelector('.hero__body');
+	var wrapper = document.querySelector('.wrapper');
+
 
 	if (targetElement.closest('[data-goto]')) {
 		burger.classList.contains('active') ?
@@ -67,6 +103,8 @@ function documentActions(e) {
 			menu.classList.remove('active') : null;
 		herobody.classList.contains('active') ?
 			herobody.classList.remove('active') : null;
+		wrapper.classList.contains('active') ?
+			wrapper.classList.remove('active') : null;
 		body.classList.contains('lock') ?
 			body.classList.remove('lock') : null;
 
@@ -76,7 +114,7 @@ function documentActions(e) {
 
 		if (goToElement) {
 			window.scrollTo({
-				top: goToElement.offsetTop,
+				top: goToElement.offsetTop - (headerHeight + 35),
 				behavior: "smooth"
 			});
 		}
@@ -253,52 +291,53 @@ if (spollersArray.length > 0) {
 const element = document.querySelector('.media__swiper');
 
 // Функция для проверки ширины экрана и добавления класса
-function checkScreenWidth() {
-	if (window.innerWidth < 767) {
-		element.classList.add('swiper');
-	} else {
-		element.classList.remove('swiper');
-	}
-}
+// function checkScreenWidth() {
+// 	if (window.innerWidth < 767) {
+// 		element.classList.add('swiper');
+// 	} else {
+// 		element.classList.remove('swiper');
+// 	}
+// }
 
 // Вызываем функцию при загрузке страницы и при изменении размера окна
-checkScreenWidth();
-window.addEventListener('resize', checkScreenWidth);
+// checkScreenWidth();
+// window.addEventListener('resize', checkScreenWidth);
 //=========================
 
 //======swiper
 
-const swiper = new Swiper('.swiper', {
-	// Optional parameters
-	direction: 'horizontal',
-	// loop: true,
-	autoHeight: true,
-	// slidesPerView:2,
-	// If we need pagination
-	pagination: {
-		el: '.swiper-pagination',
-	},
+// const swiper = new Swiper('.swiper', {
+// 	// Optional parameters
+// 	direction: 'horizontal',
+// 	// loop: true,
+// 	autoHeight: true,
+// 	// slidesPerView:2,
+// 	// If we need pagination
+// 	pagination: {
+// 		el: '.swiper-pagination',
+// 	},
 
-	// Navigation arrows
-	navigation: {
-		nextEl: '.swiper-button-next',
-		prevEl: '.swiper-button-prev',
-	},
+// 	// Navigation arrows
+// 	navigation: {
+// 		nextEl: '.swiper-button-next',
+// 		prevEl: '.swiper-button-prev',
+// 	},
 
-	// And if we need scrollbar
-	scrollbar: {
-		// el: '.swiper-scrollbar',
-	},
+// 	// And if we need scrollbar
+// 	scrollbar: {
+// 		// el: '.swiper-scrollbar',
+// 	},
 
-	// breakpoints: {
-	// 	478: {
-	// 		slidesPerView: 2,
-	// 	},
-	// },
-});
+// 	// breakpoints: {
+// 	// 	478: {
+// 	// 		slidesPerView: 2,
+// 	// 	},
+// 	// },
+// });
 //===========
 
-//======paralax
-var scene = document.getElementById('scene');
-var parallaxInstance = new Parallax(scene);
-//=============
+// //======paralax
+// var scene = document.getElementById('scene');
+// var parallaxInstance = new Parallax(scene);
+// //=============
+
