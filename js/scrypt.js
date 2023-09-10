@@ -2,6 +2,7 @@
 //===animation
 AOS.init();
 //==========
+
 //======gototopbtn
 const showOnPx = 100;
 const backToTopButton = document.querySelector(".back-to-top")
@@ -81,6 +82,15 @@ window.addEventListener('scroll', function () {
 	heroar.style.bottom = value * 0.10 + 50 + 'px';
 })
 //паралакс эффект для фона
+let btnbg = document.getElementById('btnbg');
+window.addEventListener('scroll', function () {
+	let value = window.scrollY;
+	if (value > 80) {
+		btnbg.style.background = 'linear-gradient(#1f1f1f, #1c1c1c) padding-box, linear-gradient(51deg, #0958fa 13.86%, #09fa32 93.66%) border-box';
+	}else{
+		btnbg.style.background = 'linear-gradient(#24330d, #24330d) padding-box, linear-gradient(51deg, #0958fa 13.86%, #09fa32 93.66%) border-box';
+	}
+});
 
 
 
@@ -287,24 +297,25 @@ if (spollersArray.length > 0) {
 //=======
 //======swipermaxwidth======
 
-// Получаем ссылку на элемент, к которому нужно добавить класс
-const element = document.querySelector('.media__swiper');
+// // Получаем ссылку на элемент, к которому нужно добавить класс
+// const element = document.querySelector('.swiper');
 
-// Функция для проверки ширины экрана и добавления класса
+// //Функция для проверки ширины экрана и добавления класса
 // function checkScreenWidth() {
-// 	if (window.innerWidth < 767) {
+// 	if (window.innerWidth < 390) {
 // 		element.classList.add('swiper');
 // 	} else {
 // 		element.classList.remove('swiper');
 // 	}
 // }
 
-// Вызываем функцию при загрузке страницы и при изменении размера окна
+// // Вызываем функцию при загрузке страницы и при изменении размера окна
 // checkScreenWidth();
 // window.addEventListener('resize', checkScreenWidth);
-//=========================
+// //=========================
 
-//======swiper
+// //======swiper
+// import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.mjs'
 
 // const swiper = new Swiper('.swiper', {
 // 	// Optional parameters
@@ -325,7 +336,7 @@ const element = document.querySelector('.media__swiper');
 
 // 	// And if we need scrollbar
 // 	scrollbar: {
-// 		// el: '.swiper-scrollbar',
+// 		el: '.swiper-scrollbar',
 // 	},
 
 // 	// breakpoints: {
@@ -334,7 +345,7 @@ const element = document.querySelector('.media__swiper');
 // 	// 	},
 // 	// },
 // });
-//===========
+// //===========
 
 // //======paralax
 // var scene = document.getElementById('scene');

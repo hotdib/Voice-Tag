@@ -104,7 +104,7 @@
 							</div>
 						</div>
 						<div class="header__btn btn-2">
-							<a href="#" class="btn-2__link"><span>Get your tag</span></a>
+							<a href="#" id="btnbg" class="btn-2__link"><span>Get your tag</span></a>
 						</div>
 					</div>
 				</div>
@@ -363,9 +363,112 @@
 									<li class="offer__item">Custom Voice Tag + 10GB of drum, loop and midi kits</li>
 								</ul>
 								<div class="offer__btn btn-2">
-									<a href="#" class="btn-2__link">I want it</a>
+									<a href="#" class="btn-2__link"><span>I want it</span></a>
 								</div>
 							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="pricing">
+				<div class="pricing__container container">
+					<div class="pricing__body">
+						<div class="pricing__content grid">
+							<div class="pricing__cover">
+								<div class="grid__item grid__item_title ">Pricing</div>
+								<div class="grid__item grid__item_normal grid__item_voice">
+									1 Voice
+									<p>You can pick any voice</p>
+								</div>
+								<div class="grid__item grid__item_normal grid__item_voice">
+									2 Voices
+									<p>You can pick any 2 voices</p>
+								</div>
+								<div class="grid__item grid__item_normal grid__item_voice">
+									3 Voices
+									<p>You can pick any 3 voices</p>
+								</div>
+								<div class="grid__item grid__item_normal grid__item_voice">
+									4 Voices
+									<p>You can pick any 4 voices</p>
+								</div>
+							</div>
+							<div class="grid__item grid__item_title ">Pricing</div>
+							<div class="grid__item grid__item_normal">1 Tag</div>
+							<div class="grid__item grid__item_normal">2 Tag</div>
+							<div class="grid__item grid__item_normal">3 Tag</div>
+							<div class="grid__item grid__item_normal">4 Tag</div>
+							<div class="grid__item grid__item_normal grid__item_voice">
+								1 Voice
+								<p>You can pick any voice</p>
+							</div>
+							<div class="grid__item grid__item_price">
+								<p>$31</p>
+								$24.90
+							</div>
+							<div class="grid__item grid__item_price">
+								<p>$31</p>
+								$39.90
+							</div>
+							<div class="grid__item grid__item_price">
+								<p>$31</p>
+								$49.90
+							</div>
+							<div class="grid__item grid__item_price">
+								<p>$31</p>
+								$59.90
+							</div>
+							<div class="grid__item grid__item_normal grid__item_voice">
+								2 Voices
+								<p>You can pick any 2 voices</p>
+							</div>
+							<div class="grid__item grid__item_empty">
+							</div>
+							<div class="grid__item grid__item_price">
+								<p>$31</p>
+								$44.90
+							</div>
+							<div class="grid__item grid__item_price">
+								<p>$31</p>
+								$59.90
+							</div>
+							<div class="grid__item grid__item_price">
+								<p>$31</p>
+								$69.90
+							</div>
+							<div class="grid__item grid__item_normal grid__item_voice">
+								3 Voices
+								<p>You can pick any 3 voices</p>
+							</div>
+							<div class="grid__item grid__item_empty">
+							</div>
+							<div class="grid__item grid__item_empty">
+							</div>
+							<div class="grid__item grid__item_price">
+								<p>$31</p>
+								$64.90
+							</div>
+							<div class="grid__item grid__item_price">
+								<p>$31</p>
+								$74.90
+							</div>
+							<div class="grid__item grid__item_normal grid__item_voice">
+								4 Voices
+								<p>You can pick any 4 voices</p>
+							</div>
+							<div class="grid__item grid__item_empty">
+							</div>
+							<div class="grid__item grid__item_empty">
+							</div>
+							<div class="grid__item grid__item_empty">
+							</div>
+							<div class="grid__item grid__item_price">
+								<p>$31</p>
+								$79.90
+							</div>
+						</div>
+						<div class="pricing__btn btn">
+							<a href="#" class="btn__link">Get your custom tag</a>
 						</div>
 					</div>
 				</div>
@@ -383,438 +486,126 @@
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script> -->
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<script type="module">
-		import WaveSurfer from 'https://unpkg.com/wavesurfer.js@7/dist/wavesurfer.esm.js'
-		// Create a canvas gradient
+
+		import WaveSurfer from 'https://unpkg.com/wavesurfer.js@7/dist/wavesurfer.esm.js';
+
+		//Create a canvas gradient
 		const ctx = document.createElement('canvas').getContext('2d')
 		const gradient = ctx.createLinearGradient(0, 0, 0, 390)
 		gradient.addColorStop(0.04, 'rgb(14, 240, 168)')
 		gradient.addColorStop(0.15, 'rgb(9, 88, 250)')
 
+		//=======================================
+		let currentActiveWaveSurfer = null;
 
-		const options = {
-			/** HTML element or CSS selector (required) */
-			container: '#waveform',
-			/** The height of the waveform in pixels */
-			height: 30,
-			/** Render each audio channel as a separate waveform */
-			splitChannels: false,
-			/** Stretch the waveform to the full height */
-			normalize: false,
-			/** The color of the waveform */
-			waveColor: 'rgb(136, 136, 136)',
-			/** The color of the progress mask */
-			progressColor: gradient,
-			/** The color of the playpack cursor */
-			cursorColor: '#ddd5e9',
-			/** The cursor width */
-			cursorWidth: 0,
-			/** Render the waveform with bars like this: ▁ ▂ ▇ ▃ ▅ ▂ */
-			barWidth: 2,
-			/** Spacing between bars in pixels */
-			barGap: 2,
-			/** Rounded borders for bars */
-			barRadius: 10,
-			/** A vertical scaling factor for the waveform */
-			barHeight: NaN,
-			/** Vertical bar alignment **/
-			barAlign: '',
-			/** Minimum pixels per second of audio (i.e. zoom level) */
-			minPxPerSec: 1,
-			/** Stretch the waveform to fill the container, true by default */
-			fillParent: true,
-			/** Audio URL */
-			url: 'music/lofi-loop1.mp3',
-			/** Whether to show default audio element controls */
-			mediaControls: false,
-			/** Play the audio on load */
-			autoplay: false,
-			/** Pass false to disable clicks on the waveform */
-			interact: true,
-			/** Allow to drag the cursor to seek to a new position */
-			dragToSeek: false,
-			/** Hide the scrollbar */
-			hideScrollbar: false,
-			/** Audio rate */
-			audioRate: 1,
-			/** Automatically scroll the container to keep the current position in viewport */
-			autoScroll: true,
-			/** If autoScroll is enabled, keep the cursor in the center of the waveform during playback */
-			autoCenter: true,
-			/** Decoding sample rate. Doesn't affect the playback. Defaults to 8000 */
-			sampleRate: 8000,
-		}
-		const options2 = {
-			/** HTML element or CSS selector (required) */
-			container: '#waveform2',
-			/** The height of the waveform in pixels */
-			height: 30,
-			/** Render each audio channel as a separate waveform */
-			splitChannels: false,
-			/** Stretch the waveform to the full height */
-			normalize: true,
-			/** The color of the waveform */
-			waveColor: 'rgb(136, 136, 136)',
-			/** The color of the progress mask */
-			progressColor: gradient,
-			/** The color of the playpack cursor */
-			cursorColor: '#ddd5e9',
-			/** The cursor width */
-			cursorWidth: 0,
-			/** Render the waveform with bars like this: ▁ ▂ ▇ ▃ ▅ ▂ */
-			barWidth: 2,
-			/** Spacing between bars in pixels */
-			barGap: 2,
-			/** Rounded borders for bars */
-			barRadius: 10,
-			/** A vertical scaling factor for the waveform */
-			barHeight: NaN,
-			/** Vertical bar alignment **/
-			barAlign: '',
-			/** Minimum pixels per second of audio (i.e. zoom level) */
-			minPxPerSec: 1,
-			/** Stretch the waveform to fill the container, true by default */
-			fillParent: true,
-			/** Audio URL */
-			url: 'music/arpeggio5lop.wav',
-			/** Whether to show default audio element controls */
-			mediaControls: false,
-			/** Play the audio on load */
-			autoplay: false,
-			/** Pass false to disable clicks on the waveform */
-			interact: true,
-			/** Allow to drag the cursor to seek to a new position */
-			dragToSeek: false,
-			/** Hide the scrollbar */
-			hideScrollbar: false,
-			/** Audio rate */
-			audioRate: 1,
-			/** Automatically scroll the container to keep the current position in viewport */
-			autoScroll: true,
-			/** If autoScroll is enabled, keep the cursor in the center of the waveform during playback */
-			autoCenter: true,
-			/** Decoding sample rate. Doesn't affect the playback. Defaults to 8000 */
-			sampleRate: 8000,
-		}
-		const options3 = {
-			/** HTML element or CSS selector (required) */
-			container: '#waveform3',
-			/** The height of the waveform in pixels */
-			height: 30,
-			/** Render each audio channel as a separate waveform */
-			splitChannels: false,
-			/** Stretch the waveform to the full height */
-			normalize: true,
-			/** The color of the waveform */
-			waveColor: 'rgb(136, 136, 136)',
-			/** The color of the progress mask */
-			progressColor: gradient,
-			/** The color of the playpack cursor */
-			cursorColor: '#ddd5e9',
-			/** The cursor width */
-			cursorWidth: 0,
-			/** Render the waveform with bars like this: ▁ ▂ ▇ ▃ ▅ ▂ */
-			barWidth: 2,
-			/** Spacing between bars in pixels */
-			barGap: 2,
-			/** Rounded borders for bars */
-			barRadius: 10,
-			/** A vertical scaling factor for the waveform */
-			barHeight: NaN,
-			/** Vertical bar alignment **/
-			barAlign: '',
-			/** Minimum pixels per second of audio (i.e. zoom level) */
-			minPxPerSec: 1,
-			/** Stretch the waveform to fill the container, true by default */
-			fillParent: true,
-			/** Audio URL */
-			url: 'music/bounce-seq-5.wav',
-			/** Whether to show default audio element controls */
-			mediaControls: false,
-			/** Play the audio on load */
-			autoplay: false,
-			/** Pass false to disable clicks on the waveform */
-			interact: true,
-			/** Allow to drag the cursor to seek to a new position */
-			dragToSeek: false,
-			/** Hide the scrollbar */
-			hideScrollbar: false,
-			/** Audio rate */
-			audioRate: 1,
-			/** Automatically scroll the container to keep the current position in viewport */
-			autoScroll: true,
-			/** If autoScroll is enabled, keep the cursor in the center of the waveform during playback */
-			autoCenter: true,
-			/** Decoding sample rate. Doesn't affect the playback. Defaults to 8000 */
-			sampleRate: 8000,
-		}
-		const options4 = {
-			/** HTML element or CSS selector (required) */
-			container: '#waveform4',
-			/** The height of the waveform in pixels */
-			height: 30,
-			/** Render each audio channel as a separate waveform */
-			splitChannels: false,
-			/** Stretch the waveform to the full height */
-			normalize: true,
-			/** The color of the waveform */
-			waveColor: 'rgb(136, 136, 136)',
-			/** The color of the progress mask */
-			progressColor: gradient,
-			/** The color of the playpack cursor */
-			cursorColor: '#ddd5e9',
-			/** The cursor width */
-			cursorWidth: 0,
-			/** Render the waveform with bars like this: ▁ ▂ ▇ ▃ ▅ ▂ */
-			barWidth: 2,
-			/** Spacing between bars in pixels */
-			barGap: 2,
-			/** Rounded borders for bars */
-			barRadius: 10,
-			/** A vertical scaling factor for the waveform */
-			barHeight: NaN,
-			/** Vertical bar alignment **/
-			barAlign: '',
-			/** Minimum pixels per second of audio (i.e. zoom level) */
-			minPxPerSec: 1,
-			/** Stretch the waveform to fill the container, true by default */
-			fillParent: true,
-			/** Audio URL */
-			url: 'music/groove-music.wav',
-			/** Whether to show default audio element controls */
-			mediaControls: false,
-			/** Play the audio on load */
-			autoplay: false,
-			/** Pass false to disable clicks on the waveform */
-			interact: true,
-			/** Allow to drag the cursor to seek to a new position */
-			dragToSeek: false,
-			/** Hide the scrollbar */
-			hideScrollbar: false,
-			/** Audio rate */
-			audioRate: 1,
-			/** Automatically scroll the container to keep the current position in viewport */
-			autoScroll: true,
-			/** If autoScroll is enabled, keep the cursor in the center of the waveform during playback */
-			autoCenter: true,
-			/** Decoding sample rate. Doesn't affect the playback. Defaults to 8000 */
-			sampleRate: 8000,
-		}
-		const options5 = {
-			/** HTML element or CSS selector (required) */
-			container: '#waveform5',
-			/** The height of the waveform in pixels */
-			height: 30,
-			/** Render each audio channel as a separate waveform */
-			splitChannels: false,
-			/** Stretch the waveform to the full height */
-			normalize: true,
-			/** The color of the waveform */
-			waveColor: 'rgb(136, 136, 136)',
-			/** The color of the progress mask */
-			progressColor: gradient,
-			/** The color of the playpack cursor */
-			cursorColor: '#ddd5e9',
-			/** The cursor width */
-			cursorWidth: 0,
-			/** Render the waveform with bars like this: ▁ ▂ ▇ ▃ ▅ ▂ */
-			barWidth: 2,
-			/** Spacing between bars in pixels */
-			barGap: 2,
-			/** Rounded borders for bars */
-			barRadius: 10,
-			/** A vertical scaling factor for the waveform */
-			barHeight: NaN,
-			/** Vertical bar alignment **/
-			barAlign: '',
-			/** Minimum pixels per second of audio (i.e. zoom level) */
-			minPxPerSec: 1,
-			/** Stretch the waveform to fill the container, true by default */
-			fillParent: true,
-			/** Audio URL */
-			url: 'music/my-feelings.wav',
-			/** Whether to show default audio element controls */
-			mediaControls: false,
-			/** Play the audio on load */
-			autoplay: false,
-			/** Pass false to disable clicks on the waveform */
-			interact: true,
-			/** Allow to drag the cursor to seek to a new position */
-			dragToSeek: false,
-			/** Hide the scrollbar */
-			hideScrollbar: false,
-			/** Audio rate */
-			audioRate: 1,
-			/** Automatically scroll the container to keep the current position in viewport */
-			autoScroll: true,
-			/** If autoScroll is enabled, keep the cursor in the center of the waveform during playback */
-			autoCenter: true,
-			/** Decoding sample rate. Doesn't affect the playback. Defaults to 8000 */
-			sampleRate: 8000,
-		}
-		const options6 = {
-			/** HTML element or CSS selector (required) */
-			container: '#waveform6',
-			/** The height of the waveform in pixels */
-			height: 30,
-			/** Render each audio channel as a separate waveform */
-			splitChannels: false,
-			/** Stretch the waveform to the full height */
-			normalize: true,
-			/** The color of the waveform */
-			waveColor: 'rgb(136, 136, 136)',
-			/** The color of the progress mask */
-			progressColor: gradient,
-			/** The color of the playpack cursor */
-			cursorColor: '#ddd5e9',
-			/** The cursor width */
-			cursorWidth: 0,
-			/** Render the waveform with bars like this: ▁ ▂ ▇ ▃ ▅ ▂ */
-			barWidth: 2,
-			/** Spacing between bars in pixels */
-			barGap: 2,
-			/** Rounded borders for bars */
-			barRadius: 10,
-			/** A vertical scaling factor for the waveform */
-			barHeight: NaN,
-			/** Vertical bar alignment **/
-			barAlign: '',
-			/** Minimum pixels per second of audio (i.e. zoom level) */
-			minPxPerSec: 1,
-			/** Stretch the waveform to fill the container, true by default */
-			fillParent: true,
-			/** Audio URL */
-			url: 'music/string-1-loop.wav',
-			/** Whether to show default audio element controls */
-			mediaControls: false,
-			/** Play the audio on load */
-			autoplay: false,
-			/** Pass false to disable clicks on the waveform */
-			interact: true,
-			/** Allow to drag the cursor to seek to a new position */
-			dragToSeek: false,
-			/** Hide the scrollbar */
-			hideScrollbar: false,
-			/** Audio rate */
-			audioRate: 1,
-			/** Automatically scroll the container to keep the current position in viewport */
-			autoScroll: true,
-			/** If autoScroll is enabled, keep the cursor in the center of the waveform during playback */
-			autoCenter: true,
-			/** Decoding sample rate. Doesn't affect the playback. Defaults to 8000 */
-			sampleRate: 8000,
-		}
+		function initializeWaveSurfer(containerId, audioUrl, playBtnId) {
+			const options = {
+				container: `#${containerId}`,
+				height: 30,
+				splitChannels: false,
+				normalize: true,
+				waveColor: 'rgb(136, 136, 136)',
+				progressColor: gradient,
+				cursorColor: '#ddd5e9',
+				cursorWidth: 0,
+				barWidth: 2,
+				barGap: 2,
+				barRadius: 10,
+				barHeight: NaN,
+				barAlign: '',
+				minPxPerSec: 1,
+				fillParent: true,
+				url: audioUrl,
+				mediaControls: false,
+				autoplay: false,
+				interact: true,
+				dragToSeek: false,
+				hideScrollbar: false,
+				audioRate: 1,
+				autoScroll: true,
+				autoCenter: true,
+				sampleRate: 8000,
+			};
 
+			const wavesurfer = WaveSurfer.create(options);
 
-		const wavesurfer = WaveSurfer.create(options)
-		const wavesurfer2 = WaveSurfer.create(options2)
-		const wavesurfer3 = WaveSurfer.create(options3)
-		const wavesurfer4 = WaveSurfer.create(options4)
-		const wavesurfer5 = WaveSurfer.create(options5)
-		const wavesurfer6 = WaveSurfer.create(options6)
-
-
-		wavesurfer.on('ready', () => {
-			wavesurfer.setTime(9)
-		})
-
-
-		wavesurfer.on('interaction', () => {
-			wavesurfer.play()
-		})
-		wavesurfer2.on('interaction', () => {
-			wavesurfer2.play()
-		})
-		wavesurfer3.on('interaction', () => {
-			wavesurfer3.play()
-		})
-		wavesurfer4.on('interaction', () => {
-			wavesurfer4.play()
-		})
-		wavesurfer5.on('interaction', () => {
-			wavesurfer5.play()
-		})
-		wavesurfer6.on('interaction', () => {
-			wavesurfer6.play()
-		})
-
-		document.getElementById('playBtn').addEventListener('click', () => {
-			wavesurfer.playPause();
-			if (playBtn.src.includes("play.svg")) {
-				playBtn.src = "img/3.samples/pause.svg";
-			} else {
-				playBtn.src = "img/3.samples/play.svg";
+			if (!initializeWaveSurfer.initialized) {
+				wavesurfer.on('ready', () => {
+					wavesurfer.setTime(6);
+				});
+				initializeWaveSurfer.initialized = true;
 			}
-		})
-		wavesurfer.on('finish', function () {
+
+			wavesurfer.on('interaction', () => {
+				if (currentActiveWaveSurfer && currentActiveWaveSurfer !== wavesurfer) {
+					currentActiveWaveSurfer.pause();
+					if (currentActiveWaveSurfer.playBtn) {
+						currentActiveWaveSurfer.playBtn.src = "img/3.samples/play.svg";
+					}
+				}
+
+				if (wavesurfer.isPlaying()) {
+					wavesurfer.play();
+					if (wavesurfer.playBtn) {
+						wavesurfer.playBtn.src = "img/3.samples/pause.svg";
+					}
+				} else {
+					if (wavesurfer.playBtn) {
+						wavesurfer.playBtn.src = "img/3.samples/pause.svg";
+					}
+					wavesurfer.play();
+				}
+
+				currentActiveWaveSurfer = wavesurfer;
+			});
+
+			wavesurfer.on('finish', function () {
+				if (wavesurfer.playBtn) {
+					wavesurfer.playBtn.src = "img/3.samples/play.svg";
+				}
+				wavesurfer.stop();
+			});
+
+			wavesurfer.playBtn = createPlayButton(containerId, playBtnId, wavesurfer);
+		}
+
+		function createPlayButton(containerId, playBtnId, wavesurfer) {
+			const playBtn = document.getElementById(playBtnId);
 			playBtn.src = "img/3.samples/play.svg";
-			wavesurfer.stop();
-		})
 
-		document.getElementById('playBtn2').addEventListener('click', () => {
-			wavesurfer2.playPause();
-			if (playBtn2.src.includes("play.svg")) {
-				playBtn2.src = "img/3.samples/pause.svg";
-			} else {
-				playBtn2.src = "img/3.samples/play.svg";
-			}
-		})
-		wavesurfer2.on('finish', function () {
-			playBtn2.src = "img/3.samples/play.svg";
-			wavesurfer2.stop();
-		})
+			playBtn.addEventListener('click', () => {
+				if (currentActiveWaveSurfer && currentActiveWaveSurfer !== wavesurfer) {
+					currentActiveWaveSurfer.pause();
+					if (currentActiveWaveSurfer.playBtn) {
+						currentActiveWaveSurfer.playBtn.src = "img/3.samples/play.svg";
+					}
+				}
 
-		document.getElementById('playBtn3').addEventListener('click', () => {
-			wavesurfer3.playPause();
-			if (playBtn3.src.includes("play.svg")) {
-				playBtn3.src = "img/3.samples/pause.svg";
-			} else {
-				playBtn3.src = "img/3.samples/play.svg";
-			}
-		})
-		wavesurfer3.on('finish', function () {
-			playBtn3.src = "img/3.samples/play.svg";
-			wavesurfer3.stop();
-		})
+				if (wavesurfer.isPlaying()) {
+					wavesurfer.pause();
+					if (wavesurfer.playBtn) {
+						wavesurfer.playBtn.src = "img/3.samples/play.svg";
+					}
+				} else {
+					if (wavesurfer.playBtn) {
+						wavesurfer.playBtn.src = "img/3.samples/pause.svg";
+					}
+					wavesurfer.play();
+				}
 
-		document.getElementById('playBtn4').addEventListener('click', () => {
-			wavesurfer4.playPause();
-			if (playBtn4.src.includes("play.svg")) {
-				playBtn4.src = "img/3.samples/pause.svg";
-			} else {
-				playBtn4.src = "img/3.samples/play.svg";
-			}
-		})
-		wavesurfer4.on('finish', function () {
-			playBtn4.src = "img/3.samples/play.svg";
-			wavesurfer4.stop();
-		})
+				currentActiveWaveSurfer = wavesurfer;
+			});
 
-		document.getElementById('playBtn5').addEventListener('click', () => {
-			wavesurfer5.playPause();
-			if (playBtn5.src.includes("play.svg")) {
-				playBtn5.src = "img/3.samples/pause.svg";
-			} else {
-				playBtn5.src = "img/3.samples/play.svg";
-			}
-		})
-		wavesurfer5.on('finish', function () {
-			playBtn5.src = "img/3.samples/play.svg";
-			wavesurfer5.stop();
-		})
+			return playBtn;
+		}
 
-		document.getElementById('playBtn6').addEventListener('click', () => {
-			wavesurfer6.playPause();
-			if (playBtn6.src.includes("play.svg")) {
-				playBtn6.src = "img/3.samples/pause.svg";
-			} else {
-				playBtn6.src = "img/3.samples/play.svg";
-			}
-		})
-		wavesurfer6.on('finish', function () {
-			playBtn6.src = "img/3.samples/play.svg";
-			wavesurfer6.stop();
-		})
-
+		// Использование функции для каждого экземпляра WaveSurfer
+		initializeWaveSurfer('waveform', 'music/string-1-loop.wav', 'playBtn');
+		initializeWaveSurfer('waveform2', 'music/bounce-seq-5.wav', 'playBtn2');
+		initializeWaveSurfer('waveform3', 'music/arpeggio5lop.wav', 'playBtn3');
+		initializeWaveSurfer('waveform4', 'music/my-feelings.wav', 'playBtn4');
+		initializeWaveSurfer('waveform5', 'music/lofi-loop1.mp3', 'playBtn5');
+		initializeWaveSurfer('waveform6', 'music/groove-music.wav', 'playBtn6');
 	</script>
 	<script src="js/scrypt.js"></script>
 </body>
