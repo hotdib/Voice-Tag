@@ -1379,32 +1379,32 @@ body {
 			padding: rem(14);
 		}
 		@media (max-width: $mobileSmall) {
-			padding: rem(10);
+			padding: rem(20) rem(10);
 		}
-		@media (max-width: em(390)){
+		@media (max-width: em(390)) {
 			&::after {
 				content: "scroll me";
 				position: absolute;
 				width: 70px;
 				height: 12px;
-				bottom: 80px;
-				left: 120px;
+				bottom: 93px;
+				left: 45%;
+				transform: translate(-50%, 0px);
 				opacity: 0.5;
-				animation: jump-right 3s ease 0s infinite;
+				animation: jump-right 3.5s ease 0s infinite;
 				font-size: rem(12);
 				font-style: italic;
-				background: url('../img/0.icons/reshot-icon-button-arrow-right-W9BZ38CUD2.svg') top 0.5px right 0 no-repeat;
+				background: url("../img/0.icons/reshot-icon-button-arrow-right-W9BZ38CUD2.svg") top 0.5px right 0 no-repeat;
 			}
 			@keyframes jump-right {
 				0% {
-				left: 120px;
+					left: 45%;
 				}
-				50%{
-				left: 160px;
+				50% {
+					left: 70%;
 				}
 				100% {
-				left: 120px;
-					
+					left: 45%;
 				}
 			}
 		}
@@ -1414,6 +1414,7 @@ body {
 		margin-bottom: rem(24);
 		@media (max-width: em(390)) {
 			overflow: auto;
+			padding-bottom: rem(10);
 		}
 	}
 	&__cover {
@@ -1422,7 +1423,7 @@ body {
 		}
 		@media (max-width: em(390)) {
 			position: absolute;
-			top: 10px;
+			top: 20px;
 			left: 9px;
 			background: #1c2029;
 			max-width: 100px;
@@ -1431,6 +1432,16 @@ body {
 			grid-template-rows: repeat(5, minmax(50px, 1fr));
 			gap: 5px;
 			padding-right: rem(10);
+			.grid__item_title {
+				@media (max-width: em(390)) {
+					opacity: 1 !important;
+				}
+			}
+			.grid__item_voice {
+				@media (max-width: em(390)) {
+					opacity: 1 !important;
+				}
+			}
 		}
 	}
 	.grid {
@@ -1459,6 +1470,9 @@ body {
 				font-size: rem(32);
 				font-weight: 500;
 				line-height: 120%;
+				@media (max-width: em(390)) {
+					opacity: 0;
+				}
 			}
 
 			&_normal {
@@ -1468,6 +1482,9 @@ body {
 			&_voice {
 				display: flex;
 				align-items: start;
+				@media (max-width: em(390)) {
+					opacity: 0;
+				}
 			}
 
 			&_price {
@@ -1493,6 +1510,22 @@ body {
 					font-size: rem(22);
 				}
 			}
+			@media (max-width: em(410)) {
+				&_empty {
+					padding: rem(4);
+				}
+				&_price {
+					padding: rem(4);
+				}
+			}
+			@media (max-width: em(390)) {
+				&_empty {
+					padding: rem(4) rem(8);
+				}
+				&_price {
+					padding: rem(4) rem(8);
+				}
+			}
 		}
 		@media (max-width: $mobile) {
 			gap: 8px;
@@ -1501,7 +1534,6 @@ body {
 			gap: 5px;
 		}
 	}
-
 	&__btn {
 		text-align: center;
 		@media (max-width: em(320)) {
