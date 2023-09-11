@@ -1976,12 +1976,6 @@ body {
 	@media (max-width: $mobile) {
 		margin-bottom: rem(40);
 	}
-	&__container {
-	}
-
-	&__body {
-	}
-
 	&__title {
 		text-transform: uppercase;
 		margin-bottom: rem(24);
@@ -2113,8 +2107,8 @@ body {
 				height: 8px;
 				border-radius: 50%;
 				top: 50%;
-				transform: translate(0px, -50%);
 				left: 0;
+				transform: translate(0px, -50%);
 				background-color: #0b96d9;
 			}
 			&:not(:last-child) {
