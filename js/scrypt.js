@@ -87,7 +87,7 @@ window.addEventListener('scroll', function () {
 	let value = window.scrollY;
 	if (value > 80) {
 		btnbg.style.background = 'linear-gradient(#1f1f1f, #1c1c1c) padding-box, linear-gradient(51deg, #0958fa 13.86%, #09fa32 93.66%) border-box';
-	}else{
+	} else {
 		btnbg.style.background = 'linear-gradient(#24330d, #24330d) padding-box, linear-gradient(51deg, #0958fa 13.86%, #09fa32 93.66%) border-box';
 	}
 });
@@ -159,6 +159,54 @@ if (spollersArray.length > 0) {
 	// Инициализация обычных слойлеров
 	if (spollersRegular.length > 0) {
 		initSpollers(spollersRegular);
+	}
+
+	// Получение спойлеров с медиа запросами
+	const spollersMedia = Array.from(spollersArray).filter(function (item, index, self) {
+		return item.dataset.spollers.split(",")[0];
+	});
+
+	// Инициализация спойлеров с медиа запросами
+	if (spollersMedia.length > 0) {
+		const breakpointsArray = [];
+		spollersMedia.forEach(item => {
+			const params = item.dataset.spollers;
+			const breakpoint = {};
+			const paramsArray = params.split(",");
+			breakpoint.value = paramsArray[0];
+			breakpoint.type = paramsArray[1] ? paramsArray[1].trim() : "max";
+			breakpoint.item = item;
+			breakpointsArray.push(breakpoint);
+		});
+
+		// Получаем уникальные брейкпоинты
+		let mediaQueries = breakpointsArray.map(function(item){
+			return'(' + item.type + "-width: " + item.value + "px)," + item.value + ',' + item.type;
+		});
+		mediaQueries = mediaQueries.filter(function(item, index, self){
+			return self.indexOf(item) === index;
+		});
+
+		// Работаем с каждым брейкпоинтом
+		mediaQueries.forEach(breakpoint => {
+			const paramsArray = breakpoint.split(",");
+			const mediaBreakpoint = paramsArray[1];
+			const mediaType = paramsArray[2];
+			const matchMedia = window.matchMedia(paramsArray[0]);
+
+			// Обьекты с нужными условиями
+			const spollersArray = breakpointsArray.filter(function(item){
+				if(item.value === mediaBreakpoint && item.type === mediaType){
+					return true;
+				}
+			});
+			// Событие
+			matchMedia.addListener(function(){
+				initSpollers(spollersArray, matchMedia);
+			});
+			initSpollers(spollersArray, matchMedia);
+		});
+
 	}
 
 	// Инициализация
