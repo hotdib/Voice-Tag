@@ -104,7 +104,7 @@
 							</div>
 						</div>
 						<div class="header__btn btn-2">
-							<a href="#" id="btnbg" class="btn-2__link"><span>Get your tag</span></a>
+							<a href="#popup" id="btnbg" class="btn-2__link popup-link"><span>Get your tag</span></a>
 						</div>
 					</div>
 				</div>
@@ -119,18 +119,197 @@
 						fill="white" />
 				</svg>
 			</button>
+			<div id="popup" class="popup">
+				<div class="popup__body">
+					<div class="popup__content">
+						<a href="#" id="popup-close" class="popup__close close-popup">✕</a>
+						<form action="#" id="form" method="POST" enctype="multipart/form-data" class="form">
+							<div class="form__title">Fill out the form</div>
+							<div class="form__subtitle">*How many tags your want?</div>
+							<div class="form__amount amount">
+								<label class="amount__label">
+									<input checked type="radio" name="amount" value="1" class="amount__input" />
+									<span class="amount__span">1 Voice Tag</span>
+								</label>
+								<label class="amount__label">
+									<input type="radio" name="amount" value="2" class="amount__input" />
+									<span class="amount__span">2 Voice Tag</span>
+								</label>
+								<label class="amount__label">
+									<input type="radio" name="amount" value="3" class="amount__input" />
+									<span class="amount__span">3 Voice Tag</span>
+								</label>
+								<label class="amount__label">
+									<input type="radio" name="amount" value="4" class="amount__input" />
+									<span class="amount__span">4 Voice Tag</span>
+								</label>
+							</div>
+							<div>
+								<p class="form__subtitle">*Which voice(s) you prefer?</p>
+							</div>
+							<div class="form__which which">
+								<label class="which__label">
+									<input checked type="checkbox" name="Male" value="which" class="which__input _req" />
+									<span class="which__span">Male</span>
+								</label>
+								<label class="which__label">
+									<input type="checkbox" name="Female" value="which" class="which__input _req" />
+									<span class="which__span">Female</span>
+								</label>
+								<label class="which__label">
+									<input type="checkbox" name="Anime" value="which" class="which__input _req" />
+									<span class="which__span">Anime</span>
+								</label>
+								<label class="which__label">
+									<input type="checkbox" name="Kid" value="which" class="which__input _req" />
+									<span class="which__span">Kid</span>
+								</label>
+							</div>
+							<div>
+								<p class="form__subtitle">*What you want to be said?</p>
+							</div>
+							<label class="form__textarea-cont">
+								<input wrap="off" name="phrases" placeholder="Enter your tag phrase(s)" class="form__input _req"
+									id="Textarea1">
+								<button type="button" data-textarea-id="Textarea1" class="form__textarea-btn">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M12 2C6.47 2 2 6.47 2 12C2 17.53 6.47 22 12 22C17.53 22 22 17.53 22 12C22 6.47 17.53 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12 10.59L15.59 7L17 8.41L13.41 12L17 15.59L15.59 17L12 13.41L8.41 17L7 15.59L10.59 12L7 8.41L8.41 7L12 10.59Z"
+											fill="white" fill-opacity="0.4" />
+									</svg>
+								</button>
+							</label>
+							<div>
+								<p class="form__subtitle">Your requests</p>
+							</div>
+							<label class="form__textarea-cont">
+								<input wrap="off" name="requests" placeholder="Any details like mood, effects, etc. (Optional)"
+									class="form__input" id="Textarea2">
+								<button type="button" data-textarea-id="Textarea2" class="form__textarea-btn">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M12 2C6.47 2 2 6.47 2 12C2 17.53 6.47 22 12 22C17.53 22 22 17.53 22 12C22 6.47 17.53 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12 10.59L15.59 7L17 8.41L13.41 12L17 15.59L15.59 17L12 13.41L8.41 17L7 15.59L10.59 12L7 8.41L8.41 7L12 10.59Z"
+											fill="white" fill-opacity="0.4" />
+									</svg>
+								</button>
+							</label>
+							<div>
+								<p class="form__subtitle">*Your Email</p>
+							</div>
+							<label class="form__textarea-cont">
+								<input type="email" name="email" data-error="Error" placeholder="E-mail"
+									class="form__input _req _email" id="Textarea3">
+								<button type="button" data-textarea-id="Textarea3" class="form__textarea-btn">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M12 2C6.47 2 2 6.47 2 12C2 17.53 6.47 22 12 22C17.53 22 22 17.53 22 12C22 6.47 17.53 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12 10.59L15.59 7L17 8.41L13.41 12L17 15.59L15.59 17L12 13.41L8.41 17L7 15.59L10.59 12L7 8.41L8.41 7L12 10.59Z"
+											fill="white" fill-opacity="0.4" />
+									</svg>
+								</button>
+							</label>
+							<div>
+								<p class="form__subtitle">Payment method</p>
+							</div>
+							<div class="form__method method">
+								<label class="method__label">
+									<input checked type="radio" name="method" value="PayPal" class="method__input" />
+									<span class="method__span">PayPal</span>
+									<img src="img/6.form/logos_paypal.svg" alt="">
+								</label>
+								<label class="method__label">
+									<input type="radio" name="method" value="Card" class="method__input" />
+									<span class="method__span">Card</span>
+									<img src="img/6.form/logos_visa.svg" alt="">
+									<img src="img/6.form/logos_mastercard.svg" alt="">
+								</label>
+								<label class="method__label">
+									<input type="radio" name="method" value="Steam Items" class="method__input" />
+									<span class="method__span">Steam Items</span>
+									<img src="img/6.form/bi_steam.svg" alt="">
+								</label>
+								<label class="method__label">
+									<input type="radio" name="method" value="Crypto" class="method__input" />
+									<span class="method__span">Crypto</span>
+									<img src="img/6.form/logos_bitcoin.svg" alt="">
+								</label>
+								<label class="method__label">
+									<input type="radio" name="method" value="Perfect Money" class="method__input" />
+									<span class="method__span">Perfect Money</span>
+									<img src="img/6.form/perfect_money.png" alt="">
+								</label>
+								<label class="method__label">
+									<input type="radio" name="method" value="Payeer" class="method__input" />
+									<span class="method__span">Payeer</span>
+									<img src="img/6.form/logo-payeer.png" alt="">
+								</label>
+							</div>
+							<div data-spollers class="form__spoller form-spoller">
+								<div class="form-spoller__item">
+									<button type="button" data-spoller class="form-spoller__btn">Got promo code?</button>
+									<div>
+										<div class="form-spoller__content">
+											<input wrap="off" name="promo" placeholder="Optional"
+												class="form__input form__input_spoller" id="Textarea4">
+											<button type="button" class="form__textarea-btn" data-textarea-id="Textarea4">
+												<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+													xmlns="http://www.w3.org/2000/svg">
+													<path fill-rule="evenodd" clip-rule="evenodd"
+														d="M12 2C6.47 2 2 6.47 2 12C2 17.53 6.47 22 12 22C17.53 22 22 17.53 22 12C22 6.47 17.53 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12 10.59L15.59 7L17 8.41L13.41 12L17 15.59L15.59 17L12 13.41L8.41 17L7 15.59L10.59 12L7 8.41L8.41 7L12 10.59Z"
+														fill="white" fill-opacity="0.4" />
+												</svg>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form__price form-price">
+								<p class="form-price__title">Price</p>
+								<div class="form-price__content">
+									<div class="form-price__price price">
+										<div class="price__column">
+											<span id="pricediscount" class="price__discount">$24</span>
+										</div>
+										<div class="price__column price__column_d">
+											<span class="price__cents">90</span>
+											<span id="pricefull" class="price__full">$35</span>
+										</div>
+									</div>
+									<button type="submit" class="form__btn btn">
+										<div class="btn__link">Get your custom tag</div>
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div id="popup2" class="popup popup_2">
+				<div class="popup__body">
+					<div class="popup__content">
+						<a href="#" id="popup-close" class="popup__close close-popup">✕</a>
+						<div class="popup__thanks">
+							<span>Congratulations! Request sent successfully.</span>
+						</div>
+					</div>
+				</div>
+			</div>
 			<section class="hero">
 				<div class="hero__container container">
 					<div class="hero__body">
 						<div class="hero__content">
 							<h1 class="hero__title">Voice <br> Tag Lab</h1>
-							<div class="hero__subtitle inner-title">The best custom voice tags online</div>
-							<div class="hero__text description-text">Voice Tag is a necessity for every music producer. We
+							<div class="hero__subtitle inner-title">The best custom
+								voice tags online</div>
+							<div class="hero__text description-text">Voice Tag is a
+								necessity for every music producer. We
 								offer a wide range of voices and professional service. Brand your sound with us! Become known
 							</div>
 						</div>
-						<div class="hero__btn btn">
-							<a href="#" class="btn__link">Get your custom tag</a>
+						<div id="hero__bn" class="hero__btn btn">
+							<a href="#popup" class="btn__link popup-link">Get your custom tag</a>
 						</div>
 					</div>
 				</div>
@@ -156,7 +335,7 @@
 					</svg>
 				</a>
 			</section>
-			<section class="how">
+			<section data-aos="fade-up" class="how">
 				<div class="how__container container">
 					<div class="how__body">
 						<div class="how__title block-title">How it works?</div>
@@ -187,7 +366,8 @@
 									<div class="how__item">
 										<div class="how__number">3</div>
 										<div class="how__description standart-text">
-											Fill out the <a href="#" class="how__link">form</a>. Include your tag phrase(s),
+											Fill out the <a href="#popup" class="how__link popup-link">form</a>. Include your tag
+											phrase(s),
 											any requests like mood, effects, etc.
 										</div>
 									</div>
@@ -273,13 +453,13 @@
 					</div>
 				</div>
 			</section>
-			<section class="samples">
+			<section data-aos="fade-up" class="samples">
 				<div class="samples__container container">
 					<div class="samples__body">
 						<div class="samples__title block-title">Tags Samples</div>
 						<div class="samples__audio">
 							<div class="samples__row">
-								<div class="samples__column">
+								<div class="samples__column" data-aos="fade-right">
 									<div class="samples__item audio-card">
 										<div class="audio-card__subtitle subtitle">Male voice</div>
 										<div class="audio-card__track">
@@ -296,7 +476,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="samples__column">
+								<div class="samples__column" data-aos="fade-left">
 									<div class="samples__item audio-card audio-card_2">
 										<div class="audio-card__subtitle subtitle">Female voice</div>
 										<div class="audio-card__track">
@@ -313,7 +493,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="samples__column">
+								<div class="samples__column" data-aos="fade-right">
 									<div class="samples__item audio-card audio-card_3">
 										<div class="audio-card__subtitle subtitle">Anime voice</div>
 										<div class="audio-card__track">
@@ -324,7 +504,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="samples__column">
+								<div class="samples__column" data-aos="fade-left">
 									<div class="samples__item audio-card audio-card_4">
 										<div class="audio-card__subtitle subtitle">Kid voice</div>
 										<div class="audio-card__track">
@@ -366,7 +546,7 @@
 									<li class="offer__item">Custom Voice Tag + 10GB of drum, loop and midi kits</li>
 								</ul>
 								<div class="offer__btn btn-2">
-									<a href="#" class="btn-2__link"><span>I want it</span></a>
+									<a href="#popup" class="btn-2__link popup-link"><span>I want it</span></a>
 								</div>
 							</div>
 						</div>
@@ -406,20 +586,20 @@
 								<p>You can pick any voice</p>
 							</div>
 							<div class="grid__item grid__item_price">
-								<p>$31</p>
+								<p>$35</p>
 								$24.90
 							</div>
 							<div class="grid__item grid__item_price">
-								<p>$31</p>
-								$39.90
+								<p>$45</p>
+								$34.90
 							</div>
 							<div class="grid__item grid__item_price">
-								<p>$31</p>
-								$49.90
+								<p>$55</p>
+								$44.90
 							</div>
 							<div class="grid__item grid__item_price">
-								<p>$31</p>
-								$59.90
+								<p>$65</p>
+								$54.90
 							</div>
 							<div class="grid__item grid__item_normal grid__item_voice">
 								2 Voices
@@ -428,16 +608,16 @@
 							<div class="grid__item grid__item_empty">
 							</div>
 							<div class="grid__item grid__item_price">
-								<p>$31</p>
+								<p>$55</p>
 								$44.90
 							</div>
 							<div class="grid__item grid__item_price">
-								<p>$31</p>
-								$59.90
+								<p>$65</p>
+								$54.90
 							</div>
 							<div class="grid__item grid__item_price">
-								<p>$31</p>
-								$69.90
+								<p>$75</p>
+								$64.90
 							</div>
 							<div class="grid__item grid__item_normal grid__item_voice">
 								3 Voices
@@ -448,12 +628,12 @@
 							<div class="grid__item grid__item_empty">
 							</div>
 							<div class="grid__item grid__item_price">
-								<p>$31</p>
-								$64.90
+								<p>$70</p>
+								$59.90
 							</div>
 							<div class="grid__item grid__item_price">
-								<p>$31</p>
-								$74.90
+								<p>$80</p>
+								$69.90
 							</div>
 							<div class="grid__item grid__item_normal grid__item_voice">
 								4 Voices
@@ -466,17 +646,17 @@
 							<div class="grid__item grid__item_empty">
 							</div>
 							<div class="grid__item grid__item_price">
-								<p>$31</p>
-								$79.90
+								<p>$85</p>
+								$74.90
 							</div>
 						</div>
 						<div class="pricing__btn btn">
-							<a href="#" class="btn__link">Get your custom tag</a>
+							<a href="#popup" class="btn__link popup-link">Get your custom tag</a>
 						</div>
 					</div>
 				</div>
 			</section>
-			<section class="reviews">
+			<section  data-aos="fade-up" class="reviews">
 				<div class="reviews__container container">
 					<div class="reviews__body">
 						<div class="reviews__title block-title">Reviews</div>
@@ -540,7 +720,7 @@
 			<section class="faq">
 				<div class="faq__container container">
 					<div class="faq__body">
-						<div data-aos="fade-up" class="faq__title block-title">
+						<div class="faq__title block-title">
 							faq
 						</div>
 						<div data-spollers="992,max" data-one-spoller class="faq__spollers spoller">
@@ -689,23 +869,23 @@
 							</ul>
 						</nav>
 						<div class="footer__web footer-web">
-							<a href="#" class="footer-web__link">
+							<a target="_blank" href="https://www.youtube.com/" class="footer-web__link">
 								<img src="img/0.icons/footer1.svg" alt="">
 							</a>
-							<a href="#" class="footer-web__link">
+							<a target="_blank" href="https://www.instagram.com/" class="footer-web__link">
 								<img src="img/0.icons/footer2.svg" alt="">
 							</a>
-							<a href="#" class="footer-web__link">
+							<a target="_blank" href="https://facebook.com/" class="footer-web__link">
 								<img src="img/0.icons/footer3.svg" alt="">
 							</a>
-							<a href="#" class="footer-web__link">
+							<a target="_blank" href="https://twitter.com/?lang=uk" class="footer-web__link">
 								<img src="img/0.icons/footer4.svg" alt="">
 							</a>
 						</div>
 						<div class="footer__links">
-							<a href="#" class="footer__link">Terms of service</a>
-							<a href="#" class="footer__link">Privacy policy</a>
-							<a href="#" class="footer__link">Refund policy</a>
+							<a href="#footer" class="footer__link">Terms of service</a>
+							<a href="#footer" class="footer__link">Privacy policy</a>
+							<a href="#footer" class="footer__link">Refund policy</a>
 						</div>
 					</div>
 				</div>
