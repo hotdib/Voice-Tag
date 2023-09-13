@@ -27,7 +27,7 @@ backToTopButton.addEventListener("click", goToTop)
 //======gototopbtn
 
 
-//======burger+goto
+//======burger========
 document.addEventListener("DOMContentLoaded", function () {
 	var burger = document.querySelector('.menu__icon');
 	var menu = document.querySelector('.menu__body');
@@ -37,11 +37,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 	burger.addEventListener('click', function (event) {
-		popupClose(document.getElementById('popup')); // Закрываем попап с id "popup"
-		burger.classList.toggle('active');
-		menu.classList.toggle('active');
-		wrapper.classList.toggle('active');
-		body.classList.toggle('lock');
+		const popupActive = document.querySelector('.popup.open');
+		if (popupActive) {
+			popupActive.classList.remove('open');
+			bodyUnLock(); // Вызываем bodyUnLock() сначала
+			setTimeout(function () {
+				body.classList.toggle('lock'); // Затем, после задержки, добавляем/удаляем класс 'lock' для body
+			}, timeout); // timeout - задержка в миллисекундах (вы можете установить нужное значение)
+			burger.classList.toggle('active');
+			menu.classList.toggle('active');
+			wrapper.classList.toggle('active');
+		} else {
+			burger.classList.toggle('active');
+			menu.classList.toggle('active');
+			wrapper.classList.toggle('active');
+			body.classList.toggle('lock'); // Если нет активного popup, то просто добавляем/удаляем класс 'lock' для body
+		}
 	});
 	webitem.addEventListener('click', function (event) {
 		if (menu.classList.contains('active')) {
@@ -73,6 +84,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 });
+//======burger========
+
 
 
 
@@ -94,6 +107,8 @@ window.addEventListener('scroll', function () {
 	});
 })
 //паралакс эффект для фона
+//паралакс эффект для фона
+
 let btnbg = document.getElementById('btnbg');
 window.addEventListener('scroll', function () {
 	let value = window.scrollY;
@@ -106,6 +121,7 @@ window.addEventListener('scroll', function () {
 //паралакс эффект для фона
 
 
+//=====GOTO=====
 
 document.addEventListener("click", documentActions);
 
@@ -144,7 +160,8 @@ function documentActions(e) {
 		e.preventDefault();
 	}
 }
-//==========
+//=====GOTO=====
+
 
 //=====ibg=======
 function ibg() {

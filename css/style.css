@@ -108,7 +108,7 @@ h6 {
 }
 body {
   font-family: "Montserrat", sans-serif;
-  background-color: #ffffff;
+  background-color: #10141e;
   color: #fff;
   font-style: normal;
   font-weight: 400;
@@ -117,6 +117,9 @@ body {
 }
 body.lock {
   overflow: hidden;
+}
+body.lock .wrapper {
+  overflow: visible;
 }
 
 .container {
@@ -153,7 +156,6 @@ body.lock {
       -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
-  background-color: #10141e;
 }
 .wrapper::after {
   content: "";
@@ -163,6 +165,7 @@ body.lock {
   top: 0;
   left: 0;
   opacity: 0;
+  z-index: 1;
   background: rgba(0, 0, 0, 0.4901960784);
   -webkit-transition: opacity 0.5s ease 0s;
   transition: opacity 0.5s ease 0s;
@@ -358,27 +361,23 @@ body.lock {
   width: 100%;
   top: 24px;
   z-index: 1000;
-  -webkit-animation: fade-down 1s ease-in-out;
-          animation: fade-down 1s ease-in-out;
+  -webkit-animation: fade-down 1s ease;
+          animation: fade-down 1s ease;
 }
 @-webkit-keyframes fade-down {
   0% {
-    top: -50px;
     opacity: 0;
   }
   100% {
     opacity: 1;
-    top: 24px;
   }
 }
 @keyframes fade-down {
   0% {
-    top: -50px;
     opacity: 0;
   }
   100% {
     opacity: 1;
-    top: 24px;
   }
 }
 @media (max-width: 29.99875em) {
@@ -1042,35 +1041,10 @@ body.lock {
   -ms-flex-item-align: center;
       align-self: center;
   max-height: 440px;
-}
-.hero__content {
-  max-width: 28.125rem;
-}
-@media (max-width: 47.99875em) {
-  .hero__content {
-    margin-bottom: 2.1875rem;
-  }
-}
-.hero__title {
-  font-family: "Russo One", sans-serif;
-  font-size: 5rem;
-  line-height: 120%;
-  margin-bottom: 0.5rem;
-  padding-left: 0.125rem;
   position: relative;
   left: 0px;
-  -webkit-animation: fade-right 1s ease;
-          animation: fade-right 1s ease;
-}
-@media (max-width: 29.99875em) {
-  .hero__title {
-    font-size: 4.5rem;
-  }
-}
-@media (max-width: 22.5em) {
-  .hero__title {
-    font-size: 3.75rem;
-  }
+  -webkit-animation: fade-right 1s ease-in-out;
+          animation: fade-right 1s ease-in-out;
 }
 @-webkit-keyframes fade-right {
   0% {
@@ -1088,56 +1062,53 @@ body.lock {
     left: 0;
   }
 }
+.hero__content {
+  max-width: 28.125rem;
+}
+@media (max-width: 47.99875em) {
+  .hero__content {
+    margin-bottom: 2.1875rem;
+  }
+}
+.hero__title {
+  font-family: "Russo One", sans-serif;
+  font-size: 5rem;
+  line-height: 120%;
+  margin-bottom: 0.5rem;
+  padding-left: 0.125rem;
+}
+@media (max-width: 29.99875em) {
+  .hero__title {
+    font-size: 4.5rem;
+  }
+}
+@media (max-width: 22.5em) {
+  .hero__title {
+    font-size: 3.75rem;
+  }
+}
 .hero__subtitle {
   margin-bottom: 0.5rem;
   background: rgba(0, 0, 0, 0.4);
   padding: 0.125rem 0.25rem;
-  position: relative;
-  left: 0px;
-  -webkit-animation: fade-right 1.25s ease;
-          animation: fade-right 1.25s ease;
 }
 @media (max-width: 29.99875em) {
   .hero__subtitle {
     font-size: 1.125rem;
   }
 }
-@keyframes fade-right {
-  0% {
-    left: -500px;
-  }
-  100% {
-    left: 0;
-  }
-}
 .hero__text {
   max-width: 21.875rem;
   margin-bottom: 5rem;
-  position: relative;
-  left: 0px;
-  -webkit-animation: fade-right 1.5s ease;
-          animation: fade-right 1.5s ease;
 }
 @media (max-width: 47.99875em) {
   .hero__text {
     margin-bottom: 2.1875rem;
   }
 }
-@keyframes fade-right {
-  0% {
-    left: -500px;
-  }
-  100% {
-    left: 0;
-  }
-}
 .hero__btn {
   position: relative;
   top: 0px;
-  position: relative;
-  left: 0px;
-  -webkit-animation: fade-right 1.75s ease;
-          animation: fade-right 1.75s ease;
 }
 @media (max-width: 61.99875em) {
   .hero__btn .btn__link {
@@ -1147,14 +1118,6 @@ body.lock {
 @media (max-width: 47.99875em) {
   .hero__btn .btn__link {
     min-width: 250px;
-  }
-}
-@keyframes fade-right {
-  0% {
-    left: -500px;
-  }
-  100% {
-    left: 0;
   }
 }
 .hero__bg {
@@ -2515,6 +2478,9 @@ body.lock {
     transition: transform 0.3s ease 0s;
     transition: transform 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
   }
+  .faq .spoller._init .spoller__text {
+    max-height: 500px;
+  }
 }
 @media (max-width: 47.99875em) {
   .faq .spoller._init .spoller__btn::before,
@@ -2559,7 +2525,11 @@ body.lock {
 }
 @media (max-width: 61.99875em) {
   .faq .spoller__text {
+    -webkit-transition: max-height 0.3s ease-in-out;
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
     padding-right: 2.1875rem;
+    max-height: 0;
   }
 }
 .faq .spoller__inner-link {
@@ -3049,6 +3019,7 @@ body.lock {
 .form .which._error {
   -webkit-box-shadow: 0 0 15px red;
           box-shadow: 0 0 15px red;
+  background-color: rgba(255, 0, 0, 0.582);
 }
 .form .which input[type=checkbox] {
   -webkit-appearance: none; /*to disable the default appearance of radio button*/
