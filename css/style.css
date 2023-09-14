@@ -1055,27 +1055,22 @@ body.lock .wrapper {
   -ms-flex-item-align: center;
       align-self: center;
   max-height: 440px;
-  position: relative;
-  -webkit-animation: fade-right 1.5s;
-          animation: fade-right 1.5s;
+  -webkit-animation: fade 1.5s;
+          animation: fade 1.5s;
 }
-@-webkit-keyframes fade-right {
+@-webkit-keyframes fade {
   0% {
-    left: -2000px;
     opacity: 0;
   }
   100% {
-    left: 0px;
     opacity: 1;
   }
 }
-@keyframes fade-right {
+@keyframes fade {
   0% {
-    left: -2000px;
     opacity: 0;
   }
   100% {
-    left: 0px;
     opacity: 1;
   }
 }

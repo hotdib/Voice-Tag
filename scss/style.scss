@@ -817,15 +817,12 @@ body {
 	&__body {
 		align-self: center;
 		max-height: 440px;
-		position: relative;
-		animation: fade-right 1.5s;
-		@keyframes fade-right {
+		animation: fade 1.5s;
+		@keyframes fade {
 			0% {
-				left: -2000px;
 				opacity: 0;
 			}
 			100% {
-				left: 0px;
 				opacity: 1;
 			}
 		}
