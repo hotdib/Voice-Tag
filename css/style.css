@@ -283,14 +283,6 @@ body.lock .wrapper {
   line-height: 140%;
 }
 
-.price-crossed {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.75rem;
-  font-weight: 700;
-  line-height: 120%;
-  text-decoration-line: strikethrough;
-}
-
 .comment-text {
   color: #000;
   font-size: 0.875rem;
@@ -957,13 +949,35 @@ body.lock .wrapper {
   --color-stop-2: #1ba77a;
 }
 .hero__arrow svg {
-  -webkit-animation: jump 2s 1s infinite;
-          animation: jump 2s 1s infinite;
+  -webkit-animation: jump 2s 1.7s infinite, appear 1.5s 0s;
+          animation: jump 2s 1.7s infinite, appear 1.5s 0s;
   bottom: 0px;
   position: relative;
 }
 .hero__arrow svg path {
   fill: url(#gradient-horizontal) gray;
+}
+@-webkit-keyframes appear {
+  0% {
+    bottom: -300px;
+  }
+  50% {
+    bottom: 30px;
+  }
+  100% {
+    bottom: 0px;
+  }
+}
+@keyframes appear {
+  0% {
+    bottom: -300px;
+  }
+  50% {
+    bottom: 30px;
+  }
+  100% {
+    bottom: 0px;
+  }
 }
 @-webkit-keyframes jump {
   0% {
@@ -1042,24 +1056,27 @@ body.lock .wrapper {
       align-self: center;
   max-height: 440px;
   position: relative;
-  left: 0px;
-  -webkit-animation: fade-right 1s ease-in-out;
-          animation: fade-right 1s ease-in-out;
+  -webkit-animation: fade-right 1.5s;
+          animation: fade-right 1.5s;
 }
 @-webkit-keyframes fade-right {
   0% {
-    left: -500px;
+    left: -2000px;
+    opacity: 0;
   }
   100% {
-    left: 0;
+    left: 0px;
+    opacity: 1;
   }
 }
 @keyframes fade-right {
   0% {
-    left: -500px;
+    left: -2000px;
+    opacity: 0;
   }
   100% {
-    left: 0;
+    left: 0px;
+    opacity: 1;
   }
 }
 .hero__content {
@@ -2599,7 +2616,9 @@ body.lock .wrapper {
 }
 
 .footer {
-  background: rgba(0, 0, 0, 0.5);
+  background: #080a0f;
+  position: relative;
+  z-index: 2;
 }
 .footer__row {
   padding: 2.8125rem 1.25rem;
@@ -3308,5 +3327,112 @@ body.lock .wrapper {
 @media (max-width: 29.99875em) {
   .form {
     padding: 0.75rem 0.75rem 1.5rem 0.75rem;
+  }
+}
+
+.contacts__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+@media (max-width: 47.99875em) {
+  .contacts__body {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+.contacts__content {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 48.571429%;
+          flex: 0 0 48.571429%; /* 510/1050 */
+  margin-bottom: 5rem;
+}
+@media (max-width: 47.99875em) {
+  .contacts__content {
+    margin-bottom: 2.5rem;
+  }
+}
+@media (max-width: 29.99875em) {
+  .contacts__content {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 36.190476%;
+            flex: 0 0 36.190476%; /* 380/1050 */
+  }
+}
+.contacts__title {
+  margin-bottom: 2rem;
+}
+.contacts .form {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+}
+.contacts .form__textarea-cont {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+}
+.contacts .form__textarea-cont_marg {
+  margin-bottom: 3.125rem;
+}
+.contacts .form__input {
+  background: rgba(0, 0, 0, 0.0588235294);
+  color: #fff;
+}
+.contacts .form__input + .form__textarea-btn {
+  background: rgba(0, 0, 0, 0.0588235294);
+}
+.contacts .form__input + .form__textarea-btn svg path {
+  fill: #fff;
+}
+.contacts .form__input:focus {
+  color: #000;
+  background: #f1f1f1;
+}
+.contacts .form__input:focus + .form__textarea-btn {
+  background: #f1f1f1;
+}
+.contacts .form__input:focus + .form__textarea-btn svg path {
+  fill-opacity: 1;
+  fill: #000;
+}
+@media (max-width: 22.5em) {
+  .contacts .form__btn .btn__link {
+    min-width: 250px;
+  }
+}
+@media (max-width: 18.75em) {
+  .contacts .form__btn .btn__link {
+    min-width: 220px;
+  }
+}
+.contacts__image {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 40.952381%;
+          flex: 0 0 40.952381%; /* 430/1050 */
+}
+.contacts__image img {
+  max-width: 100%;
+}
+@media (max-width: 61.99875em) {
+  .contacts__image img {
+    position: relative;
+    top: 16%;
+    z-index: 1;
+  }
+}
+@media (max-width: 61.99875em) {
+  .contacts__image {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 330px;
+            flex: 0 0 330px;
+  }
+}
+@media (max-width: 47.99875em) {
+  .contacts__image {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 0%;
+            flex: 0 0 0%;
   }
 }

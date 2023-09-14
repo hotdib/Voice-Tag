@@ -1,9 +1,9 @@
 "use strict"
-//===animation
+//=======================================animation=====================
 AOS.init();
-//==========
+//=======================================animation=====================
 
-//======gototopbtn
+//=======================================gototopbtn=====================
 const showOnPx = 100;
 const backToTopButton = document.querySelector(".back-to-top")
 
@@ -24,10 +24,10 @@ const goToTop = () => {
 	});
 };
 backToTopButton.addEventListener("click", goToTop)
-//======gototopbtn
+//========================================gototopbtn==================
 
 
-//======burger========
+//========================================burger======================
 document.addEventListener("DOMContentLoaded", function () {
 	var burger = document.querySelector('.menu__icon');
 	var menu = document.querySelector('.menu__body');
@@ -84,12 +84,12 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 });
-//======burger========
+//========================================burger======================
 
 
 
 
-//паралакс эффект для фона
+//========================================паралакс эффект для фона========
 let herobg = document.getElementById('hero__bg');
 let heroar = document.getElementById('hero__ar');
 
@@ -118,10 +118,10 @@ window.addEventListener('scroll', function () {
 		btnbg.style.background = 'linear-gradient(#24330d, #24330d) padding-box, linear-gradient(51deg, #0958fa 13.86%, #09fa32 93.66%) border-box';
 	}
 });
-//паралакс эффект для фона
+//========================================паралакс эффект для фона========
 
 
-//=====GOTO=====
+//========================================GOTO==========================
 
 document.addEventListener("click", documentActions);
 
@@ -160,10 +160,10 @@ function documentActions(e) {
 		e.preventDefault();
 	}
 }
-//=====GOTO=====
+//========================================GOTO==========================
 
 
-//=====ibg=======
+//========================================ibg===========================
 function ibg() {
 
 	let ibg = document.querySelectorAll(".ibg");
@@ -174,11 +174,11 @@ function ibg() {
 	}
 }
 ibg();
-//=====ibg=======
+//========================================ibg===========================
 
 
 
-//========Очищаем поля ввода====
+//========================================Очищаем поля ввода============
 
 // Получаем все кнопки с атрибутом data-textarea-id
 const clearButtons = document.querySelectorAll('.form__textarea-btn[data-textarea-id]');
@@ -197,10 +197,11 @@ clearButtons.forEach(button => {
 	});
 });
 
-//========Очищаем поля ввода====
+//========================================Очищаем поля ввода================
 
-//========Отправка формы====
+//========================================Отправка формы====================
 
+//=====Обработчик для первой формы (form)
 document.addEventListener('DOMContentLoaded', function () {
 	const form = document.getElementById('form');
 	form.addEventListener('submit', formSend);
@@ -242,8 +243,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	function formValidate(form) {
 		let error = 0;
-		let formReq = document.querySelectorAll('._req');
-		let checkBoxes = document.querySelectorAll('input[type="checkbox"]');
+		let formReq = form.querySelectorAll('._req');
+		let checkBoxes = form.querySelectorAll('input[type="checkbox"]');
 		let checkBoxChecked = false;
 
 		for (let index = 0; index < formReq.length; index++) {
@@ -277,7 +278,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		return error;
 	}
 
-
 	function formAddError(input) {
 		if (input.getAttribute("type") === "checkbox") {
 			const grandParent = input.parentElement.parentElement; // Получаем родителя родителя только для чекбоксов
@@ -298,18 +298,99 @@ document.addEventListener('DOMContentLoaded', function () {
 		input.classList.remove('_error');
 	}
 
-
 	// Функция теста email
 	function emailTest(input) {
 		return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
 	}
 });
-
-//========Отправка формы====
-
+//=====Обработчик для первой формы (form)
 
 
-//========Логика расчёта цены====
+//=====Обработчик для второй формы (form2)
+const form2 = document.getElementById('form2');
+form2.addEventListener('submit', formSend2);
+
+async function formSend2(e) {
+	e.preventDefault();
+
+	let error = formValidate2(form2);
+
+	if (error === 0) {
+		let response = 1;
+
+		if (response === 1) {
+			// Успешно отправлена
+			form2.reset();
+			popupOpen(document.getElementById('popup2')); // Открываем попап с id "popup2"
+			setTimeout(function () {
+				popupClose(document.getElementById('popup2')); // Закрываем попап с id "popup" через 2 секунды
+			}, 2000);
+		} else {
+			// Ошибка отправки
+			alert('Error, Sorry :(');
+		}
+	} else {
+		alert('Please fill out all required fields ^_^');
+	}
+}
+
+function formValidate2(form2) {
+	let error = 0;
+	let formReq = form2.querySelectorAll('._req');
+
+	for (let index = 0; index < formReq.length; index++) {
+		const input = formReq[index];
+		formRemoveError(input);
+
+		if (input.classList.contains('_email')) {
+			if (emailTest(input)) {
+				formAddError(input);
+				error++;
+			}
+		} else {
+			if (input.value === '') {
+				formAddError(input);
+				error++;
+			}
+		}
+	}
+
+	return error;
+}
+
+function formAddError(input) {
+	if (input.getAttribute("type") === "checkbox") {
+		const grandParent = input.parentElement.parentElement; // Получаем родителя родителя только для чекбоксов
+		grandParent.classList.add('_error'); // Добавляем класс родителю родителя
+	} else {
+		input.parentElement.classList.add('_error'); // Для других элементов добавляем класс родителю
+	}
+	input.classList.add('_error');
+}
+
+function formRemoveError(input) {
+	if (input.getAttribute("type") === "checkbox") {
+		const grandParent = input.parentElement.parentElement;
+		grandParent.classList.remove('_error');
+	} else {
+		input.parentElement.classList.remove('_error');
+	}
+	input.classList.remove('_error');
+}
+
+// Функция теста email
+function emailTest(input) {
+	return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
+}
+//=====Обработчик для второй формы (form2)
+
+
+
+//========================================Отправка формы====================
+
+
+
+//========================================Логика расчёта цены===============
 // Получаем все радиокнопки и элементы цены
 const radioButtons = document.querySelectorAll('.amount__input');
 const priceDiscount = document.getElementById('pricediscount');
@@ -420,10 +501,10 @@ function updatePrice() {
 // Инициализация цен и сообщения при загрузке страницы
 updatePrice();
 
-//========Логика расчёта цены====
+//========================================Логика расчёта цены=================
 
 
-//========POPUP====
+//========================================POPUP============================
 
 const popupLinks = document.querySelectorAll('.popup-link');
 const body = document.querySelector('body');
@@ -581,12 +662,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-//========POPUP====
+//========================================POPUP============================
 
 
 
 
-//====SPOLLERS
+//========================================SPOLLERS===================
 const spollersArray = document.querySelectorAll('[data-spollers]');
 if (spollersArray.length > 0) {
 	// Получение обычных слойлеров
@@ -780,7 +861,9 @@ if (spollersArray.length > 0) {
 		}
 	}
 }
-//=======
+//========================================SPOLLERS===================
+
+
 //======swipermaxwidth======
 
 // // Получаем ссылку на элемент, к которому нужно добавить класс
