@@ -949,8 +949,8 @@ body.lock .wrapper {
   --color-stop-2: #1ba77a;
 }
 .hero__arrow svg {
-  -webkit-animation: jump 2s 1.7s infinite, appear 1.5s 0s;
-          animation: jump 2s 1.7s infinite, appear 1.5s 0s;
+  -webkit-animation: jump 2s 1.5s infinite, appear 1.5s 0s;
+          animation: jump 2s 1.5s infinite, appear 1.5s 0s;
   bottom: 0px;
   position: relative;
 }
@@ -959,24 +959,18 @@ body.lock .wrapper {
 }
 @-webkit-keyframes appear {
   0% {
-    bottom: -300px;
-  }
-  50% {
-    bottom: 30px;
+    opacity: 0;
   }
   100% {
-    bottom: 0px;
+    opacity: 1;
   }
 }
 @keyframes appear {
   0% {
-    bottom: -300px;
-  }
-  50% {
-    bottom: 30px;
+    opacity: 0;
   }
   100% {
-    bottom: 0px;
+    opacity: 1;
   }
 }
 @-webkit-keyframes jump {

@@ -752,7 +752,7 @@ body {
 		transform: translate(-50%, 0px);
 		svg {
 			animation:
-				jump 2s 1.7s infinite,
+				jump 2s 1.5s infinite,
 				appear 1.5s 0s;
 			bottom: 0px;
 			position: relative;
@@ -761,13 +761,10 @@ body {
 			}
 			@keyframes appear {
 				0% {
-					bottom: -300px;
-				}
-				50% {
-					bottom: 30px;
+					opacity: 0;
 				}
 				100% {
-					bottom: 0px;
+					opacity: 1;
 				}
 			}
 			@keyframes jump {
